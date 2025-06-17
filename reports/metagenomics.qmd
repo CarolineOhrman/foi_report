@@ -34,7 +34,7 @@ library(plotly)
 
 # Read the data and extract sample names
 lines <- read_lines(
-  "../results/classification/kraken2/illumina_kraken2_fastp_0.1.report"
+  "../results/classification/kraken2/illumina_kraken2_fas_0.1.report"
 )
 
 # Extract sample names from the header lines
