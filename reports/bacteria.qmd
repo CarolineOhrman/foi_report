@@ -1,0 +1,71 @@
+---
+pagetitle: "Bacteria"
+title: Genomic analysis for Bacteria
+subtitle: Sequence Quality, assembly and more shit
+author: FOI-bioinformatics
+date: 2025-06-17
+categories:
+  - fastqc
+  - assembly
+  - graphs
+  - phylo
+slug: patchwork
+page-layout: full
+image: ../assets/images/.png
+---
+
+We need to load the following R libraries:
+
+```{r}
+#| message: false
+library(ggplot2)
+library(patchwork)
+library(dplyr)
+```
+
+Create two plots:
+
+```{r}
+p1 <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point() +
+  labs(title = "Sepal Length vs Sepal Width") +
+  theme_minimal()
+
+p2 <- ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point() +
+  labs(title = "Weight vs MPG") +
+  theme_minimal()
+```
+
+Now we can arrange the two plots side by side using the `patchwork` package:
+
+```{r}
+#| label: fig-side-side-plot
+#| fig-height: 4
+#| fig-width: 8
+#| fig-cap: "Side by side plots using patchwork"
+p1 + p2
+```
+
+You can also customize the layout further, for example by adding a common title or adjusting the spacing:
+
+```{r}
+#| label: fig-side-side-plot-1
+#| fig-height: 4
+#| fig-width: 8
+#| fig-cap: "Common title"
+(p1 + p2) +
+  plot_layout(ncol = 2) +
+  plot_annotation(title = "Side by Side Plots in ggplot2") +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+You can also position the plots one below the other:
+
+```{r}
+#| label: fig-top-bottom-plot
+#| fig-height: 7
+#| fig-width: 4
+#| fig-cap: "Top and bottom plots using patchwork"
+p1 / p2
+```

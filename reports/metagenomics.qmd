@@ -1,0 +1,15 @@
+---
+title: Metagenomics
+subtitle: Classification
+author: FOI-bioinformatics
+date: 2025-06-17
+categories:
+  - plotly
+  - ggplot2
+  - visualization
+slug: patchwork
+page-layout: full
+image: ../assets/images/nanopore.jpg
+---
+
+Put your awesome metagenomic plots here

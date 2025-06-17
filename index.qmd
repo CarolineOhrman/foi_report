@@ -1,7 +1,43 @@
 ---
-title: "foi_report"
+pagetitle: Home
+title: "FOI-report"
+subtitle: "Genomic analysis reports"
+image: assets/images/foi_logo.png
+
+about:
+  template: solana
+  image-width: 25em
+  id: hero-heading
+
+listing:
+- id: report-prev
+  contents: 
+    - reports/*.qmd
+  sort: false
+  fields: [image, title, categories, date]
+  type: grid
+  grid-columns: 3
+  max-items: 3
+  image-height: 150px
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  feed: false
+page-layout: full
 ---
 
-This is a Quarto website.
+::: { #hero-heading }
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+FOI Sequence Analysis Reports
+The FOI (Swedish Defence Research Agency) Sequence Analysis page provides access to comprehensive reports generated from sequencing runs and analytical pipelines. Here you'll find quality control metrics, alignment statistics, variant calling results, and performance analytics for each sequence run. 
+
+Reports are organized by run date and include executive summaries, detailed technical data, visual analytics, and processing logs. Each report package maintains full traceability from raw sequencing data through final analytical outputs, ensuring data integrity and research reproducibility. Use the filtering options to locate specific runs by project, sample type, or sequencing platform.
+
+[[**About me >**]{.btn .btn-primary .btn-md}](about.qmd)
+
+:::
+
+## Latest reports
+
+:::{ #report-prev }
+:::
