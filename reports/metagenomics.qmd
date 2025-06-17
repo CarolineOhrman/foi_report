@@ -11,5 +11,312 @@ slug: patchwork
 page-layout: full
 image: ../assets/images/nanopore.jpg
 ---
+# General statistica
 
-Put your awesome metagenomic plots here
+## Read count
+
+## Other
+
+
+#  Classification
+
+## kraken2
+
+Using ggplot to plot the most abundant.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| include: false
+
+# Read the data, skipping the first 9 metadata lines
+library(tidyverse)
+library(ggplot2)
+
+# Read the data, handling the # in header
+lines <- read_lines(
+  "../results/classification/kraken2/illumina_kraken2_rawreads_0.1.report"
+)
+
+# Find the header line (starts with #perc)
+header_idx <- which(str_starts(lines, "#perc"))
+
+# Remove the # from the header line
+lines[header_idx] <- str_remove(lines[header_idx], "^#")
+
+# Keep only header and data lines (skip metadata)
+data_lines <- lines[header_idx:length(lines)]
+
+# Parse the data
+data <- read_tsv(
+  paste(data_lines, collapse = "\n"),
+  col_types = cols(
+    perc = "d",
+    tot_all = "d",
+    tot_lvl = "d",
+    .default = "c"
+  )
+) %>%
+  # Filter for meaningful taxonomic levels and abundance > 0.1%
+  filter(
+    lvl_type %in% c("P", "C", "O", "F", "G", "S"), # Phylum, Class, Order, Family, Genus, Species
+    perc > 0.1,
+    !str_detect(name, "unclassified|root|cellular organisms")
+  ) %>%
+  # Clean up taxonomic names (remove leading spaces)
+  mutate(name = str_trim(name)) %>%
+  # Keep top 15 most abundant
+  slice_max(perc, n = 15)
+
+# Create the plot
+p <- data %>%
+  ggplot(aes(x = reorder(name, perc), y = perc, fill = lvl_type)) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = "Top Taxa by Relative Abundance",
+    subtitle = "Kraken2 Classification Results",
+    x = "Taxonomic Name",
+    y = "Relative Abundance (%)",
+    fill = "Taxonomic Level"
+  ) +
+  scale_fill_viridis_d(
+    labels = c(
+      "P" = "Phylum",
+      "C" = "Class",
+      "O" = "Order",
+      "F" = "Family",
+      "G" = "Genus",
+      "S" = "Species"
+    )
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    axis.text.y = element_text(size = 10),
+    legend.position = "bottom"
+  )
+
+# Display the plot
+print(p)
+
+```
+
+
+Using plotly to be able to interactively choose taxonomic level
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library(tidyverse)
+library(plotly)
+
+# Read the data and extract sample names
+lines <- read_lines(
+  "../results/classification/kraken2/illumina_kraken2_rawreads_0.1.report"
+)
+
+# Extract sample names from the header lines
+sample_lines <- lines[str_starts(lines, "#S")]
+sample_info <- map_dfr(sample_lines, function(line) {
+  parts <- str_split(line, "\t")[[1]]
+  sample_id <- str_remove(parts[1], "#")
+  file_path <- parts[2]
+  # Extract sample name (part before _kraken2_rawreads)
+  sample_name <- str_extract(
+    basename(file_path),
+    "([^/]+)(?=_kraken2_rawreads)"
+  )
+  tibble(sample_id = sample_id, sample_name = sample_name)
+})
+
+# Find the header line (starts with #perc)
+header_idx <- which(str_starts(lines, "#perc"))
+
+# Remove the # from the header line
+lines[header_idx] <- str_remove(lines[header_idx], "^#")
+
+# Keep only header and data lines (skip metadata)
+data_lines <- lines[header_idx:length(lines)]
+
+# Parse the data
+data <- read_tsv(
+  paste(data_lines, collapse = "\n"),
+  col_types = cols(
+    perc = "d",
+    tot_all = "d",
+    tot_lvl = "d",
+    .default = "c"
+  )
+) %>%
+  # Filter for meaningful taxonomic levels and abundance > 0.01%
+  filter(
+    lvl_type %in% c("P", "C", "O", "F", "G", "S"),
+    !str_detect(name, "unclassified|root|cellular organisms")
+  ) %>%
+  # Clean up taxonomic names
+  mutate(
+    name = str_trim(name),
+    lvl_type_full = case_when(
+      lvl_type == "P" ~ "Phylum",
+      lvl_type == "C" ~ "Class",
+      lvl_type == "O" ~ "Order",
+      lvl_type == "F" ~ "Family",
+      lvl_type == "G" ~ "Genus",
+      lvl_type == "S" ~ "Species",
+      TRUE ~ lvl_type
+    )
+  )
+
+# Function to create plot for a specific sample
+create_sample_plot <- function(sample_id) {
+  # Get sample name
+  sample_name <- sample_info$sample_name[sample_info$sample_id == sample_id]
+
+  # Prepare data for this sample
+  sample_data <- data %>%
+    select(
+      name,
+      lvl_type,
+      lvl_type_full,
+      taxid,
+      all_of(paste0(sample_id, "_all"))
+    ) %>%
+    rename(abundance = paste0(sample_id, "_all")) %>%
+    mutate(
+      abundance = as.numeric(abundance),
+      perc_sample = (abundance / sum(abundance, na.rm = TRUE)) * 100
+    ) %>%
+    filter(
+      abundance > 0,
+      perc_sample > 0.01 # Filter for >0.01% abundance in this sample
+    ) %>%
+    # Get top 15 for each taxonomic level
+    group_by(lvl_type) %>%
+    slice_max(perc_sample, n = 15) %>%
+    ungroup()
+
+  # Color palette
+  colors <- c("#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b")
+  lvl_colors <- setNames(
+    colors[1:length(unique(sample_data$lvl_type))],
+    sort(unique(sample_data$lvl_type))
+  )
+
+  # Create the interactive plotly chart
+  p <- plot_ly()
+
+  # Add traces for each taxonomic level
+  for (level in sort(unique(sample_data$lvl_type))) {
+    plot_data <- sample_data %>%
+      filter(lvl_type == level) %>%
+      arrange(perc_sample) %>%
+      mutate(name = factor(name, levels = name))
+
+    if (nrow(plot_data) > 0) {
+      p <- p %>%
+        add_trace(
+          data = plot_data,
+          x = ~perc_sample,
+          y = ~name,
+          type = "bar",
+          orientation = "h",
+          name = paste0(level, " (", first(plot_data$lvl_type_full), ")"),
+          marker = list(color = lvl_colors[[level]]),
+          visible = if (level == "P") TRUE else FALSE, # Show Phylum by default
+          hovertemplate = paste(
+            "<b>%{y}</b><br>",
+            "Abundance: %{x:.2f}%<br>",
+            "Read count: ",
+            plot_data$abundance,
+            "<br>",
+            "Level: ",
+            first(plot_data$lvl_type_full),
+            "<extra></extra>"
+          )
+        )
+    }
+  }
+
+  # Add dropdown menu
+  updatemenus <- list(
+    list(
+      active = 0,
+      type = "dropdown",
+      buttons = map(sort(unique(sample_data$lvl_type)), function(level) {
+        level_full <- sample_data %>%
+          filter(lvl_type == level) %>%
+          pull(lvl_type_full) %>%
+          first()
+
+        visible_vector <- map_lgl(
+          sort(unique(sample_data$lvl_type)),
+          ~ .x == level
+        )
+
+        list(
+          label = paste0(level, " (", level_full, ")"),
+          method = "update",
+          args = list(list(visible = visible_vector))
+        )
+      }),
+      x = 1.15,
+      y = 1
+    )
+  )
+
+  # Final layout
+  p <- p %>%
+    layout(
+      title = list(
+        text = paste0(
+          "Sample: <b>",
+          sample_name,
+          "</b><br><sub>Select taxonomic level from dropdown</sub>"
+        ),
+        x = 0.5
+      ),
+      xaxis = list(title = "Relative Abundance (%)"),
+      yaxis = list(title = ""),
+      updatemenus = updatemenus,
+      margin = list(l = 200, r = 150),
+      showlegend = FALSE
+    )
+
+  return(p)
+}
+
+
+# Print sample information for reference
+cat("Found", nrow(sample_info), "samples:\n")
+for (i in 1:nrow(sample_info)) {
+  cat(paste0(
+    i,
+    ". ",
+    sample_info$sample_name[i],
+    " (",
+    sample_info$sample_id[i],
+    ")\n"
+  ))
+}
+
+# Create function to generate plots on demand
+create_all_plots <- function() {
+  plots <- list()
+  for (i in 1:nrow(sample_info)) {
+    plots[[i]] <- create_sample_plot(sample_info$sample_id[i])
+  }
+  return(plots)
+}
+
+# Generate all plots
+sample_plots <- create_all_plots()
+
+sample_plots[[6]]
+sample_plots[[7]]
+sample_plots[[8]]
+sample_plots[[9]]
+```
+
