@@ -1,0 +1,32 @@
+/*-- scss:defaults --*/
+$primary: #2E86AB;
+$secondary: #A23B72;
+$body-bg: #ffffff;
+$table-striped-bg: #f8f9fa;
+$table-hover-bg: rgb(23, 8, 56);
+
+/*-- scss:rules --*/
+.table {
+    font-size: 0.9rem;
+}
+
+.table th {
+    background-color: $primary;
+    color: white;
+    font-weight: bold;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>td {
+    background-color: $table-striped-bg;
+}
+
+/* Custom styling for kable tables */
+.table-responsive {
+    margin: 1rem 0;
+}
+
+h1,
+h2,
+h3 {
+    color: $primary;
+}

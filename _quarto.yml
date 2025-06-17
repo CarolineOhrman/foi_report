@@ -11,7 +11,9 @@ website:
         href: index.qmd
       - text: Metagenomics
         href: reports/metagenomics.qmd
-      - text: Genomic bactera
+      - text: Genomic bacteria
+        href: reports/bacteria.qmd
+      - text: Genomic virus
         href: reports/bacteria.qmd
       - text: About
         href: about.qmd
@@ -24,7 +26,7 @@ format:
   html:
     theme:
       - cosmo
-      - brand
+      - custom.scss
     css: styles.css
     toc: true
 

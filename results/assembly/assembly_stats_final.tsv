@@ -1,6 +1,2 @@
 filename	total_length	number	mean_length	longest	shortest	N_count	Gaps	N50	N50n	N70	N70n	N90	N90n
-results_240612_assembly/fasta/MI173C-240604-S38_spades.fasta	1762477	277	6362.73	34424	501	110	2	10193	58	6619	102	3286	177
-results_240612_assembly/fasta/Backsjon-S40_spades.fasta	5358	4	1339.50	2126	622	0	0	1480	2	1130	3	622	4
 results_240612_assembly/fasta/MI173C_spades.fasta	1776030	216	8222.36	37266	567	100	1	12729	47	8591	81	3961	140
-results_240612_assembly/fasta/0.01Fhisp-Backsjon-S39_spades.fasta	1917014	58	33051.97	287526	504	300	3	109577	5	61226	10	30052	19
-results_240612_assembly/fasta/MI173C-240607-S41_spades.fasta	1470032	931	1578.98	12251	501	0	0	2002	227	1328	409	772	697

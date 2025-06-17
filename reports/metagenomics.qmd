@@ -1,5 +1,5 @@
 ---
-title: SHotgun Metagenomics sequence report
+title: Shotgun Metagenomics sequence report
 subtitle: Sample summary, statistics and composition
 author: FOI-bioinformatics
 date: 2025-06-17
@@ -11,8 +11,6 @@ page-layout: full
 image: ../assets/images/nanopore.jpg
 ---
 # General statistics
-
-## Read count
 
 ```{r}
 #| echo: false
@@ -173,10 +171,7 @@ for (i in 1:n_rows) {
 print(p)
 ```
 
-#  Classification
-
-## kraken2
-
+#  Classification with kraken2
 
 Using plotly to be able to interactively choose taxonomic level
 

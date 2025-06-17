@@ -1,5 +1,5 @@
 ---
-pagetitle: "Bacteria"
+pagetitle: Sequencing of bacterial isolate
 title: Genomic analysis for Bacteria
 subtitle: Sequence Quality, assembly and more shit
 author: FOI-bioinformatics
@@ -11,61 +11,412 @@ categories:
   - phylo
 slug: patchwork
 page-layout: full
-image: ../assets/images/.png
+image: ../assets/images/dna.jpg
 ---
 
-We need to load the following R libraries:
+# General statistics
 
 ```{r}
+#| echo: false
 #| message: false
+#| warning: false
+
 library(ggplot2)
-library(patchwork)
 library(dplyr)
+library(tidyr)
+
+# Simple FastQC parser
+parse_fastqc <- function(file_path, read_type) {
+  lines <- readLines(file_path)
+  start_line <- which(grepl(">>Basic Statistics", lines))[1]
+  end_line <- which(grepl(">>END_MODULE", lines))
+  end_line <- end_line[end_line > start_line][1]
+
+  status <- strsplit(lines[start_line], "\t")[[1]][2]
+  data_section <- lines[(start_line + 2):(end_line - 1)]
+
+  measures <- c("QC Status")
+  values <- c(status)
+
+  for (line in data_section) {
+    if (!grepl("^#", line) && nchar(trimws(line)) > 0) {
+      parts <- strsplit(line, "\t")[[1]]
+      if (length(parts) >= 2) {
+        measures <- c(measures, parts[1])
+        values <- c(values, parts[2])
+      }
+    }
+  }
+
+  data.frame(
+    Read = read_type,
+    Measure = measures,
+    Value = values,
+    stringsAsFactors = FALSE
+  )
+}
+
+# Read data and create table
+r1_data <- parse_fastqc(
+  "../results/fastqc/MI173C_fastp_R1_fastqc/fastqc_data.txt",
+  "R1"
+)
+r2_data <- parse_fastqc(
+  "../results/fastqc/MI173C_fastp_R2_fastqc/fastqc_data.txt",
+  "R2"
+)
+
+table_data <- rbind(r1_data, r2_data) %>%
+  pivot_wider(names_from = Read, values_from = Value)
+
+# Create full-width table
+n_rows <- nrow(table_data)
+
+p <- ggplot() +
+  theme_void() +
+  labs(title = "FastQC Summary - Sample MI173C") +
+  theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold")) +
+  xlim(0, 100) +
+  ylim(0, n_rows + 2)
+
+# Header
+p <- p +
+  annotate(
+    "rect",
+    xmin = 0,
+    xmax = 100,
+    ymin = n_rows + 0.5,
+    ymax = n_rows + 1.5,
+    fill = "#2E86AB",
+    color = "white"
+  ) +
+  annotate(
+    "text",
+    x = 25,
+    y = n_rows + 1,
+    label = "Measure",
+    color = "white",
+    fontface = "bold",
+    size = 4
+  ) +
+  annotate(
+    "text",
+    x = 60,
+    y = n_rows + 1,
+    label = "R1 (Forward)",
+    color = "white",
+    fontface = "bold",
+    size = 4
+  ) +
+  annotate(
+    "text",
+    x = 85,
+    y = n_rows + 1,
+    label = "R2 (Reverse)",
+    color = "white",
+    fontface = "bold",
+    size = 4
+  )
+
+# Data rows
+for (i in 1:n_rows) {
+  y_pos <- n_rows - i + 1
+  fill_color <- if (i %% 2 == 0) "#F8F9FA" else "white"
+
+  text_color <- "black"
+  if (table_data$Measure[i] == "QC Status") {
+    text_color <- if (
+      table_data$R1[i] == "pass" && table_data$R2[i] == "pass"
+    ) {
+      "#28A745"
+    } else {
+      "#DC3545"
+    }
+  }
+
+  p <- p +
+    annotate(
+      "rect",
+      xmin = 0,
+      xmax = 100,
+      ymin = y_pos - 0.4,
+      ymax = y_pos + 0.4,
+      fill = fill_color,
+      color = "#DEE2E6"
+    ) +
+    annotate(
+      "text",
+      x = 25,
+      y = y_pos,
+      label = table_data$Measure[i],
+      hjust = 0.5,
+      size = 3.5
+    ) +
+    annotate(
+      "text",
+      x = 60,
+      y = y_pos,
+      label = table_data$R1[i],
+      hjust = 0.5,
+      size = 3.5,
+      color = text_color
+    ) +
+    annotate(
+      "text",
+      x = 85,
+      y = y_pos,
+      label = table_data$R2[i],
+      hjust = 0.5,
+      size = 3.5,
+      color = text_color
+    )
+}
+
+print(p)
 ```
 
-Create two plots:
+# Assembly stats
 
 ```{r}
-p1 <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
-  geom_point() +
-  labs(title = "Sepal Length vs Sepal Width") +
-  theme_minimal()
+#| echo: false
+#| message: false
+#| warning: false
 
-p2 <- ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
-  geom_point() +
-  labs(title = "Weight vs MPG") +
-  theme_minimal()
+library(ggplot2)
+library(dplyr)
+
+# Read assembly statistics from TSV file
+# Since qmd is in reports/ folder, go up one level to reach results/
+file_path <- "../results/assembly/assembly_stats_final.tsv"
+
+cat("Reading file from:", file_path, "\n")
+assembly_data <- read.table(
+  file_path,
+  header = TRUE,
+  sep = "\t",
+  stringsAsFactors = FALSE
+)
+
+# Check the data and use only the first row
+cat("Number of rows in file:", nrow(assembly_data), "\n")
+print(head(assembly_data))
+
+# Use only the first row
+assembly_data <- assembly_data[1, ]
+
+# Extract sample name from filename
+sample_name <- gsub(".*/(.*?)_.*", "\\1", basename(assembly_data$filename))
+
+# Transform data into table format with proper labels
+table_data <- data.frame(
+  Measure = c(
+    "Sample",
+    "Total Assembly Length",
+    "Number of Contigs",
+    "Mean Contig Length",
+    "Longest Contig",
+    "Shortest Contig",
+    "N Count",
+    "Gaps",
+    "N50 Length",
+    "N50 Count",
+    "N70 Length",
+    "N70 Count",
+    "N90 Length",
+    "N90 Count"
+  ),
+  Value = c(
+    sample_name,
+    paste(format(assembly_data$total_length, big.mark = ","), "bp"),
+    as.character(assembly_data$number),
+    paste(format(round(assembly_data$mean_length, 1), big.mark = ","), "bp"),
+    paste(format(assembly_data$longest, big.mark = ","), "bp"),
+    paste(format(assembly_data$shortest, big.mark = ","), "bp"),
+    as.character(assembly_data$N_count),
+    as.character(assembly_data$Gaps),
+    paste(format(assembly_data$N50, big.mark = ","), "bp"),
+    as.character(assembly_data$N50n),
+    paste(format(assembly_data$N70, big.mark = ","), "bp"),
+    as.character(assembly_data$N70n),
+    paste(format(assembly_data$N90, big.mark = ","), "bp"),
+    as.character(assembly_data$N90n)
+  ),
+  stringsAsFactors = FALSE
+)
+
+# Create full-width table with taller rows
+n_rows <- nrow(table_data)
+
+p <- ggplot() +
+  theme_void() +
+  labs(title = "Assembly Statistics - Sample MI173C") +
+  theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold")) +
+  xlim(0, 100) +
+  ylim(0, n_rows * 1.2 + 2) # More space for taller rows
+
+# Header - taller
+p <- p +
+  annotate(
+    "rect",
+    xmin = 0,
+    xmax = 100,
+    ymin = n_rows * 1.2 + 0.5,
+    ymax = n_rows * 1.2 + 1.8,
+    fill = "#2E86AB",
+    color = "white"
+  ) +
+  annotate(
+    "text",
+    x = 35,
+    y = n_rows * 1.2 + 1.15,
+    label = "Statistic",
+    color = "white",
+    fontface = "bold",
+    size = 4
+  ) +
+  annotate(
+    "text",
+    x = 70,
+    y = n_rows * 1.2 + 1.15,
+    label = "Value",
+    color = "white",
+    fontface = "bold",
+    size = 4
+  )
+
+# Data rows - much taller
+for (i in 1:n_rows) {
+  y_pos <- (n_rows - i + 1) * 1.2 - 0.6 # Spread rows out more
+  fill_color <- if (i %% 2 == 0) "#F8F9FA" else "white"
+
+  # Highlight key statistics
+  text_color <- "black"
+  if (
+    table_data$Measure[i] %in%
+      c("Sample", "Total Assembly Length", "N50 Length")
+  ) {
+    text_color <- "#2E86AB"
+  }
+
+  p <- p +
+    annotate(
+      "rect",
+      xmin = 0,
+      xmax = 100,
+      ymin = y_pos - 0.5,
+      ymax = y_pos + 0.5, # Taller rectangles
+      fill = fill_color,
+      color = "#DEE2E6"
+    ) +
+    annotate(
+      "text",
+      x = 35,
+      y = y_pos,
+      label = table_data$Measure[i],
+      hjust = 0.5,
+      size = 3.8,
+      fontface = "plain"
+    ) + # Slightly larger text
+    annotate(
+      "text",
+      x = 70,
+      y = y_pos,
+      label = table_data$Value[i],
+      hjust = 0.5,
+      size = 3.8,
+      color = text_color, # Slightly larger text
+      fontface = ifelse(
+        table_data$Measure[i] %in%
+          c("Sample", "Total Assembly Length", "N50 Length"),
+        "bold",
+        "plain"
+      )
+    )
+}
+
+print(p)
+
 ```
 
-Now we can arrange the two plots side by side using the `patchwork` package:
+
+Kable table
 
 ```{r}
-#| label: fig-side-side-plot
-#| fig-height: 4
-#| fig-width: 8
-#| fig-cap: "Side by side plots using patchwork"
-p1 + p2
-```
+library(dplyr)
+library(kableExtra)
 
-You can also customize the layout further, for example by adding a common title or adjusting the spacing:
+# Read assembly statistics from TSV file
+# Since qmd is in reports/ folder, go up one level to reach results/
+file_path <- "../results/assembly/assembly_stats_final.tsv"
 
-```{r}
-#| label: fig-side-side-plot-1
-#| fig-height: 4
-#| fig-width: 8
-#| fig-cap: "Common title"
-(p1 + p2) +
-  plot_layout(ncol = 2) +
-  plot_annotation(title = "Side by Side Plots in ggplot2") +
-  theme(plot.title = element_text(hjust = 0.5))
-```
+cat("Reading file from:", file_path, "\n")
+assembly_data <- read.table(
+  file_path,
+  header = TRUE,
+  sep = "\t",
+  stringsAsFactors = FALSE
+)
 
-You can also position the plots one below the other:
+# Check the data and use only the first row
+cat("Number of rows in file:", nrow(assembly_data), "\n")
 
-```{r}
-#| label: fig-top-bottom-plot
-#| fig-height: 7
-#| fig-width: 4
-#| fig-cap: "Top and bottom plots using patchwork"
-p1 / p2
+# Use only the first row
+assembly_data <- assembly_data[1, ]
+
+# Extract sample name from filename
+sample_name <- gsub(".*/(.*?)_.*", "\\1", basename(assembly_data$filename))
+
+# Transform data into table format with proper labels
+table_data <- data.frame(
+  Statistic = c(
+    "Sample",
+    "Total Assembly Length",
+    "Number of Contigs",
+    "Mean Contig Length",
+    "Longest Contig",
+    "Shortest Contig",
+    "N Count",
+    "Gaps",
+    "N50 Length",
+    "N50 Count",
+    "N70 Length",
+    "N70 Count",
+    "N90 Length",
+    "N90 Count"
+  ),
+  Value = c(
+    sample_name,
+    paste(format(assembly_data$total_length, big.mark = ","), "bp"),
+    as.character(assembly_data$number),
+    paste(format(round(assembly_data$mean_length, 1), big.mark = ","), "bp"),
+    paste(format(assembly_data$longest, big.mark = ","), "bp"),
+    paste(format(assembly_data$shortest, big.mark = ","), "bp"),
+    as.character(assembly_data$N_count),
+    as.character(assembly_data$Gaps),
+    paste(format(assembly_data$N50, big.mark = ","), "bp"),
+    as.character(assembly_data$N50n),
+    paste(format(assembly_data$N70, big.mark = ","), "bp"),
+    as.character(assembly_data$N70n),
+    paste(format(assembly_data$N90, big.mark = ","), "bp"),
+    as.character(assembly_data$N90n)
+  ),
+  stringsAsFactors = FALSE
+)
+
+# Create kable table with styling
+table_data %>%
+  kable(
+    caption = "Assembly Statistics - Sample MI173C",
+    col.names = c("Statistic", "Value"),
+    align = c("l", "r")
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+    full_width = TRUE,
+    position = "center"
+  ) %>%
+  row_spec(0, bold = TRUE, background = "#2E86AB", color = "white") %>% # Header
+  row_spec(c(1, 2, 9), bold = TRUE, background = "#E3F2FD") %>% # Highlight key stats
+  column_spec(1, width = "60%") %>%
+  column_spec(2, width = "40%")
 ```
