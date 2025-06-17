@@ -1,17 +1,16 @@
 ---
-title: Metagenomics
-subtitle: Classification
+title: SHotgun Metagenomics sequence report
+subtitle: Sample summary, statistics and composition
 author: FOI-bioinformatics
 date: 2025-06-17
 categories:
-  - plotly
-  - ggplot2
-  - visualization
+  - kraken2
+  - fastqc
 slug: patchwork
 page-layout: full
 image: ../assets/images/nanopore.jpg
 ---
-# General statistica
+# General statistics
 
 ## Read count
 
@@ -22,87 +21,6 @@ image: ../assets/images/nanopore.jpg
 
 ## kraken2
 
-Using ggplot to plot the most abundant.
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-#| include: false
-
-# Read the data, skipping the first 9 metadata lines
-library(tidyverse)
-library(ggplot2)
-
-# Read the data, handling the # in header
-lines <- read_lines(
-  "../results/classification/kraken2/illumina_kraken2_rawreads_0.1.report"
-)
-
-# Find the header line (starts with #perc)
-header_idx <- which(str_starts(lines, "#perc"))
-
-# Remove the # from the header line
-lines[header_idx] <- str_remove(lines[header_idx], "^#")
-
-# Keep only header and data lines (skip metadata)
-data_lines <- lines[header_idx:length(lines)]
-
-# Parse the data
-data <- read_tsv(
-  paste(data_lines, collapse = "\n"),
-  col_types = cols(
-    perc = "d",
-    tot_all = "d",
-    tot_lvl = "d",
-    .default = "c"
-  )
-) %>%
-  # Filter for meaningful taxonomic levels and abundance > 0.1%
-  filter(
-    lvl_type %in% c("P", "C", "O", "F", "G", "S"), # Phylum, Class, Order, Family, Genus, Species
-    perc > 0.1,
-    !str_detect(name, "unclassified|root|cellular organisms")
-  ) %>%
-  # Clean up taxonomic names (remove leading spaces)
-  mutate(name = str_trim(name)) %>%
-  # Keep top 15 most abundant
-  slice_max(perc, n = 15)
-
-# Create the plot
-p <- data %>%
-  ggplot(aes(x = reorder(name, perc), y = perc, fill = lvl_type)) +
-  geom_col() +
-  coord_flip() +
-  labs(
-    title = "Top Taxa by Relative Abundance",
-    subtitle = "Kraken2 Classification Results",
-    x = "Taxonomic Name",
-    y = "Relative Abundance (%)",
-    fill = "Taxonomic Level"
-  ) +
-  scale_fill_viridis_d(
-    labels = c(
-      "P" = "Phylum",
-      "C" = "Class",
-      "O" = "Order",
-      "F" = "Family",
-      "G" = "Genus",
-      "S" = "Species"
-    )
-  ) +
-  theme_minimal() +
-  theme(
-    plot.title = element_text(size = 14, face = "bold"),
-    axis.text.y = element_text(size = 10),
-    legend.position = "bottom"
-  )
-
-# Display the plot
-print(p)
-
-```
-
 
 Using plotly to be able to interactively choose taxonomic level
 
@@ -110,12 +28,13 @@ Using plotly to be able to interactively choose taxonomic level
 #| echo: false
 #| message: false
 #| warning: false
+
 library(tidyverse)
 library(plotly)
 
 # Read the data and extract sample names
 lines <- read_lines(
-  "../results/classification/kraken2/illumina_kraken2_rawreads_0.1.report"
+  "../results/classification/kraken2/illumina_kraken2_fastp_0.1.report"
 )
 
 # Extract sample names from the header lines
@@ -198,21 +117,25 @@ create_sample_plot <- function(sample_id) {
     slice_max(perc_sample, n = 15) %>%
     ungroup()
 
-  # Color palette
+  # Define reverse order for taxonomic levels (Species first)
+  level_order <- c("S", "G", "F", "O", "C", "P")
+  available_levels <- intersect(level_order, unique(sample_data$lvl_type))
+
+  # Color palette - assign colors based on reverse order
   colors <- c("#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b")
   lvl_colors <- setNames(
-    colors[1:length(unique(sample_data$lvl_type))],
-    sort(unique(sample_data$lvl_type))
+    colors[1:length(available_levels)],
+    available_levels
   )
 
   # Create the interactive plotly chart
   p <- plot_ly()
 
-  # Add traces for each taxonomic level
-  for (level in sort(unique(sample_data$lvl_type))) {
+  # Add traces for each taxonomic level in reverse order
+  for (level in available_levels) {
     plot_data <- sample_data %>%
       filter(lvl_type == level) %>%
-      arrange(perc_sample) %>%
+      arrange(perc_sample) %>% # Arrange in ascending order for horizontal bars
       mutate(name = factor(name, levels = name))
 
     if (nrow(plot_data) > 0) {
@@ -225,7 +148,7 @@ create_sample_plot <- function(sample_id) {
           orientation = "h",
           name = paste0(level, " (", first(plot_data$lvl_type_full), ")"),
           marker = list(color = lvl_colors[[level]]),
-          visible = if (level == "P") TRUE else FALSE, # Show Phylum by default
+          visible = if (level == "S") TRUE else FALSE, # Show Species by default
           hovertemplate = paste(
             "<b>%{y}</b><br>",
             "Abundance: %{x:.2f}%<br>",
@@ -240,19 +163,20 @@ create_sample_plot <- function(sample_id) {
     }
   }
 
-  # Add dropdown menu
+  # Add dropdown menu in reverse order (Species first) - positioned in lower right, dropping up
   updatemenus <- list(
     list(
       active = 0,
       type = "dropdown",
-      buttons = map(sort(unique(sample_data$lvl_type)), function(level) {
+      direction = "up", # Make the dropdown open upward
+      buttons = map(available_levels, function(level) {
         level_full <- sample_data %>%
           filter(lvl_type == level) %>%
           pull(lvl_type_full) %>%
           first()
 
         visible_vector <- map_lgl(
-          sort(unique(sample_data$lvl_type)),
+          available_levels,
           ~ .x == level
         )
 
@@ -262,8 +186,8 @@ create_sample_plot <- function(sample_id) {
           args = list(list(visible = visible_vector))
         )
       }),
-      x = 1.15,
-      y = 1
+      x = 1, # Right edge
+      y = 0.15 # Lower position
     )
   )
 
@@ -271,11 +195,7 @@ create_sample_plot <- function(sample_id) {
   p <- p %>%
     layout(
       title = list(
-        text = paste0(
-          "Sample: <b>",
-          sample_name,
-          "</b><br><sub>Select taxonomic level from dropdown</sub>"
-        ),
+        text = paste0("Sample: <b>", sample_name, "</b>"),
         x = 0.5
       ),
       xaxis = list(title = "Relative Abundance (%)"),
@@ -283,23 +203,14 @@ create_sample_plot <- function(sample_id) {
       updatemenus = updatemenus,
       margin = list(l = 200, r = 150),
       showlegend = FALSE
+    ) %>%
+    config(
+      displayModeBar = FALSE, # Remove the toolbar completely
+      scrollZoom = FALSE, # Disable scroll zoom
+      doubleClick = FALSE, # Disable double-click zoom
+      displaylogo = FALSE # Remove plotly logo
     )
-
   return(p)
-}
-
-
-# Print sample information for reference
-cat("Found", nrow(sample_info), "samples:\n")
-for (i in 1:nrow(sample_info)) {
-  cat(paste0(
-    i,
-    ". ",
-    sample_info$sample_name[i],
-    " (",
-    sample_info$sample_id[i],
-    ")\n"
-  ))
 }
 
 # Create function to generate plots on demand
@@ -314,9 +225,21 @@ create_all_plots <- function() {
 # Generate all plots
 sample_plots <- create_all_plots()
 
-sample_plots[[6]]
-sample_plots[[7]]
-sample_plots[[8]]
-sample_plots[[9]]
+# Using htmltools::tagList()
+
+library(htmltools)
+tagList(
+  map(
+    sample_plots,
+    ~ {
+      tagList(
+        .x,
+        br(),
+        br() # Add two line breaks between each plot
+      )
+    }
+  )
+)
+
 ```
 
