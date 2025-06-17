@@ -14,6 +14,192 @@ image: ../assets/images/nanopore.jpg
 
 ## Read count
 
+```{r}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(gridExtra)
+library(grid)
+
+# Function to parse FastQC data
+parse_fastqc <- function(file_path, read_type) {
+  # Read the file
+  lines <- readLines(file_path)
+  
+  # Find Basic Statistics section
+  start_idx <- which(grepl(">>Basic Statistics", lines))
+  end_idx <- which(grepl(">>END_MODULE", lines))[1]
+  
+  # Extract the status (pass/fail)
+  status_line <- lines[start_idx]
+  status <- trimws(strsplit(status_line, "\t")[[1]][2])
+  
+  # Extract the data lines (skip header line with #Measure Value)
+  data_lines <- lines[(start_idx + 2):(end_idx - 1)]
+  
+  # Parse each line
+  parsed_data <- data.frame(
+    Read = read_type,
+    Measure = character(0),
+    Value = character(0),
+    stringsAsFactors = FALSE
+  )
+  
+  for (line in data_lines) {
+    if (grepl("^#", line)) next  # Skip comment lines
+    parts <- strsplit(line, "\t")[[1]]
+    if (length(parts) >= 2) {
+      parsed_data <- rbind(parsed_data, data.frame(
+        Read = read_type,
+        Measure = parts[1],
+        Value = parts[2],
+        stringsAsFactors = FALSE
+      ))
+    }
+  }
+  
+  # Add status as first row
+  status_row <- data.frame(
+    Read = read_type,
+    Measure = "QC Status",
+    Value = status,
+    stringsAsFactors = FALSE
+  )
+  
+  parsed_data <- rbind(status_row, parsed_data)
+  return(parsed_data)
+}
+
+# Parse both files
+# Note: I corrected the typo from "fatqc_data.txt" to "fastqc_data.txt"
+r1_data <- parse_fastqc("../results/fastqc/MI173C_fastp_R1_fastqc/fastqc_data.txt", "R1")
+r2_data <- parse_fastqc("../results/fastqc/MI173C_fastp_R2_fastqc/fastqc_data.txt", "R2")
+
+# Combine data
+combined_data <- rbind(r1_data, r2_data)
+
+# Reshape data for table format
+table_data <- combined_data %>%
+  tidyr::pivot_wider(names_from = Read, values_from = Value) %>%
+  select(Measure, R1, R2)
+
+# Create a nice table using ggplot2
+create_fastqc_table <- function(data, sample_name) {
+  # Prepare data for plotting
+  n_rows <- nrow(data)
+  
+  # Create a base plot
+  p <- ggplot() + 
+    theme_void() +
+    theme(
+      plot.title = element_text(hjust = 0.5, size = 16, face = "bold"),
+      plot.margin = margin(20, 20, 20, 20)
+    ) +
+    labs(title = paste("FastQC Summary -", sample_name)) +
+    xlim(0, 10) + 
+    ylim(0, n_rows + 2)
+  
+  # Add header
+  p <- p + 
+    annotate("rect", xmin = 0.5, xmax = 9.5, ymin = n_rows + 0.5, ymax = n_rows + 1.5, 
+             fill = "#2E86AB", color = "white", size = 0.5) +
+    annotate("text", x = 2.5, y = n_rows + 1, label = "Measure", 
+             color = "white", fontface = "bold", size = 4) +
+    annotate("text", x = 5.5, y = n_rows + 1, label = "R1 (Forward)", 
+             color = "white", fontface = "bold", size = 4) +
+    annotate("text", x = 8, y = n_rows + 1, label = "R2 (Reverse)", 
+             color = "white", fontface = "bold", size = 4)
+  
+  # Add data rows
+  for (i in 1:n_rows) {
+    y_pos <- n_rows - i + 1
+    
+    # Alternate row colors
+    fill_color <- if (i %% 2 == 0) "#F8F9FA" else "white"
+    
+    # Determine text color based on QC status
+    text_color <- "black"
+    if (data$Measure[i] == "QC Status") {
+      if (data$R1[i] == "pass" && data$R2[i] == "pass") {
+        text_color <- "#28A745"  # Green for pass
+      } else {
+        text_color <- "#DC3545"  # Red for fail/warn
+      }
+    }
+    
+    p <- p + 
+      annotate("rect", xmin = 0.5, xmax = 9.5, ymin = y_pos - 0.4, ymax = y_pos + 0.4, 
+               fill = fill_color, color = "#DEE2E6", size = 0.3) +
+      annotate("text", x = 2.5, y = y_pos, label = data$Measure[i], 
+               hjust = 0.5, size = 3.5, fontface = ifelse(data$Measure[i] == "QC Status", "bold", "plain")) +
+      annotate("text", x = 5.5, y = y_pos, label = data$R1[i], 
+               hjust = 0.5, size = 3.5, color = text_color,
+               fontface = ifelse(data$Measure[i] == "QC Status", "bold", "plain")) +
+      annotate("text", x = 8, y = y_pos, label = data$R2[i], 
+               hjust = 0.5, size = 3.5, color = text_color,
+               fontface = ifelse(data$Measure[i] == "QC Status", "bold", "plain"))
+  }
+  
+  return(p)
+}
+
+# Create the table
+fastqc_table <- create_fastqc_table(table_data, "MI173C")
+
+# Display the table
+print(fastqc_table)
+
+# Save the table
+ggsave("MI173C_fastqc_summary_table.png", fastqc_table, 
+       width = 12, height = 8, dpi = 300, bg = "white")
+
+# Alternative: Create a more advanced table using gt package (if available)
+if (require(gt, quietly = TRUE)) {
+  advanced_table <- table_data %>%
+    gt() %>%
+    tab_header(
+      title = "FastQC Quality Control Summary",
+      subtitle = "Sample: MI173C"
+    ) %>%
+    tab_style(
+      style = list(
+        cell_text(weight = "bold"),
+        cell_fill(color = "#2E86AB"),
+        cell_text(color = "white")
+      ),
+      locations = cells_column_labels()
+    ) %>%
+    tab_style(
+      style = cell_text(weight = "bold"),
+      locations = cells_body(columns = Measure, rows = Measure == "QC Status")
+    ) %>%
+    tab_style(
+      style = cell_text(color = "#28A745", weight = "bold"),
+      locations = cells_body(columns = c(R1, R2), rows = Measure == "QC Status" & (R1 == "pass" | R2 == "pass"))
+    ) %>%
+    tab_style(
+      style = cell_text(color = "#DC3545", weight = "bold"),
+      locations = cells_body(columns = c(R1, R2), rows = Measure == "QC Status" & (R1 != "pass" | R2 != "pass"))
+    ) %>%
+    opt_row_striping() %>%
+    cols_align(align = "center", columns = c(R1, R2)) %>%
+    cols_width(
+      Measure ~ px(200),
+      R1 ~ px(150),
+      R2 ~ px(150)
+    )
+  
+  print(advanced_table)
+  
+  # Save gt table
+  gtsave(advanced_table, "MI173C_fastqc_summary_gt.png")
+}
+
+# Print summary
+cat("\nFastQC Summary for sample MI173C:\n")
+cat("================================\n")
+print(table_data)
+```
 ## Other
 
 
@@ -34,7 +220,7 @@ library(plotly)
 
 # Read the data and extract sample names
 lines <- read_lines(
-  "../results/classification/kraken2/illumina_kraken2_fas_0.1.report"
+  "../results/classification/kraken2/illumina_kraken2_fastp_0.1.report"
 )
 
 # Extract sample names from the header lines
