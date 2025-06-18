@@ -10,18 +10,46 @@ about:
   id: hero-heading
 
 listing:
-- id: report-prev
+- id: report-meta
   contents: 
-    - reports/*/*.qmd
-  sort: false
+    - reports/metagenomics/25*.qmd
+  sort: 'date'
+  fields: [image, title, categories, date]
+  type: grid
+  grid-columns: 3
+  max-items: 10
+  image-height: 50px
+  categories: false
+  sort-ui: false
+  filter-ui: true
+  feed: false
+
+- id: report-bact
+  contents: 
+    - reports/bacteria/25*.qmd
+  sort: 'date'
   fields: [image, title, categories, date]
   type: grid
   grid-columns: 3
   max-items: 3
-  image-height: 150px
+  image-height: 50px
   categories: false
   sort-ui: false
-  filter-ui: false
+  filter-ui: true
+  feed: false
+
+- id: report-vir
+  contents: 
+    - reports/virus/25*.qmd
+  sort: 'date'
+  fields: [image, title, categories, date]
+  type: grid
+  grid-columns: 3
+  max-items: 10
+  image-height: 50px
+  categories: false
+  sort-ui: false
+  filter-ui: true
   feed: false
 page-layout: full
 ---
@@ -31,13 +59,19 @@ page-layout: full
 FOI Sequence Analysis Reports
 The FOI (Swedish Defence Research Agency) Sequence Analysis page provides access to comprehensive reports generated from sequencing runs and analytical pipelines. Here you'll find quality control metrics, alignment statistics, variant calling results, and performance analytics for each sequence run. 
 
-Reports are organized by run date and include executive summaries, detailed technical data, visual analytics, and processing logs. Each report package maintains full traceability from raw sequencing data through final analytical outputs, ensuring data integrity and research reproducibility. Use the filtering options to locate specific runs by project, sample type, or sequencing platform.
 
-[[**About me >**]{.btn .btn-primary .btn-md}](about.qmd)
 
 :::
 
 ## Latest reports
-
-:::{ #report-prev }
+### Metagenomic
+:::{ #report-meta }
 :::
+### Genomics bacteria
+:::{ #report-bact }
+:::
+### Genomics viruses
+:::{ #report-vir }
+:::
+
+[[**About >**]{.btn .btn-primary .btn-md}](about.qmd)
