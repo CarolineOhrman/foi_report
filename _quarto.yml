@@ -1,12 +1,12 @@
 project:
   type: website
 website:
-  title: FOI-reports
+  title: -reports
   description: Sequence reports
   navbar:
-    logo: assets/images/foi_logo.jpg
+    logo: assets/images/foi_logo_w.png
     title: FOI-reports
-    left:
+    right:
     - text: Main
       href: index.qmd
     - text: Metagenomics
@@ -52,5 +52,5 @@ format:
     theme:
     - flatly
     - custom.scss
-    toc: yes
+    toc: true
 brand: _brand.yml
