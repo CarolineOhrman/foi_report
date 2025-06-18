@@ -1,0 +1,59 @@
+---
+title: "Metagenomics Reports"
+description: "Overview of all metagenomics sequencing runs and analysis reports"
+---
+
+## Overview
+
+This section contains sequencing reports and analyses for metagenomics studies conducted at FOI. Each report represents a complete sequencing run with associated metadata and analysis results.
+
+## Available Reports
+
+```{r}
+#| echo: false
+#| warning: false
+
+library(yaml)
+library(knitr)
+library(dplyr)
+
+# Read metadata
+metadata <- read_yaml("../../data/runs_metadata.yml")
+metagenomics_runs <- metadata$runs$metagenomics
+
+# Create table of runs
+runs_table <- data.frame(
+  `Run ID` = sapply(metagenomics_runs, function(x) x$display_name),
+  `Date` = sapply(metagenomics_runs, function(x) x$date),
+  `Type` = sapply(metagenomics_runs, function(x) x$type),
+  `Samples` = sapply(metagenomics_runs, function(x) x$sample_number),
+  `Description` = sapply(metagenomics_runs, function(x) substr(x$description, 1, 50)),
+  `Report` = sapply(metagenomics_runs, function(x) 
+    paste0("[View Report](", x$id, ".qmd)")),
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+)
+
+kable(runs_table, format = "markdown")
+```
+
+## Recent Activity
+
+The most recent metagenomics analysis was completed on `r max(sapply(metagenomics_runs, function(x) x$date))`.
+
+## Analysis Pipeline
+
+Our metagenomics pipeline includes:
+
+- **Quality Control**: FastQC, MultiQC
+- **Taxonomic Classification**: Kraken2, Bracken  
+- **Functional Analysis**: HUMAnN3
+- **Diversity Analysis**: QIIME2
+- **Assembly**: MEGAHIT, MetaSPAdes
+- **Binning**: MetaBAT2, CONCOCT
+
+## Contact
+
+For questions about metagenomics analyses, contact:
+- **Caroline Öhrman** - Lead Bioinformatician
+- **Ingrid Dacklin** - Senior Technician
