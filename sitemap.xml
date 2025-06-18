@@ -1,19 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://CarolineOhrman.github.io/foi_report/reports/metagenomics.html</loc>
-    <lastmod>2025-06-18T09:04:41.030Z</lastmod>
+    <loc>https://CarolineOhrman.github.io/foi_report/reports/virus/index.html</loc>
+    <lastmod>2025-06-18T12:10:48.117Z</lastmod>
   </url>
   <url>
-    <loc>https://CarolineOhrman.github.io/foi_report/index.html</loc>
-    <lastmod>2025-06-18T09:04:41.030Z</lastmod>
+    <loc>https://CarolineOhrman.github.io/foi_report/reports/virus/250130_M01834_0151_000000000-JKLM1.html</loc>
+    <lastmod>2025-06-18T12:07:49.932Z</lastmod>
+  </url>
+  <url>
+    <loc>https://CarolineOhrman.github.io/foi_report/reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html</loc>
+    <lastmod>2025-06-18T12:04:58.582Z</lastmod>
+  </url>
+  <url>
+    <loc>https://CarolineOhrman.github.io/foi_report/reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html</loc>
+    <lastmod>2025-06-18T12:05:06.513Z</lastmod>
+  </url>
+  <url>
+    <loc>https://CarolineOhrman.github.io/foi_report/reports/bacteria/250222_M01834_0150_000000000-FGHI8.html</loc>
+    <lastmod>2025-06-18T12:15:46.367Z</lastmod>
+  </url>
+  <url>
+    <loc>https://CarolineOhrman.github.io/foi_report/reports/bacteria/250125_M01834_0148_000000000-XYZA2.html</loc>
+    <lastmod>2025-06-18T12:23:22.775Z</lastmod>
   </url>
   <url>
     <loc>https://CarolineOhrman.github.io/foi_report/about.html</loc>
     <lastmod>2025-06-18T09:04:40.981Z</lastmod>
   </url>
   <url>
-    <loc>https://CarolineOhrman.github.io/foi_report/reports/bacteria.html</loc>
-    <lastmod>2025-06-18T09:04:41.030Z</lastmod>
+    <loc>https://CarolineOhrman.github.io/foi_report/index.html</loc>
+    <lastmod>2025-06-18T12:12:16.742Z</lastmod>
+  </url>
+  <url>
+    <loc>https://CarolineOhrman.github.io/foi_report/reports/bacteria/250208_M01834_0149_000000000-BCDE5.html</loc>
+    <lastmod>2025-06-18T12:04:12.286Z</lastmod>
+  </url>
+  <url>
+    <loc>https://CarolineOhrman.github.io/foi_report/reports/bacteria/index.html</loc>
+    <lastmod>2025-06-18T11:40:23.402Z</lastmod>
+  </url>
+  <url>
+    <loc>https://CarolineOhrman.github.io/foi_report/reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html</loc>
+    <lastmod>2025-06-18T12:04:59.442Z</lastmod>
+  </url>
+  <url>
+    <loc>https://CarolineOhrman.github.io/foi_report/reports/metagenomics/index.html</loc>
+    <lastmod>2025-06-18T11:45:31.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://CarolineOhrman.github.io/foi_report/reports/virus/250214_M01834_0152_000000000-NOPQ6.html</loc>
+    <lastmod>2025-06-18T12:07:54.356Z</lastmod>
   </url>
 </urlset>

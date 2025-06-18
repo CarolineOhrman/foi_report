@@ -1,10 +1,416 @@
 [
   {
-    "objectID": "reports/metagenomics.html",
-    "href": "reports/metagenomics.html",
-    "title": "Shotgun Metagenomics sequence report",
+    "objectID": "reports/virus/index.html",
+    "href": "reports/virus/index.html",
+    "title": "Viral Genomics Reports",
     "section": "",
-    "text": "General statistics\n\n\n\nFastQC Summary - Sample MI173C\n\n\nMeasure\nR1 (Forward)\nR2 (Reverse)\n\n\n\n\nQC Status\npass\npass\n\n\nFilename\nMI173C_fastp_R1.fastq.gz\nMI173C_fastp_R2.fastq.gz\n\n\nFile type\nConventional base calls\nConventional base calls\n\n\nEncoding\nSanger / Illumina 1.9\nSanger / Illumina 1.9\n\n\nTotal Sequences\n6312369\n6312369\n\n\nTotal Bases\n1.5 Gbp\n1.5 Gbp\n\n\nSequences flagged as poor quality\n0\n0\n\n\nSequence length\n31-301\n31-301\n\n\n%GC\n49\n49\n\n\n\n\n\n\n\nClassification with kraken2\nUsing plotly to be able to interactively choose taxonomic level"
+    "text": "This section contains sequencing reports and analyses for viral genomics studies conducted at FOI. Each report represents viral genome sequencing with consensus assembly and variant analysis."
+  },
+  {
+    "objectID": "reports/virus/index.html#overview",
+    "href": "reports/virus/index.html#overview",
+    "title": "Viral Genomics Reports",
+    "section": "",
+    "text": "This section contains sequencing reports and analyses for viral genomics studies conducted at FOI. Each report represents viral genome sequencing with consensus assembly and variant analysis."
+  },
+  {
+    "objectID": "reports/virus/index.html#available-reports",
+    "href": "reports/virus/index.html#available-reports",
+    "title": "Viral Genomics Reports",
+    "section": "Available Reports",
+    "text": "Available Reports\n\n\n\n\n\nRun ID\nDate\nType\nSamples\nDescription\nReport\n\n\n\n\n250130_M01834_0151_JKLM1\n2025-01-30\nAmplicon\n42\nInfluenza A surveillance and subtyping from respir\nView Report\n\n\n250214_M01834_0152_NOPQ6\n2025-02-14\nWGS\n36\nSARS-CoV-2 variant monitoring from wastewater samp\nView Report"
+  },
+  {
+    "objectID": "reports/virus/index.html#recent-activity",
+    "href": "reports/virus/index.html#recent-activity",
+    "title": "Viral Genomics Reports",
+    "section": "Recent Activity",
+    "text": "Recent Activity\nThe most recent viral genomics analysis was completed on 2025-02-14."
+  },
+  {
+    "objectID": "reports/virus/index.html#analysis-pipeline",
+    "href": "reports/virus/index.html#analysis-pipeline",
+    "title": "Viral Genomics Reports",
+    "section": "Analysis Pipeline",
+    "text": "Analysis Pipeline\nOur viral genomics pipeline includes:\n\nQuality Control: FastQC, Trimmomatic\nHost Removal: BWA-MEM alignment\nViral Detection: BLAST, custom databases\nConsensus Assembly: iVar\nVariant Calling: LoFreq, iVar\nPhylogenetics: IQ-TREE, NextStrain"
+  },
+  {
+    "objectID": "reports/virus/index.html#contact",
+    "href": "reports/virus/index.html#contact",
+    "title": "Viral Genomics Reports",
+    "section": "Contact",
+    "text": "Contact\nFor questions about viral genomics analyses, contact the FOI Bioinformatics Team."
+  },
+  {
+    "objectID": "reports/virus/250130_M01834_0151_000000000-JKLM1.html",
+    "href": "reports/virus/250130_M01834_0151_000000000-JKLM1.html",
+    "title": "Run 250130_M01834_0151_JKLM1",
+    "section": "",
+    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250130_M01834_0151_000000000-JKLM1\n\n\nDate\n2025-01-30\n\n\nType\nAmplicon\n\n\nSequenced by\nThomas Holm\n\n\nPlatform\nMiSeq\n\n\nSample number\n42\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n724 K/mm2\n\n\nClusters passed filter\n90.4%\n\n\nEstimated yield\n9101.5 MB\n\n\nComments\nQ30=7,0G=75,9%"
+  },
+  {
+    "objectID": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#run-information",
+    "href": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#run-information",
+    "title": "Run 250130_M01834_0151_JKLM1",
+    "section": "",
+    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250130_M01834_0151_000000000-JKLM1\n\n\nDate\n2025-01-30\n\n\nType\nAmplicon\n\n\nSequenced by\nThomas Holm\n\n\nPlatform\nMiSeq\n\n\nSample number\n42\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n724 K/mm2\n\n\nClusters passed filter\n90.4%\n\n\nEstimated yield\n9101.5 MB\n\n\nComments\nQ30=7,0G=75,9%"
+  },
+  {
+    "objectID": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#description",
+    "href": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#description",
+    "title": "Run 250130_M01834_0151_JKLM1",
+    "section": "Description",
+    "text": "Description\nInfluenza A surveillance and subtyping from respiratory samples\nCreated by: Thomas Holm\nLast modified by: Caroline Öhrman on 2025-01-31"
+  },
+  {
+    "objectID": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#viral-detection-and-abundance",
+    "href": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#viral-detection-and-abundance",
+    "title": "Run 250130_M01834_0151_JKLM1",
+    "section": "Viral Detection and Abundance",
+    "text": "Viral Detection and Abundance"
+  },
+  {
+    "objectID": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#consensus-genome-assembly",
+    "href": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#consensus-genome-assembly",
+    "title": "Run 250130_M01834_0151_JKLM1",
+    "section": "Consensus Genome Assembly",
+    "text": "Consensus Genome Assembly"
+  },
+  {
+    "objectID": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#variant-analysis",
+    "href": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#variant-analysis",
+    "title": "Run 250130_M01834_0151_JKLM1",
+    "section": "Variant Analysis",
+    "text": "Variant Analysis"
+  },
+  {
+    "objectID": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#phylogenetic-analysis",
+    "href": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#phylogenetic-analysis",
+    "title": "Run 250130_M01834_0151_JKLM1",
+    "section": "Phylogenetic Analysis",
+    "text": "Phylogenetic Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPhylogenetic cluster assignments\n\n\nSample\nCluster\nDistance_to_Reference\n\n\n\n\nSample_01\nCluster 3\n0.0656\n\n\nSample_02\nCluster 4\n0.0587\n\n\nSample_03\nCluster 3\n0.0325\n\n\nSample_04\nCluster 4\n0.0496\n\n\nSample_05\nCluster 3\n0.0534\n\n\nSample_06\nCluster 3\n0.0847\n\n\nSample_07\nCluster 1\n0.0702\n\n\nSample_08\nCluster 2\n0.0492\n\n\nSample_09\nCluster 3\n0.0204\n\n\nSample_10\nCluster 4\n0.0363\n\n\nSample_11\nCluster 3\n0.0548\n\n\nSample_12\nCluster 4\n0.0400\n\n\nSample_13\nCluster 4\n0.0467\n\n\nSample_14\nCluster 2\n0.0326\n\n\nSample_15\nCluster 1\n0.0685\n\n\nSample_16\nCluster 4\n0.0359\n\n\nSample_17\nCluster 1\n0.0044\n\n\nSample_18\nCluster 3\n0.0196\n\n\nSample_19\nCluster 3\n0.0543\n\n\nSample_20\nCluster 3\n0.0166\n\n\nSample_21\nCluster 4\n0.0610\n\n\nSample_22\nCluster 3\n0.0174\n\n\nSample_23\nCluster 3\n0.0468\n\n\nSample_24\nCluster 1\n0.0404\n\n\nSample_25\nCluster 2\n0.0520\n\n\nSample_26\nCluster 2\n0.0333\n\n\nSample_27\nCluster 1\n0.0414\n\n\nSample_28\nCluster 4\n0.0781\n\n\nSample_29\nCluster 2\n0.0352\n\n\nSample_30\nCluster 3\n0.0466\n\n\nSample_31\nCluster 2\n0.0462\n\n\nSample_32\nCluster 1\n0.0524\n\n\nSample_33\nCluster 1\n0.0399\n\n\nSample_34\nCluster 2\n0.0414\n\n\nSample_35\nCluster 2\n0.0349\n\n\nSample_36\nCluster 3\n0.0841\n\n\nSample_37\nCluster 4\n0.0517\n\n\nSample_38\nCluster 4\n0.0459\n\n\nSample_39\nCluster 4\n0.0407\n\n\nSample_40\nCluster 1\n0.0493\n\n\nSample_41\nCluster 1\n0.0370\n\n\nSample_42\nCluster 4\n0.0275"
+  },
+  {
+    "objectID": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#summary",
+    "href": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#summary",
+    "title": "Run 250130_M01834_0151_JKLM1",
+    "section": "Summary",
+    "text": "Summary\n\nTotal samples processed: 42\nSamples with viral detection: 42\nConsensus genomes assembled: 42\nPlatform used: MiSeq\nData yield: 9101.5 MB\nQuality metrics: Q30=7,0G=75,9%"
+  },
+  {
+    "objectID": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#methods",
+    "href": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#methods",
+    "title": "Run 250130_M01834_0151_JKLM1",
+    "section": "Methods",
+    "text": "Methods\nThis analysis follows the standard FOI viral genomics pipeline v1.5:\nQuality control: FastQC v0.11.9, Trimmomatic v0.39\nHost removal: BWA-MEM v0.7.17\nViral detection: BLAST+ v2.13.0\nConsensus assembly: iVar v1.3.1\nVariant calling: LoFreq v2.1.5\nPhylogenetics: IQ-TREE v2.2.0\nStatistical analysis: R v4.3.0"
+  },
+  {
+    "objectID": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#files-and-links",
+    "href": "reports/virus/250130_M01834_0151_000000000-JKLM1.html#files-and-links",
+    "title": "Run 250130_M01834_0151_JKLM1",
+    "section": "Files and Links",
+    "text": "Files and Links\n\nRaw data: /mnt/storage/sequencing-data/MiSeq_FOI_LAB/250130_M01834_0151_000000000-JKLM1/\nConsensus genomes: Genomes folder\nVariant calls: Variants folder\nQC reports: MultiQC Report"
+  },
+  {
+    "objectID": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html",
+    "href": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html",
+    "title": "Run 250215_M01834_0147_TUVW7",
+    "section": "",
+    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250215_M01834_0147_000000000-TUVW7\n\n\nDate\n2025-02-15\n\n\nType\nWGS\n\n\nSequenced by\nMikael Jonsson\n\n\nPlatform\nMiSeq\n\n\nSample number\n28\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n698 K/mm2\n\n\nClusters passed filter\n87.9%\n\n\nEstimated yield\n8656.2 MB\n\n\nComments\nQ30=6,5G=73,4%"
+  },
+  {
+    "objectID": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#run-information",
+    "href": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#run-information",
+    "title": "Run 250215_M01834_0147_TUVW7",
+    "section": "",
+    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250215_M01834_0147_000000000-TUVW7\n\n\nDate\n2025-02-15\n\n\nType\nWGS\n\n\nSequenced by\nMikael Jonsson\n\n\nPlatform\nMiSeq\n\n\nSample number\n28\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n698 K/mm2\n\n\nClusters passed filter\n87.9%\n\n\nEstimated yield\n8656.2 MB\n\n\nComments\nQ30=6,5G=73,4%"
+  },
+  {
+    "objectID": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#description",
+    "href": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#description",
+    "title": "Run 250215_M01834_0147_TUVW7",
+    "section": "Description",
+    "text": "Description\nSoil microbiome characterization from organic farming sites\nCreated by: Mikael Jonsson\nLast modified by: Caroline Öhrman on 2025-02-16\nRaw data location: /mnt/storage/sequencing-data/MiSeq_FOI_LAB/250215_M01834_0147_000000000-TUVW7/"
+  },
+  {
+    "objectID": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#quality-control-results",
+    "href": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#quality-control-results",
+    "title": "Run 250215_M01834_0147_TUVW7",
+    "section": "Quality Control Results",
+    "text": "Quality Control Results"
+  },
+  {
+    "objectID": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#taxonomic-classification",
+    "href": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#taxonomic-classification",
+    "title": "Run 250215_M01834_0147_TUVW7",
+    "section": "Taxonomic Classification",
+    "text": "Taxonomic Classification"
+  },
+  {
+    "objectID": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#alpha-diversity",
+    "href": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#alpha-diversity",
+    "title": "Run 250215_M01834_0147_TUVW7",
+    "section": "Alpha Diversity",
+    "text": "Alpha Diversity\n\n\n\n\n\n\n\n\n\n\nAlpha Diversity Summary Statistics\n\n\nMean_Shannon\nSD_Shannon\nMean_Simpson\nMean_OTUs\n\n\n\n\n3.88\n0.36\n0.86\n520"
+  },
+  {
+    "objectID": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#functional-analysis",
+    "href": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#functional-analysis",
+    "title": "Run 250215_M01834_0147_TUVW7",
+    "section": "Functional Analysis",
+    "text": "Functional Analysis"
+  },
+  {
+    "objectID": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#summary",
+    "href": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#summary",
+    "title": "Run 250215_M01834_0147_TUVW7",
+    "section": "Summary",
+    "text": "Summary\n\nTotal samples processed: 28\nPlatform used: MiSeq\nData yield: 8656.2 MB\nQuality metrics: Q30=6,5G=73,4%\nAnalysis completion: {{ Sys.Date() }}"
+  },
+  {
+    "objectID": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#methods",
+    "href": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#methods",
+    "title": "Run 250215_M01834_0147_TUVW7",
+    "section": "Methods",
+    "text": "Methods\nThis analysis follows the standard FOI metagenomics pipeline v2.1:\nQuality control: FastQC v0.11.9, MultiQC v1.11\nHost removal: BWA-MEM v0.7.17\nTaxonomic classification: Kraken2 v2.1.2, Bracken v2.7\nFunctional analysis: HUMAnN3 v3.0.0\nDiversity analysis: QIIME2 v2023.2\nStatistical analysis: R v4.3.0"
+  },
+  {
+    "objectID": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#files-and-links",
+    "href": "reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html#files-and-links",
+    "title": "Run 250215_M01834_0147_TUVW7",
+    "section": "Files and Links",
+    "text": "Files and Links\n\nRaw data: /mnt/storage/sequencing-data/MiSeq_FOI_LAB/250215_M01834_0147_000000000-TUVW7/\nAnalysis results: Analysis folder\nQC reports: MultiQC Report"
+  },
+  {
+    "objectID": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html",
+    "href": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html",
+    "title": "Run 250112_M01834_0145_HJKM9",
+    "section": "",
+    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250112_M01834_0145_000000000-HJKM9\n\n\nDate\n2025-01-12\n\n\nType\nWGS\n\n\nSequenced by\nErik Lindahl, Sara Nilsson\n\n\nPlatform\nMiSeq\n\n\nSample number\n32\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n715 K/mm2\n\n\nClusters passed filter\n89.2%\n\n\nEstimated yield\n8945.3 MB\n\n\nComments\nQ30=6,8G=74,1%"
+  },
+  {
+    "objectID": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#run-information",
+    "href": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#run-information",
+    "title": "Run 250112_M01834_0145_HJKM9",
+    "section": "",
+    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250112_M01834_0145_000000000-HJKM9\n\n\nDate\n2025-01-12\n\n\nType\nWGS\n\n\nSequenced by\nErik Lindahl, Sara Nilsson\n\n\nPlatform\nMiSeq\n\n\nSample number\n32\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n715 K/mm2\n\n\nClusters passed filter\n89.2%\n\n\nEstimated yield\n8945.3 MB\n\n\nComments\nQ30=6,8G=74,1%"
+  },
+  {
+    "objectID": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#description",
+    "href": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#description",
+    "title": "Run 250112_M01834_0145_HJKM9",
+    "section": "Description",
+    "text": "Description\nSediment microbiome analysis from Baltic Sea monitoring sites\nCreated by: Erik Lindahl\nLast modified by: Caroline Öhrman on 2025-01-13\nRaw data location: /mnt/storage/sequencing-data/MiSeq_FOI_LAB/250112_M01834_0145_000000000-HJKM9/"
+  },
+  {
+    "objectID": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#quality-control-results",
+    "href": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#quality-control-results",
+    "title": "Run 250112_M01834_0145_HJKM9",
+    "section": "Quality Control Results",
+    "text": "Quality Control Results"
+  },
+  {
+    "objectID": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#taxonomic-classification",
+    "href": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#taxonomic-classification",
+    "title": "Run 250112_M01834_0145_HJKM9",
+    "section": "Taxonomic Classification",
+    "text": "Taxonomic Classification"
+  },
+  {
+    "objectID": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#alpha-diversity",
+    "href": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#alpha-diversity",
+    "title": "Run 250112_M01834_0145_HJKM9",
+    "section": "Alpha Diversity",
+    "text": "Alpha Diversity\n\n\n\n\n\n\n\n\n\n\nAlpha Diversity Summary Statistics\n\n\nMean_Shannon\nSD_Shannon\nMean_Simpson\nMean_OTUs\n\n\n\n\n3.84\n0.3\n0.845\n523"
+  },
+  {
+    "objectID": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#functional-analysis",
+    "href": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#functional-analysis",
+    "title": "Run 250112_M01834_0145_HJKM9",
+    "section": "Functional Analysis",
+    "text": "Functional Analysis"
+  },
+  {
+    "objectID": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#summary",
+    "href": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#summary",
+    "title": "Run 250112_M01834_0145_HJKM9",
+    "section": "Summary",
+    "text": "Summary\n\nTotal samples processed: 32\nPlatform used: MiSeq\nData yield: 8945.3 MB\nQuality metrics: Q30=6,8G=74,1%\nAnalysis completion: {{ Sys.Date() }}"
+  },
+  {
+    "objectID": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#methods",
+    "href": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#methods",
+    "title": "Run 250112_M01834_0145_HJKM9",
+    "section": "Methods",
+    "text": "Methods\nThis analysis follows the standard FOI metagenomics pipeline v2.1:\nQuality control: FastQC v0.11.9, MultiQC v1.11\nHost removal: BWA-MEM v0.7.17\nTaxonomic classification: Kraken2 v2.1.2, Bracken v2.7\nFunctional analysis: HUMAnN3 v3.0.0\nDiversity analysis: QIIME2 v2023.2\nStatistical analysis: R v4.3.0"
+  },
+  {
+    "objectID": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#files-and-links",
+    "href": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#files-and-links",
+    "title": "Run 250112_M01834_0145_HJKM9",
+    "section": "Files and Links",
+    "text": "Files and Links\n\nRaw data: /mnt/storage/sequencing-data/MiSeq_FOI_LAB/250112_M01834_0145_000000000-HJKM9/\nAnalysis results: Analysis folder\nQC reports: MultiQC Report"
+  },
+  {
+    "objectID": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html",
+    "href": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html",
+    "title": "Run 250222_M01834_0150_FGHI8",
+    "section": "",
+    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250222_M01834_0150_000000000-FGHI8\n\n\nDate\n2025-02-22\n\n\nType\nWGS\n\n\nSequenced by\nMaria Svensson\n\n\nPlatform\nMiSeq\n\n\nSample number\n15\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (24 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n689 K/mm2\n\n\nClusters passed filter\n85.1%\n\n\nEstimated yield\n7892.1 MB\n\n\nComments\nQ30=5,9G=70,3%"
+  },
+  {
+    "objectID": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#run-information",
+    "href": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#run-information",
+    "title": "Run 250222_M01834_0150_FGHI8",
+    "section": "",
+    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250222_M01834_0150_000000000-FGHI8\n\n\nDate\n2025-02-22\n\n\nType\nWGS\n\n\nSequenced by\nMaria Svensson\n\n\nPlatform\nMiSeq\n\n\nSample number\n15\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (24 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n689 K/mm2\n\n\nClusters passed filter\n85.1%\n\n\nEstimated yield\n7892.1 MB\n\n\nComments\nQ30=5,9G=70,3%"
+  },
+  {
+    "objectID": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#description",
+    "href": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#description",
+    "title": "Run 250222_M01834_0150_FGHI8",
+    "section": "Description",
+    "text": "Description\nMRSA isolates typing and antimicrobial resistance profiling\nCreated by: Maria Svensson\nLast modified by: Caroline Öhrman on 2025-02-23"
+  },
+  {
+    "objectID": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#assembly-statistics",
+    "href": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#assembly-statistics",
+    "title": "Run 250222_M01834_0150_FGHI8",
+    "section": "Assembly Statistics",
+    "text": "Assembly Statistics"
+  },
+  {
+    "objectID": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#species-identification",
+    "href": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#species-identification",
+    "title": "Run 250222_M01834_0150_FGHI8",
+    "section": "Species Identification",
+    "text": "Species Identification"
+  },
+  {
+    "objectID": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#antimicrobial-resistance",
+    "href": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#antimicrobial-resistance",
+    "title": "Run 250222_M01834_0150_FGHI8",
+    "section": "Antimicrobial Resistance",
+    "text": "Antimicrobial Resistance\n\n\n\n\n\n\n\n\n\n\nAntimicrobial resistance gene detection summary\n\n\nGene\nSamples_Positive\nPrevalence\n\n\n\n\nblaTEM\n14\n93.3\n\n\naac(3)-IV\n14\n93.3\n\n\ntet(A)\n4\n26.7\n\n\nsul1\n3\n20.0\n\n\nqnrS\n5\n33.3\n\n\ndfrA\n15\n100.0\n\n\ncat\n7\n46.7"
+  },
+  {
+    "objectID": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#phylogenetic-analysis",
+    "href": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#phylogenetic-analysis",
+    "title": "Run 250222_M01834_0150_FGHI8",
+    "section": "Phylogenetic Analysis",
+    "text": "Phylogenetic Analysis\n\n\n\nPhylogenetic analysis summary\n\n\nMetric\nValue\n\n\n\n\nCore genome size\n2.5 Mb\n\n\nAccessory genome size\n2.3 Mb\n\n\nPan genome size\n7.7 Mb\n\n\nAverage pairwise SNPs\n1074\n\n\nMost distant isolates\n2609"
+  },
+  {
+    "objectID": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#quality-metrics",
+    "href": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#quality-metrics",
+    "title": "Run 250222_M01834_0150_FGHI8",
+    "section": "Quality Metrics",
+    "text": "Quality Metrics\n\n\n\nAssembly Quality Summary\n\n\n\n\n\n\n\n\n\nMean_Genome_Size_Mb\nMean_N50_kb\nMean_Contigs\nMean_Coverage\nSamples_Passed_QC\n\n\n\n\n4.28\n148.3\n44\n85.8\n15"
+  },
+  {
+    "objectID": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#summary",
+    "href": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#summary",
+    "title": "Run 250222_M01834_0150_FGHI8",
+    "section": "Summary",
+    "text": "Summary\n\nTotal isolates processed: 15\nPlatform used: MiSeq\nData yield: 7892.1 MB\nQuality metrics: Q30=5,9G=70,3%\nAnalysis completion: {{ Sys.Date() }}"
+  },
+  {
+    "objectID": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#methods",
+    "href": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#methods",
+    "title": "Run 250222_M01834_0150_FGHI8",
+    "section": "Methods",
+    "text": "Methods\nThis analysis follows the standard FOI bacterial genomics pipeline v1.8:\nQuality control: FastQC v0.11.9, Trimmomatic v0.39\nAssembly: SPAdes v3.15.5\nAnnotation: Prokka v1.14.6\nSpecies identification: ANI calculation with FastANI v1.33\nAMR detection: ABRicate v1.0.1 with ResFinder database\nPhylogenetics: Core genome alignment with Roary v3.13.0\nStatistical analysis: R v4.3.0"
+  },
+  {
+    "objectID": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#files-and-links",
+    "href": "reports/bacteria/250222_M01834_0150_000000000-FGHI8.html#files-and-links",
+    "title": "Run 250222_M01834_0150_FGHI8",
+    "section": "Files and Links",
+    "text": "Files and Links\n\nRaw data: /mnt/storage/sequencing-data/MiSeq_FOI_LAB/250222_M01834_0150_000000000-FGHI8/\nAssemblies: Assembly folder\nAnnotations: Annotation folder\nQC reports: MultiQC Report"
+  },
+  {
+    "objectID": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html",
+    "href": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html",
+    "title": "Run 250125_M01834_0148_XYZA2",
+    "section": "",
+    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250125_M01834_0148_000000000-XYZA2\n\n\nDate\n2025-01-25\n\n\nType\nWGS\n\n\nSequenced by\nLisa Andersson\n\n\nPlatform\nMiSeq\n\n\nSample number\n18\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (24 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n672 K/mm2\n\n\nClusters passed filter\n86.3%\n\n\nEstimated yield\n8123.7 MB\n\n\nComments\nQ30=6,1G=71,2%"
+  },
+  {
+    "objectID": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#run-information",
+    "href": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#run-information",
+    "title": "Run 250125_M01834_0148_XYZA2",
+    "section": "",
+    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250125_M01834_0148_000000000-XYZA2\n\n\nDate\n2025-01-25\n\n\nType\nWGS\n\n\nSequenced by\nLisa Andersson\n\n\nPlatform\nMiSeq\n\n\nSample number\n18\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (24 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n672 K/mm2\n\n\nClusters passed filter\n86.3%\n\n\nEstimated yield\n8123.7 MB\n\n\nComments\nQ30=6,1G=71,2%"
+  },
+  {
+    "objectID": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#description",
+    "href": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#description",
+    "title": "Run 250125_M01834_0148_XYZA2",
+    "section": "Description",
+    "text": "Description\nE. coli outbreak strain characterization from clinical isolates\nCreated by: Lisa Andersson\nLast modified by: Caroline Öhrman on 2025-01-26"
+  },
+  {
+    "objectID": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#assembly-statistics",
+    "href": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#assembly-statistics",
+    "title": "Run 250125_M01834_0148_XYZA2",
+    "section": "Assembly Statistics",
+    "text": "Assembly Statistics"
+  },
+  {
+    "objectID": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#species-identification",
+    "href": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#species-identification",
+    "title": "Run 250125_M01834_0148_XYZA2",
+    "section": "Species Identification",
+    "text": "Species Identification"
+  },
+  {
+    "objectID": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#antimicrobial-resistance",
+    "href": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#antimicrobial-resistance",
+    "title": "Run 250125_M01834_0148_XYZA2",
+    "section": "Antimicrobial Resistance",
+    "text": "Antimicrobial Resistance\n\n\n\n\n\n\n\n\n\n\nAntimicrobial resistance gene detection summary\n\n\nGene\nSamples_Positive\nPrevalence\n\n\n\n\nblaTEM\n3\n16.7\n\n\naac(3)-IV\n10\n55.6\n\n\ntet(A)\n12\n66.7\n\n\nsul1\n16\n88.9\n\n\nqnrS\n15\n83.3\n\n\ndfrA\n7\n38.9\n\n\ncat\n13\n72.2"
+  },
+  {
+    "objectID": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#phylogenetic-analysis",
+    "href": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#phylogenetic-analysis",
+    "title": "Run 250125_M01834_0148_XYZA2",
+    "section": "Phylogenetic Analysis",
+    "text": "Phylogenetic Analysis\n\n\n\nPhylogenetic analysis summary\n\n\nMetric\nValue\n\n\n\n\nCore genome size\n3.3 Mb\n\n\nAccessory genome size\n1.9 Mb\n\n\nPan genome size\n4.4 Mb\n\n\nAverage pairwise SNPs\n562\n\n\nMost distant isolates\n3185"
+  },
+  {
+    "objectID": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#quality-metrics",
+    "href": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#quality-metrics",
+    "title": "Run 250125_M01834_0148_XYZA2",
+    "section": "Quality Metrics",
+    "text": "Quality Metrics\n\n\n\nAssembly Quality Summary\n\n\n\n\n\n\n\n\n\nMean_Genome_Size_Mb\nMean_N50_kb\nMean_Contigs\nMean_Coverage\nSamples_Passed_QC\n\n\n\n\n4.62\n144.7\n45\n75.1\n18"
+  },
+  {
+    "objectID": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#summary",
+    "href": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#summary",
+    "title": "Run 250125_M01834_0148_XYZA2",
+    "section": "Summary",
+    "text": "Summary\n\nTotal isolates processed: 18\nPlatform used: MiSeq\nData yield: 8123.7 MB\nQuality metrics: Q30=6,1G=71,2%\nAnalysis completion: {{ Sys.Date() }}"
+  },
+  {
+    "objectID": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#methods",
+    "href": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#methods",
+    "title": "Run 250125_M01834_0148_XYZA2",
+    "section": "Methods",
+    "text": "Methods\nThis analysis follows the standard FOI bacterial genomics pipeline v1.8:\nQuality control: FastQC v0.11.9, Trimmomatic v0.39\nAssembly: SPAdes v3.15.5\nAnnotation: Prokka v1.14.6\nSpecies identification: ANI calculation with FastANI v1.33\nAMR detection: ABRicate v1.0.1 with ResFinder database\nPhylogenetics: Core genome alignment with Roary v3.13.0\nStatistical analysis: R v4.3.0"
+  },
+  {
+    "objectID": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#files-and-links",
+    "href": "reports/bacteria/250125_M01834_0148_000000000-XYZA2.html#files-and-links",
+    "title": "Run 250125_M01834_0148_XYZA2",
+    "section": "Files and Links",
+    "text": "Files and Links\n\nRaw data: /mnt/storage/sequencing-data/MiSeq_FOI_LAB/250125_M01834_0148_000000000-XYZA2/\nAssemblies: Assembly folder\nAnnotations: Annotation folder\nQC reports: MultiQC Report"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
   },
   {
     "objectID": "index.html",
@@ -18,20 +424,307 @@
     "href": "index.html#latest-reports",
     "title": "FOI-report",
     "section": "Latest reports",
-    "text": "Latest reports\n\n\n\n\n\n\n\n\n\n\nGenomic analysis for Bacteria\n\n\n\nfastqc\n\nassembly\n\ngraphs\n\nphylo\n\n\n\n\nJun 17, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nShotgun Metagenomics sequence report\n\n\n\nkraken2\n\nfastqc\n\n\n\n\nJun 17, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "Latest reports\n\n\n\n\n\n\n\n\n\n\nRun 250125_M01834_0148_XYZA2\n\n\n\nJan 25, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nRun 250208_M01834_0149_BCDE5\n\n\n\nFeb 8, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nRun 250222_M01834_0150_FGHI8\n\n\n\nFeb 22, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html",
+    "href": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html",
+    "title": "Run 250208_M01834_0149_BCDE5",
     "section": "",
-    "text": "About this site"
+    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250208_M01834_0149_000000000-BCDE5\n\n\nDate\n2025-02-08\n\n\nType\nWGS\n\n\nSequenced by\nPeter Karlsson\n\n\nPlatform\nMiSeq\n\n\nSample number\n24\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (24 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n705 K/mm2\n\n\nClusters passed filter\n88.9%\n\n\nEstimated yield\n8567.4 MB\n\n\nComments\nQ30=6,7G=74,6%"
   },
   {
-    "objectID": "reports/bacteria.html",
-    "href": "reports/bacteria.html",
-    "title": "Genomic analysis for Bacteria",
+    "objectID": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#run-information",
+    "href": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#run-information",
+    "title": "Run 250208_M01834_0149_BCDE5",
     "section": "",
-    "text": "General statistics\n\n\n\nFastQC Summary - Sample MI173C\n\n\nMeasure\nR1 (Forward)\nR2 (Reverse)\n\n\n\n\nQC Status\npass\npass\n\n\nFilename\nMI173C_fastp_R1.fastq.gz\nMI173C_fastp_R2.fastq.gz\n\n\nFile type\nConventional base calls\nConventional base calls\n\n\nEncoding\nSanger / Illumina 1.9\nSanger / Illumina 1.9\n\n\nTotal Sequences\n6312369\n6312369\n\n\nTotal Bases\n1.5 Gbp\n1.5 Gbp\n\n\nSequences flagged as poor quality\n0\n0\n\n\nSequence length\n31-301\n31-301\n\n\n%GC\n49\n49\n\n\n\n\n\n# Assembly stats\nWrite something here\n\n\n\nAssembly Statistics - Sample MI173C\n\n\nStatistic\nValue\n\n\n\n\nSample\nMI173C_spades.fasta\n\n\nTotal Assembly Length\n1,776,030 bp\n\n\nNumber of Contigs\n216\n\n\nMean Contig Length\n8,222.4 bp\n\n\nLongest Contig\n37,266 bp\n\n\nShortest Contig\n567 bp\n\n\nN Count\n100\n\n\nGaps\n1\n\n\nN50 Length\n12,729 bp\n\n\nN50 Count\n47\n\n\nN70 Length\n8,591 bp\n\n\nN70 Count\n81\n\n\nN90 Length\n3,961 bp\n\n\nN90 Count\n140"
+    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250208_M01834_0149_000000000-BCDE5\n\n\nDate\n2025-02-08\n\n\nType\nWGS\n\n\nSequenced by\nPeter Karlsson\n\n\nPlatform\nMiSeq\n\n\nSample number\n24\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (24 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n705 K/mm2\n\n\nClusters passed filter\n88.9%\n\n\nEstimated yield\n8567.4 MB\n\n\nComments\nQ30=6,7G=74,6%"
+  },
+  {
+    "objectID": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#description",
+    "href": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#description",
+    "title": "Run 250208_M01834_0149_BCDE5",
+    "section": "Description",
+    "text": "Description\nListeria monocytogenes surveillance from food processing facilities\nCreated by: Peter Karlsson\nLast modified by: Caroline Öhrman on 2025-02-09"
+  },
+  {
+    "objectID": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#assembly-statistics",
+    "href": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#assembly-statistics",
+    "title": "Run 250208_M01834_0149_BCDE5",
+    "section": "Assembly Statistics",
+    "text": "Assembly Statistics"
+  },
+  {
+    "objectID": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#species-identification",
+    "href": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#species-identification",
+    "title": "Run 250208_M01834_0149_BCDE5",
+    "section": "Species Identification",
+    "text": "Species Identification"
+  },
+  {
+    "objectID": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#antimicrobial-resistance",
+    "href": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#antimicrobial-resistance",
+    "title": "Run 250208_M01834_0149_BCDE5",
+    "section": "Antimicrobial Resistance",
+    "text": "Antimicrobial Resistance\n\n\n\n\n\n\n\n\n\n\nAntimicrobial resistance gene detection summary\n\n\nGene\nSamples_Positive\nPrevalence\n\n\n\n\nblaTEM\n16\n66.7\n\n\naac(3)-IV\n19\n79.2\n\n\ntet(A)\n0\n0.0\n\n\nsul1\n14\n58.3\n\n\nqnrS\n6\n25.0\n\n\ndfrA\n21\n87.5\n\n\ncat\n19\n79.2"
+  },
+  {
+    "objectID": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#phylogenetic-analysis",
+    "href": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#phylogenetic-analysis",
+    "title": "Run 250208_M01834_0149_BCDE5",
+    "section": "Phylogenetic Analysis",
+    "text": "Phylogenetic Analysis\n\n\n\nPhylogenetic analysis summary\n\n\nMetric\nValue\n\n\n\n\nCore genome size\n3.8 Mb\n\n\nAccessory genome size\n2.1 Mb\n\n\nPan genome size\n4.5 Mb\n\n\nAverage pairwise SNPs\n968\n\n\nMost distant isolates\n1909"
+  },
+  {
+    "objectID": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#quality-metrics",
+    "href": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#quality-metrics",
+    "title": "Run 250208_M01834_0149_BCDE5",
+    "section": "Quality Metrics",
+    "text": "Quality Metrics\n\n\n\nAssembly Quality Summary\n\n\n\n\n\n\n\n\n\nMean_Genome_Size_Mb\nMean_N50_kb\nMean_Contigs\nMean_Coverage\nSamples_Passed_QC\n\n\n\n\n4.22\n150.7\n46\n76.2\n22"
+  },
+  {
+    "objectID": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#summary",
+    "href": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#summary",
+    "title": "Run 250208_M01834_0149_BCDE5",
+    "section": "Summary",
+    "text": "Summary\n\nTotal isolates processed: 24\nPlatform used: MiSeq\nData yield: 8567.4 MB\nQuality metrics: Q30=6,7G=74,6%\nAnalysis completion: {{ Sys.Date() }}"
+  },
+  {
+    "objectID": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#methods",
+    "href": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#methods",
+    "title": "Run 250208_M01834_0149_BCDE5",
+    "section": "Methods",
+    "text": "Methods\nThis analysis follows the standard FOI bacterial genomics pipeline v1.8:\nQuality control: FastQC v0.11.9, Trimmomatic v0.39\nAssembly: SPAdes v3.15.5\nAnnotation: Prokka v1.14.6\nSpecies identification: ANI calculation with FastANI v1.33\nAMR detection: ABRicate v1.0.1 with ResFinder database\nPhylogenetics: Core genome alignment with Roary v3.13.0\nStatistical analysis: R v4.3.0"
+  },
+  {
+    "objectID": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#files-and-links",
+    "href": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html#files-and-links",
+    "title": "Run 250208_M01834_0149_BCDE5",
+    "section": "Files and Links",
+    "text": "Files and Links\n\nRaw data: /mnt/storage/sequencing-data/MiSeq_FOI_LAB/250208_M01834_0149_000000000-BCDE5/\nAssemblies: Assembly folder\nAnnotations: Annotation folder\nQC reports: MultiQC Report"
+  },
+  {
+    "objectID": "reports/bacteria/index.html",
+    "href": "reports/bacteria/index.html",
+    "title": "Bacterial Genomics Reports",
+    "section": "",
+    "text": "This section contains sequencing reports and analyses for bacterial genomics studies conducted at FOI. Each report represents whole genome sequencing of bacterial isolates with comprehensive genomic characterization."
+  },
+  {
+    "objectID": "reports/bacteria/index.html#overview",
+    "href": "reports/bacteria/index.html#overview",
+    "title": "Bacterial Genomics Reports",
+    "section": "",
+    "text": "This section contains sequencing reports and analyses for bacterial genomics studies conducted at FOI. Each report represents whole genome sequencing of bacterial isolates with comprehensive genomic characterization."
+  },
+  {
+    "objectID": "reports/bacteria/index.html#available-reports",
+    "href": "reports/bacteria/index.html#available-reports",
+    "title": "Bacterial Genomics Reports",
+    "section": "Available Reports",
+    "text": "Available Reports\n\n\n\n\n\nRun ID\nDate\nType\nSamples\nDescription\nReport\n\n\n\n\n250125_M01834_0148_XYZA2\n2025-01-25\nWGS\n18\nE. coli outbreak strain characterization from clin\nView Report\n\n\n250208_M01834_0149_BCDE5\n2025-02-08\nWGS\n24\nListeria monocytogenes surveillance from food proc\nView Report\n\n\n250222_M01834_0150_FGHI8\n2025-02-22\nWGS\n15\nMRSA isolates typing and antimicrobial resistance\nView Report"
+  },
+  {
+    "objectID": "reports/bacteria/index.html#recent-activity",
+    "href": "reports/bacteria/index.html#recent-activity",
+    "title": "Bacterial Genomics Reports",
+    "section": "Recent Activity",
+    "text": "Recent Activity\nThe most recent bacterial genomics analysis was completed on 2025-02-22."
+  },
+  {
+    "objectID": "reports/bacteria/index.html#analysis-pipeline",
+    "href": "reports/bacteria/index.html#analysis-pipeline",
+    "title": "Bacterial Genomics Reports",
+    "section": "Analysis Pipeline",
+    "text": "Analysis Pipeline\nOur bacterial genomics pipeline includes:\n\nQuality Control: FastQC, Trimmomatic\nAssembly: SPAdes\nAnnotation: Prokka\nSpecies Identification: ANI calculation\nAMR Detection: ABRicate, ResFinder\nPhylogenetics: Core genome analysis\nTyping: MLST, cgMLST"
+  },
+  {
+    "objectID": "reports/bacteria/index.html#contact",
+    "href": "reports/bacteria/index.html#contact",
+    "title": "Bacterial Genomics Reports",
+    "section": "Contact",
+    "text": "Contact\nFor questions about bacterial genomics analyses, contact the FOI Bioinformatics Team."
+  },
+  {
+    "objectID": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html",
+    "href": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html",
+    "title": "Run 250203_M01834_0146_PQRS4",
+    "section": "",
+    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250203_M01834_0146_000000000-PQRS4\n\n\nDate\n2025-02-03\n\n\nType\nAmplicon\n\n\nSequenced by\nAnna Bergström\n\n\nPlatform\nMiSeq\n\n\nSample number\n48\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n742 K/mm2\n\n\nClusters passed filter\n91.7%\n\n\nEstimated yield\n9234.8 MB\n\n\nComments\nQ30=7,2G=76,8%"
+  },
+  {
+    "objectID": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#run-information",
+    "href": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#run-information",
+    "title": "Run 250203_M01834_0146_PQRS4",
+    "section": "",
+    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250203_M01834_0146_000000000-PQRS4\n\n\nDate\n2025-02-03\n\n\nType\nAmplicon\n\n\nSequenced by\nAnna Bergström\n\n\nPlatform\nMiSeq\n\n\nSample number\n48\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n742 K/mm2\n\n\nClusters passed filter\n91.7%\n\n\nEstimated yield\n9234.8 MB\n\n\nComments\nQ30=7,2G=76,8%"
+  },
+  {
+    "objectID": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#description",
+    "href": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#description",
+    "title": "Run 250203_M01834_0146_PQRS4",
+    "section": "Description",
+    "text": "Description\nWastewater treatment plant microbial community diversity study\nCreated by: Anna Bergström\nLast modified by: Caroline Öhrman on 2025-02-04\nRaw data location: /mnt/storage/sequencing-data/MiSeq_FOI_LAB/250203_M01834_0146_000000000-PQRS4/"
+  },
+  {
+    "objectID": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#quality-control-results",
+    "href": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#quality-control-results",
+    "title": "Run 250203_M01834_0146_PQRS4",
+    "section": "Quality Control Results",
+    "text": "Quality Control Results"
+  },
+  {
+    "objectID": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#taxonomic-classification",
+    "href": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#taxonomic-classification",
+    "title": "Run 250203_M01834_0146_PQRS4",
+    "section": "Taxonomic Classification",
+    "text": "Taxonomic Classification"
+  },
+  {
+    "objectID": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#alpha-diversity",
+    "href": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#alpha-diversity",
+    "title": "Run 250203_M01834_0146_PQRS4",
+    "section": "Alpha Diversity",
+    "text": "Alpha Diversity\n\n\n\n\n\n\n\n\n\n\nAlpha Diversity Summary Statistics\n\n\nMean_Shannon\nSD_Shannon\nMean_Simpson\nMean_OTUs\n\n\n\n\n3.76\n0.45\n0.828\n506"
+  },
+  {
+    "objectID": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#functional-analysis",
+    "href": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#functional-analysis",
+    "title": "Run 250203_M01834_0146_PQRS4",
+    "section": "Functional Analysis",
+    "text": "Functional Analysis"
+  },
+  {
+    "objectID": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#summary",
+    "href": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#summary",
+    "title": "Run 250203_M01834_0146_PQRS4",
+    "section": "Summary",
+    "text": "Summary\n\nTotal samples processed: 48\nPlatform used: MiSeq\nData yield: 9234.8 MB\nQuality metrics: Q30=7,2G=76,8%\nAnalysis completion: {{ Sys.Date() }}"
+  },
+  {
+    "objectID": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#methods",
+    "href": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#methods",
+    "title": "Run 250203_M01834_0146_PQRS4",
+    "section": "Methods",
+    "text": "Methods\nThis analysis follows the standard FOI metagenomics pipeline v2.1:\nQuality control: FastQC v0.11.9, MultiQC v1.11\nHost removal: BWA-MEM v0.7.17\nTaxonomic classification: Kraken2 v2.1.2, Bracken v2.7\nFunctional analysis: HUMAnN3 v3.0.0\nDiversity analysis: QIIME2 v2023.2\nStatistical analysis: R v4.3.0"
+  },
+  {
+    "objectID": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#files-and-links",
+    "href": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#files-and-links",
+    "title": "Run 250203_M01834_0146_PQRS4",
+    "section": "Files and Links",
+    "text": "Files and Links\n\nRaw data: /mnt/storage/sequencing-data/MiSeq_FOI_LAB/250203_M01834_0146_000000000-PQRS4/\nAnalysis results: Analysis folder\nQC reports: MultiQC Report"
+  },
+  {
+    "objectID": "reports/metagenomics/index.html",
+    "href": "reports/metagenomics/index.html",
+    "title": "Metagenomics Reports",
+    "section": "",
+    "text": "This section contains sequencing reports and analyses for metagenomics studies conducted at FOI. Each report represents a complete sequencing run with associated metadata and analysis results."
+  },
+  {
+    "objectID": "reports/metagenomics/index.html#overview",
+    "href": "reports/metagenomics/index.html#overview",
+    "title": "Metagenomics Reports",
+    "section": "",
+    "text": "This section contains sequencing reports and analyses for metagenomics studies conducted at FOI. Each report represents a complete sequencing run with associated metadata and analysis results."
+  },
+  {
+    "objectID": "reports/metagenomics/index.html#available-reports",
+    "href": "reports/metagenomics/index.html#available-reports",
+    "title": "Metagenomics Reports",
+    "section": "Available Reports",
+    "text": "Available Reports\n\n\n\n\n\nRun ID\nDate\nType\nSamples\nDescription\nReport\n\n\n\n\n250112_M01834_0145_HJKM9\n2025-01-12\nWGS\n32\nSediment microbiome analysis from Baltic Sea monit\nView Report\n\n\n250203_M01834_0146_PQRS4\n2025-02-03\nAmplicon\n48\nWastewater treatment plant microbial community div\nView Report\n\n\n250215_M01834_0147_TUVW7\n2025-02-15\nWGS\n28\nSoil microbiome characterization from organic farm\nView Report"
+  },
+  {
+    "objectID": "reports/metagenomics/index.html#recent-activity",
+    "href": "reports/metagenomics/index.html#recent-activity",
+    "title": "Metagenomics Reports",
+    "section": "Recent Activity",
+    "text": "Recent Activity\nThe most recent metagenomics analysis was completed on 2025-02-15."
+  },
+  {
+    "objectID": "reports/metagenomics/index.html#analysis-pipeline",
+    "href": "reports/metagenomics/index.html#analysis-pipeline",
+    "title": "Metagenomics Reports",
+    "section": "Analysis Pipeline",
+    "text": "Analysis Pipeline\nOur metagenomics pipeline includes:\n\nQuality Control: FastQC, MultiQC\nTaxonomic Classification: Kraken2, Bracken\n\nFunctional Analysis: HUMAnN3\nDiversity Analysis: QIIME2\nAssembly: MEGAHIT, MetaSPAdes\nBinning: MetaBAT2, CONCOCT"
+  },
+  {
+    "objectID": "reports/metagenomics/index.html#contact",
+    "href": "reports/metagenomics/index.html#contact",
+    "title": "Metagenomics Reports",
+    "section": "Contact",
+    "text": "Contact\nFor questions about metagenomics analyses, contact the FOI Bioinformatics Team."
+  },
+  {
+    "objectID": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html",
+    "href": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html",
+    "title": "Run 250214_M01834_0152_NOPQ6",
+    "section": "",
+    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250214_M01834_0152_000000000-NOPQ6\n\n\nDate\n2025-02-14\n\n\nType\nWGS\n\n\nSequenced by\nHelena Olsson\n\n\nPlatform\nMiSeq\n\n\nSample number\n36\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n711 K/mm2\n\n\nClusters passed filter\n89.7%\n\n\nEstimated yield\n8834.9 MB\n\n\nComments\nQ30=6,9G=75,2%"
+  },
+  {
+    "objectID": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#run-information",
+    "href": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#run-information",
+    "title": "Run 250214_M01834_0152_NOPQ6",
+    "section": "",
+    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250214_M01834_0152_000000000-NOPQ6\n\n\nDate\n2025-02-14\n\n\nType\nWGS\n\n\nSequenced by\nHelena Olsson\n\n\nPlatform\nMiSeq\n\n\nSample number\n36\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n711 K/mm2\n\n\nClusters passed filter\n89.7%\n\n\nEstimated yield\n8834.9 MB\n\n\nComments\nQ30=6,9G=75,2%"
+  },
+  {
+    "objectID": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#description",
+    "href": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#description",
+    "title": "Run 250214_M01834_0152_NOPQ6",
+    "section": "Description",
+    "text": "Description\nSARS-CoV-2 variant monitoring from wastewater samples\nCreated by: Helena Olsson\nLast modified by: Caroline Öhrman on 2025-02-15"
+  },
+  {
+    "objectID": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#viral-detection-and-abundance",
+    "href": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#viral-detection-and-abundance",
+    "title": "Run 250214_M01834_0152_NOPQ6",
+    "section": "Viral Detection and Abundance",
+    "text": "Viral Detection and Abundance"
+  },
+  {
+    "objectID": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#consensus-genome-assembly",
+    "href": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#consensus-genome-assembly",
+    "title": "Run 250214_M01834_0152_NOPQ6",
+    "section": "Consensus Genome Assembly",
+    "text": "Consensus Genome Assembly"
+  },
+  {
+    "objectID": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#variant-analysis",
+    "href": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#variant-analysis",
+    "title": "Run 250214_M01834_0152_NOPQ6",
+    "section": "Variant Analysis",
+    "text": "Variant Analysis"
+  },
+  {
+    "objectID": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#phylogenetic-analysis",
+    "href": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#phylogenetic-analysis",
+    "title": "Run 250214_M01834_0152_NOPQ6",
+    "section": "Phylogenetic Analysis",
+    "text": "Phylogenetic Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPhylogenetic cluster assignments\n\n\nSample\nCluster\nDistance_to_Reference\n\n\n\n\nSample_01\nCluster 4\n0.0067\n\n\nSample_02\nCluster 3\n0.0727\n\n\nSample_03\nCluster 4\n0.0557\n\n\nSample_04\nCluster 4\n0.0689\n\n\nSample_05\nCluster 3\n0.0692\n\n\nSample_06\nCluster 3\n0.0899\n\n\nSample_07\nCluster 3\n0.0546\n\n\nSample_08\nCluster 3\n0.0406\n\n\nSample_09\nCluster 2\n0.0311\n\n\nSample_10\nCluster 1\n0.0298\n\n\nSample_11\nCluster 3\n0.0505\n\n\nSample_12\nCluster 1\n0.0543\n\n\nSample_13\nCluster 3\n0.0429\n\n\nSample_14\nCluster 4\n0.0443\n\n\nSample_15\nCluster 2\n0.0252\n\n\nSample_16\nCluster 4\n0.0699\n\n\nSample_17\nCluster 1\n0.0687\n\n\nSample_18\nCluster 1\n0.0237\n\n\nSample_20\nCluster 4\n0.0488\n\n\nSample_21\nCluster 3\n0.0412\n\n\nSample_22\nCluster 3\n0.0552\n\n\nSample_23\nCluster 2\n0.0707\n\n\nSample_24\nCluster 2\n0.0859\n\n\nSample_25\nCluster 1\n0.0173\n\n\nSample_26\nCluster 2\n0.0547\n\n\nSample_27\nCluster 2\n0.0384\n\n\nSample_28\nCluster 1\n0.0514\n\n\nSample_29\nCluster 4\n0.0768\n\n\nSample_30\nCluster 2\n0.0422\n\n\nSample_31\nCluster 1\n0.0520\n\n\nSample_32\nCluster 3\n0.0550\n\n\nSample_33\nCluster 2\n0.0550\n\n\nSample_34\nCluster 1\n0.0730\n\n\nSample_35\nCluster 2\n0.0648\n\n\nSample_36\nCluster 3\n0.0550"
+  },
+  {
+    "objectID": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#summary",
+    "href": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#summary",
+    "title": "Run 250214_M01834_0152_NOPQ6",
+    "section": "Summary",
+    "text": "Summary\n\nTotal samples processed: 36\nSamples with viral detection: 35\nConsensus genomes assembled: 35\nPlatform used: MiSeq\nData yield: 8834.9 MB\nQuality metrics: Q30=6,9G=75,2%"
+  },
+  {
+    "objectID": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#methods",
+    "href": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#methods",
+    "title": "Run 250214_M01834_0152_NOPQ6",
+    "section": "Methods",
+    "text": "Methods\nThis analysis follows the standard FOI viral genomics pipeline v1.5:\nQuality control: FastQC v0.11.9, Trimmomatic v0.39\nHost removal: BWA-MEM v0.7.17\nViral detection: BLAST+ v2.13.0\nConsensus assembly: iVar v1.3.1\nVariant calling: LoFreq v2.1.5\nPhylogenetics: IQ-TREE v2.2.0\nStatistical analysis: R v4.3.0"
+  },
+  {
+    "objectID": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#files-and-links",
+    "href": "reports/virus/250214_M01834_0152_000000000-NOPQ6.html#files-and-links",
+    "title": "Run 250214_M01834_0152_NOPQ6",
+    "section": "Files and Links",
+    "text": "Files and Links\n\nRaw data: /mnt/storage/sequencing-data/MiSeq_FOI_LAB/250214_M01834_0152_000000000-NOPQ6/\nConsensus genomes: Genomes folder\nVariant calls: Variants folder\nQC reports: MultiQC Report"
   }
 ]
