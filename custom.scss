@@ -1,18 +1,45 @@
 /*-- scss:defaults --*/
-$primary: #2E86AB;
-$secondary: #A23B72;
-$body-bg: #ffffff;
-$table-striped-bg: #f8f9fa;
-$table-hover-bg: rgb(23, 8, 56);
+
+/*-- scss:defaults --*/
+$foi-blue: #1F2945; // FOI Blå (primary)
+$foi-light-blue: #1C96D1; // FOI Ljusblå (secondary) 
+$foi-red: #9F2842; // FOI Röd (tertiary)
+$foi-gray: #76777A; // FOI Grå
+$foi-green: #979600; // FOI Grön  
+$foi-purple: #6C3B5D; // FOI Lila
+
+$body-bg: rgb(255, 255, 255);
+$table-striped-bg: rgb(244, 244, 244);
+$table-hover-bg: var(--bs-secondary);
 
 /*-- scss:rules --*/
+:root {
+    --foi-blue: #{$foi-blue};
+    --foi-light-blue: #{$foi-light-blue};
+    --foi-red: #{$foi-red};
+    --foi-gray: #{$foi-gray};
+    --foi-green: #{$foi-green};
+    --foi-purple: #{$foi-purple};
+
+    --primary-color: var(--foi-blue);
+    --secondary-color: var(--foi-light-blue);
+    --tertiary-color: var(--foi-red);
+    --text-dark: #212529;
+    --text-light: #ffffff;
+}
+
+
+/*-- scss:rules --*/
+
 .table {
     font-size: 0.9rem;
 }
 
-.table th {
-    background-color: $primary;
-    color: white;
+.table th,
+.table thead th {
+    background-color: #1C96D1 !important;
+    /* Fallback color */
+    color: var(--bs-primary, #212529) !important;
     font-weight: bold;
 }
 
@@ -28,5 +55,29 @@ $table-hover-bg: rgb(23, 8, 56);
 h1,
 h2,
 h3 {
-    color: $primary;
+    color: var(--bs-primary);
+}
+
+/* Table of Contents - "On this page" */
+.toc-title {
+    color: var(--foi-blue) !important;
+    font-weight: bold;
+}
+
+.table-of-contents {
+    border-left: 3px solid var(--foi-light-blue);
+}
+
+.table-of-contents a {
+    color: var(--foi-blue) !important;
+    text-decoration: none;
+}
+
+.table-of-contents a:hover {
+    color: var(--foi-light-blue) !important;
+}
+
+.table-of-contents .active {
+    color: var(--foi-red) !important;
+    font-weight: bold;
 }

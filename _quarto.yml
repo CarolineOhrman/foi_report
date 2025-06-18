@@ -5,6 +5,7 @@ website:
   title: "FOI-reports"
   description: "Sequence reports"
   navbar:
+    logo: assets/images/foi_logo.jpg
     title: "FOI-reports"
     left:
       - text: Main
@@ -25,10 +26,12 @@ website:
 format:
   html:
     theme:
-      - cosmo
+      - flatly
       - custom.scss
-    css: styles.css
+    # css: styles.css
     toc: true
+    logo: true
+brand: _brand.yml
 
-
-
+execute:
+  freeze: true

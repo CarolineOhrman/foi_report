@@ -1,0 +1,9 @@
+typography:
+  fonts:
+    - family: Open Sans
+      source: google
+
+logo: 
+  images: 
+    light: assets/images/foi_logo.jpg
+    dark:  assets/images/foi_logo.jpg
