@@ -1,0 +1,66 @@
+---
+title: "FOI-reports"
+author: "Caroline Öhrman"
+image: "../assets/images/foi_logo.png"
+format: revealjs
+---
+
+## FOI-report
+
+![](../assets/images/foi_logo.png){width=60%}
+
+```{r}
+#| echo: false
+library(optparse)
+library(emo)
+```
+
+## A true need
+
+I need to develop a reporting strategy for different genomics analysis!
+Could quarto solve this? 
+
+[
+  ![](../assets/images/Skyddsmask.jpg){height="300px"}
+  [source: FOI-bildbank]{.smaller}  
+]{.center}
+
+. . .
+
+
+## Have been a layout focus
+
+<br>
+
+- Reuse metadata by using _quarto.yml custom.scss and _brand.yml
+
+```
+format:
+  html:
+    theme:
+    - flatly
+    - custom.scss
+    toc: true
+brand: _brand.yml
+```
+
+## Plots created by my friend Claude
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[**AI generated**]{style="background-color: #f2d7d5; padding: 5px;"}
+
+- Will work on plotting real data after summer break
+
+::: {.notes}
+Anteckningar här
+:::
+:::
+
+::: {.column width="50%"}
+
+[**Not true data**]{style="background-color: #d0ece7; padding: 5px;"}
+
+
+## 
