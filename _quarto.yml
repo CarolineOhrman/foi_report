@@ -50,5 +50,5 @@ format:
     theme:
     - flatly
     - custom.scss
-    toc: yes
+    toc: true
 brand: _brand.yml

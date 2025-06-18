@@ -12,7 +12,7 @@ about:
 listing:
 - id: report-prev
   contents: 
-    - reports/*.qmd
+    - reports/*/*.qmd
   sort: false
   fields: [image, title, categories, date]
   type: grid
