@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="FOI-bioinformatics">
+<meta name="dcterms.date" content="2025-06-17">
+
+<title>Shotgun Metagenomics sequence report – FOI-reports</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ed617937b0a5763314d31495539f5653.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+<link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="../site_libs/plotly-binding-4.10.4/plotly.js"></script>
+
+<script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+<link href="../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/images/foi_logo.jpg" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">FOI-reports</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Main</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../reports/metagenomics.html" aria-current="page"> 
+<span class="menu-text">Metagenomics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../reports/bacteria.html"> 
+<span class="menu-text">Genomic bacteria</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../reports/bacteria.html"> 
+<span class="menu-text">Genomic virus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#general-statistics" id="toc-general-statistics" class="nav-link active" data-scroll-target="#general-statistics">General statistics</a></li>
+  <li><a href="#classification-with-kraken2" id="toc-classification-with-kraken2" class="nav-link" data-scroll-target="#classification-with-kraken2">Classification with kraken2</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Shotgun Metagenomics sequence report</h1>
+<p class="subtitle lead">Sample summary, statistics and composition</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">kraken2</div>
+    <div class="quarto-category">fastqc</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta column-page-left">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>FOI-bioinformatics </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 17, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="general-statistics" class="level1">
+<h1>General statistics</h1>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>FastQC Summary - Sample MI173C</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Measure</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">R1 (Forward)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">R2 (Reverse)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; width: 60%;">QC Status</td>
+<td style="text-align: center; width: 40%;">pass</td>
+<td style="text-align: center;">pass</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 60%;">Filename</td>
+<td style="text-align: center; width: 40%;">MI173C_fastp_R1.fastq.gz</td>
+<td style="text-align: center;">MI173C_fastp_R2.fastq.gz</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 60%;">File type</td>
+<td style="text-align: center; width: 40%;">Conventional base calls</td>
+<td style="text-align: center;">Conventional base calls</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 60%;">Encoding</td>
+<td style="text-align: center; width: 40%;">Sanger / Illumina 1.9</td>
+<td style="text-align: center;">Sanger / Illumina 1.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 60%; font-weight: bold;">Total Sequences</td>
+<td style="text-align: center; width: 40%; font-weight: bold;">6312369</td>
+<td style="text-align: center; font-weight: bold;">6312369</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 60%;">Total Bases</td>
+<td style="text-align: center; width: 40%;">1.5 Gbp</td>
+<td style="text-align: center;">1.5 Gbp</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 60%;">Sequences flagged as poor quality</td>
+<td style="text-align: center; width: 40%;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 60%;">Sequence length</td>
+<td style="text-align: center; width: 40%;">31-301</td>
+<td style="text-align: center;">31-301</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 60%;">%GC</td>
+<td style="text-align: center; width: 40%;">49</td>
+<td style="text-align: center;">49</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="classification-with-kraken2" class="level1">
+<h1>Classification with kraken2</h1>
+<p>Using plotly to be able to interactively choose taxonomic level</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-8561f8cac59a6904c228" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-8561f8cac59a6904c228">{"x":{"visdat":{"34581b25e12":["function () ","plotlyVisDat"],"345829f952dc":["function () ","data"],"3458635d3d8d":["function () ","data"],"345844546ad":["function () ","data"],"3458378797a":["function () ","data"],"3458418f3d31":["function () ","data"],"3458159945a8":["function () ","data"]},"cur_data":"3458159945a8","attrs":{"345829f952dc":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"bar","orientation":"h","name":"S (Species)","marker":{"color":"#1f77b4"},"visible":true,"hovertemplate":["<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  7257 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  7972 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  8477 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  10117 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  12613 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  12742 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  14609 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  22274 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  33554 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  53346 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  56669 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  58667 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  71373 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  117263 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  826516 <br> Level:  Species <extra><\/extra>"],"inherit":true},"3458635d3d8d":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"bar","orientation":"h","name":"G (Genus)","marker":{"color":"#ff7f0e"},"visible":false,"hovertemplate":["<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  6937 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  7711 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  12491 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  14414 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  16969 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  17578 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  21348 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  30513 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  45024 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  49326 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  52038 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  74193 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  105303 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  117311 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  1560609 <br> Level:  Genus <extra><\/extra>"],"inherit":true},"345844546ad":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"bar","orientation":"h","name":"F (Family)","marker":{"color":"#2ca02c"},"visible":false,"hovertemplate":["<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  3946 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  4844 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  6076 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  6251 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  6785 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  8189 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  10002 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  11451 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  12201 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  21855 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  46374 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  55991 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  105327 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  1012588 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  1710150 <br> Level:  Family <extra><\/extra>"],"inherit":true},"3458378797a":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"bar","orientation":"h","name":"O (Order)","marker":{"color":"#d62728"},"visible":false,"hovertemplate":["<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  3919 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  3991 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  4105 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  4364 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  4549 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  4844 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5906 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  8189 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  11401 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  11482 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  31352 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  56071 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  105327 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  1289747 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  1747870 <br> Level:  Order <extra><\/extra>"],"inherit":true},"3458418f3d31":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"bar","orientation":"h","name":"C (Class)","marker":{"color":"#9467bd"},"visible":false,"hovertemplate":["<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  3393 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  3721 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  4743 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  4785 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5100 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5571 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5606 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5798 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  6156 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  9970 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  13596 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  24263 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  31359 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  58144 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  3932449 <br> Level:  Class <extra><\/extra>"],"inherit":true},"3458159945a8":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"bar","orientation":"h","name":"P (Phylum)","marker":{"color":"#8c564b"},"visible":false,"hovertemplate":["<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  3379 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  3788 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5036 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5258 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5950 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5980 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  6160 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  7231 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  7794 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  13596 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  14117 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  14833 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  31362 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  58873 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  4059872 <br> Level:  Phylum <extra><\/extra>"],"inherit":true}},"layout":{"margin":{"b":40,"l":200,"t":25,"r":150},"title":{"text":"Sample: <b>NA<\/b>","x":0.5},"xaxis":{"domain":[0,1],"automargin":true,"title":"Relative Abundance (%)"},"yaxis":{"domain":[0,1],"automargin":true,"title":"","type":"category","categoryorder":"array","categoryarray":["KS41 sp903873045","KS41 sp903939355","KS41 sp903863905","KS41 sp903905335","Limnohabitans sp903856995","Methylotenera sp903882525","Methylotenera sp903860085","Rugamonas rubra","Planktophila sp903825015","Limnohabitans_A sp903916355","Francisella tularensis","KS41 sp903918335","KS41 sp003584895","Polynucleobacter sp903846025","KS41 sp903910205","Gallionella","Polaromonas","Aquabacterium","Sulfurimonas","Methylobacter_A","UBA10906","Limnohabitans","Rugamonas","Methylotenera","Rhodoferax","Planktophila","Limnohabitans_A","Francisella","Polynucleobacter","KS41","Flavobacteriaceae","Reyranellaceae","Methylococcaceae","Rhodocyclaceae","Moraxellaceae","Legionellaceae","SG8-39","CSP1-6","Gallionellaceae","Sulfurimonadaceae","Methylophilaceae","Nanopelagicaceae","Francisellaceae","Burkholderiaceae","Methylomonadaceae","Steroidobacterales","UBA1565","Flavobacteriales","Bacteroidales","Vicinamibacterales","Reyranellales","Gemmatimonadales","Legionellales","Pseudomonadales","Rokubacteriales","Campylobacterales","Nanopelagicales","Francisellales","Burkholderiales","Methylococcales","Limnocylindria","Chlorobia","Verrucomicrobiae","Vicinamibacteria","Elusimicrobia","Nitrospiria","Koll11","Paceibacteria","Gemmatimonadetes","Bacteroidia","Methylomirabilia","Alphaproteobacteria","Campylobacteria","Actinomycetia","Gammaproteobacteria","Eisenbacteria","Desulfobacterota","Verrucomicrobiota","Elusimicrobiota","Omnitrophota","Nitrospirota","Gemmatimonadota","Chloroflexota","Acidobacteriota","Methylomirabilota","Patescibacteria","Bacteroidota","Campylobacterota","Actinobacteriota","Proteobacteria"]},"updatemenus":[{"active":0,"type":"dropdown","direction":"up","buttons":[{"label":"S (Species)","method":"update","args":[{"visible":[true,false,false,false,false,false]}]},{"label":"G (Genus)","method":"update","args":[{"visible":[false,true,false,false,false,false]}]},{"label":"F (Family)","method":"update","args":[{"visible":[false,false,true,false,false,false]}]},{"label":"O (Order)","method":"update","args":[{"visible":[false,false,false,true,false,false]}]},{"label":"C (Class)","method":"update","args":[{"visible":[false,false,false,false,true,false]}]},{"label":"P (Phylum)","method":"update","args":[{"visible":[false,false,false,false,false,true]}]}],"x":1,"y":0.14999999999999999}],"showlegend":false,"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false,"scrollZoom":false,"doubleClick":false,"displaylogo":false},"data":[{"x":[0.038972258003329367,0.042812021607074785,0.04552402247405582,0.054331312418311045,0.067735578089567774,0.068428346627865899,0.078454694387575963,0.11961803427947616,0.18019500413996328,0.28648395693063372,0.3043294596652435,0.31505931656074465,0.38329433243373667,0.62973734191048802,4.4386378387597878],"y":["KS41 sp903873045","KS41 sp903939355","KS41 sp903863905","KS41 sp903905335","Limnohabitans sp903856995","Methylotenera sp903882525","Methylotenera sp903860085","Rugamonas rubra","Planktophila sp903825015","Limnohabitans_A sp903916355","Francisella tularensis","KS41 sp903918335","KS41 sp003584895","Polynucleobacter sp903846025","KS41 sp903910205"],"type":"bar","orientation":"h","name":"S (Species)","marker":{"color":"#1f77b4","line":{"color":"rgba(31,119,180,1)"}},"visible":true,"hovertemplate":["<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  7257 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  7972 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  8477 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  10117 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  12613 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  12742 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  14609 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  22274 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  33554 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  53346 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  56669 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  58667 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  71373 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  117263 <br> Level:  Species <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  826516 <br> Level:  Species <extra><\/extra>"],"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[0.037253762404450302,0.041410373634239044,0.067080401642495138,0.07740748613200904,0.091128599429309093,0.094399111365925811,0.11464513764021984,0.16386392565186564,0.24179233076228493,0.26489535596971542,0.27945960617021548,0.39843857489885848,0.56550856890238288,0.6299951162503199,8.3809365564720739],"y":["Gallionella","Polaromonas","Aquabacterium","Sulfurimonas","Methylobacter_A","UBA10906","Limnohabitans","Rugamonas","Methylotenera","Rhodoferax","Planktophila","Limnohabitans_A","Francisella","Polynucleobacter","KS41"],"type":"bar","orientation":"h","name":"G (Genus)","marker":{"color":"#ff7f0e","line":{"color":"rgba(255,127,14,1)"}},"visible":false,"hovertemplate":["<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  6937 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  7711 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  12491 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  14414 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  16969 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  17578 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  21348 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  30513 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  45024 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  49326 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  52038 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  74193 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  105303 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  117311 <br> Level:  Genus <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  1560609 <br> Level:  Genus <extra><\/extra>"],"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[0.021191198853677509,0.026013727128031898,0.032629935183716305,0.033569737464353294,0.036437476994982745,0.043977376435064656,0.053713728062463877,0.061495290946138162,0.065523015006010973,0.11736787910469387,0.24904223407005596,0.30068839711511847,0.56563745607229887,5.4379000671179938,9.1840164013219958],"y":["Flavobacteriaceae","Reyranellaceae","Methylococcaceae","Rhodocyclaceae","Moraxellaceae","Legionellaceae","SG8-39","CSP1-6","Gallionellaceae","Sulfurimonadaceae","Methylophilaceae","Nanopelagicaceae","Francisellaceae","Burkholderiaceae","Methylomonadaceae"],"type":"bar","orientation":"h","name":"F (Family)","marker":{"color":"#2ca02c","line":{"color":"rgba(44,160,44,1)"}},"visible":false,"hovertemplate":["<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  3946 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  4844 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  6076 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  6251 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  6785 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  8189 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  10002 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  11451 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  12201 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  21855 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  46374 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  55991 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  105327 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  1012588 <br> Level:  Family <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  1710150 <br> Level:  Family <extra><\/extra>"],"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[0.02104620078752209,0.021432862297269879,0.022045076354370547,0.023435983729713294,0.024429488997815253,0.026013727128031898,0.031716984396811809,0.043977376435064656,0.061226776008813308,0.061661770207279573,0.16836960630017672,0.3011180210148382,0.56563745607229887,6.9263266973983804,9.3865840700398664],"y":["Steroidobacterales","UBA1565","Flavobacteriales","Bacteroidales","Vicinamibacterales","Reyranellales","Gemmatimonadales","Legionellales","Pseudomonadales","Rokubacteriales","Campylobacterales","Nanopelagicales","Francisellales","Burkholderiales","Methylococcales"],"type":"bar","orientation":"h","name":"O (Order)","marker":{"color":"#d62728","line":{"color":"rgba(214,39,40,1)"}},"visible":false,"hovertemplate":["<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  3919 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  3991 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  4105 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  4364 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  4549 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  4844 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5906 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  8189 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  11401 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  11482 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  31352 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  56071 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  105327 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  1289747 <br> Level:  Order <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  1747870 <br> Level:  Order <extra><\/extra>"],"error_y":{"color":"rgba(214,39,40,1)"},"error_x":{"color":"rgba(214,39,40,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[0.018221423646864621,0.019982881635715665,0.025471326954635692,0.025696879501988571,0.027388523607135153,0.029917934316735277,0.030105894772862678,0.031136992132190119,0.033059559083436073,0.053541878502575975,0.073014581757374408,0.13029955848625888,0.1684071983914022,0.31225065031632671,21.118425935363732],"y":["Limnocylindria","Chlorobia","Verrucomicrobiae","Vicinamibacteria","Elusimicrobia","Nitrospiria","Koll11","Paceibacteria","Gemmatimonadetes","Bacteroidia","Methylomirabilia","Alphaproteobacteria","Campylobacteria","Actinomycetia","Gammaproteobacteria"],"type":"bar","orientation":"h","name":"C (Class)","marker":{"color":"#9467bd","line":{"color":"rgba(148,103,189,1)"}},"visible":false,"hovertemplate":["<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  3393 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  3721 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  4743 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  4785 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5100 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5571 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5606 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5798 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  6156 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  9970 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  13596 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  24263 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  31359 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  58144 <br> Level:  Class <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  3932449 <br> Level:  Class <extra><\/extra>"],"error_y":{"color":"rgba(148,103,189,1)"},"error_x":{"color":"rgba(148,103,189,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[0.018146239464413662,0.020342691651730971,0.027044824487359335,0.02823703080908169,0.031953277541657672,0.032114386504052586,0.033081040278422062,0.038832630235920443,0.041856108430198304,0.073014581757374408,0.075812507404299401,0.079657641306791316,0.16842330928764168,0.31616559810252309,21.802725512538625],"y":["Eisenbacteria","Desulfobacterota","Verrucomicrobiota","Elusimicrobiota","Omnitrophota","Nitrospirota","Gemmatimonadota","Chloroflexota","Acidobacteriota","Methylomirabilota","Patescibacteria","Bacteroidota","Campylobacterota","Actinobacteriota","Proteobacteria"],"type":"bar","orientation":"h","name":"P (Phylum)","marker":{"color":"#8c564b","line":{"color":"rgba(140,86,75,1)"}},"visible":false,"hovertemplate":["<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  3379 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  3788 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5036 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5258 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5950 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  5980 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  6160 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  7231 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  7794 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  13596 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  14117 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  14833 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  31362 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  58873 <br> Level:  Phylum <extra><\/extra>","<b>%{y}<\/b><br> Abundance: %{x:.2f}%<br> Read count:  4059872 <br> Level:  Phylum <extra><\/extra>"],"error_y":{"color":"rgba(140,86,75,1)"},"error_x":{"color":"rgba(140,86,75,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<br>
+<br>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>2025 Caroline Öhrman</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Made with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

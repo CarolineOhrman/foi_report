@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "reports/metagenomics.html",
+    "href": "reports/metagenomics.html",
+    "title": "Shotgun Metagenomics sequence report",
+    "section": "",
+    "text": "General statistics\n\n\n\nFastQC Summary - Sample MI173C\n\n\nMeasure\nR1 (Forward)\nR2 (Reverse)\n\n\n\n\nQC Status\npass\npass\n\n\nFilename\nMI173C_fastp_R1.fastq.gz\nMI173C_fastp_R2.fastq.gz\n\n\nFile type\nConventional base calls\nConventional base calls\n\n\nEncoding\nSanger / Illumina 1.9\nSanger / Illumina 1.9\n\n\nTotal Sequences\n6312369\n6312369\n\n\nTotal Bases\n1.5 Gbp\n1.5 Gbp\n\n\nSequences flagged as poor quality\n0\n0\n\n\nSequence length\n31-301\n31-301\n\n\n%GC\n49\n49\n\n\n\n\n\n\n\nClassification with kraken2\nUsing plotly to be able to interactively choose taxonomic level"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "FOI-report",
+    "section": "",
+    "text": "FOI Sequence Analysis Reports The FOI (Swedish Defence Research Agency) Sequence Analysis page provides access to comprehensive reports generated from sequencing runs and analytical pipelines. Here you’ll find quality control metrics, alignment statistics, variant calling results, and performance analytics for each sequence run.\nReports are organized by run date and include executive summaries, detailed technical data, visual analytics, and processing logs. Each report package maintains full traceability from raw sequencing data through final analytical outputs, ensuring data integrity and research reproducibility. Use the filtering options to locate specific runs by project, sample type, or sequencing platform.\nAbout me &gt;"
+  },
+  {
+    "objectID": "index.html#latest-reports",
+    "href": "index.html#latest-reports",
+    "title": "FOI-report",
+    "section": "Latest reports",
+    "text": "Latest reports\n\n\n\n\n\n\n\n\n\n\nGenomic analysis for Bacteria\n\n\n\nfastqc\n\nassembly\n\ngraphs\n\nphylo\n\n\n\n\nJun 17, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nShotgun Metagenomics sequence report\n\n\n\nkraken2\n\nfastqc\n\n\n\n\nJun 17, 2025\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "reports/bacteria.html",
+    "href": "reports/bacteria.html",
+    "title": "Genomic analysis for Bacteria",
+    "section": "",
+    "text": "General statistics\n\n\n\nFastQC Summary - Sample MI173C\n\n\nMeasure\nR1 (Forward)\nR2 (Reverse)\n\n\n\n\nQC Status\npass\npass\n\n\nFilename\nMI173C_fastp_R1.fastq.gz\nMI173C_fastp_R2.fastq.gz\n\n\nFile type\nConventional base calls\nConventional base calls\n\n\nEncoding\nSanger / Illumina 1.9\nSanger / Illumina 1.9\n\n\nTotal Sequences\n6312369\n6312369\n\n\nTotal Bases\n1.5 Gbp\n1.5 Gbp\n\n\nSequences flagged as poor quality\n0\n0\n\n\nSequence length\n31-301\n31-301\n\n\n%GC\n49\n49\n\n\n\n\n\n# Assembly stats\nWrite something here\n\n\n\nAssembly Statistics - Sample MI173C\n\n\nStatistic\nValue\n\n\n\n\nSample\nMI173C_spades.fasta\n\n\nTotal Assembly Length\n1,776,030 bp\n\n\nNumber of Contigs\n216\n\n\nMean Contig Length\n8,222.4 bp\n\n\nLongest Contig\n37,266 bp\n\n\nShortest Contig\n567 bp\n\n\nN Count\n100\n\n\nGaps\n1\n\n\nN50 Length\n12,729 bp\n\n\nN50 Count\n47\n\n\nN70 Length\n8,591 bp\n\n\nN70 Count\n81\n\n\nN90 Length\n3,961 bp\n\n\nN90 Count\n140"
+  }
+]
