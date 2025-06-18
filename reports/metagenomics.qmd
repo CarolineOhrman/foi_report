@@ -17,7 +17,7 @@ image: ../assets/images/nanopore.jpg
 #| message: false
 #| warning: false
 
-library(ggplot2)
+library(kableExtra)
 library(dplyr)
 library(tidyr)
 
@@ -65,110 +65,19 @@ r2_data <- parse_fastqc(
 table_data <- rbind(r1_data, r2_data) %>%
   pivot_wider(names_from = Read, values_from = Value)
 
-# Create full-width table
-n_rows <- nrow(table_data)
-
-p <- ggplot() +
-  theme_void() +
-  labs(title = "FastQC Summary - Sample MI173C") +
-  theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold")) +
-  xlim(0, 100) +
-  ylim(0, n_rows + 2)
-
-# Header
-p <- p +
-  annotate(
-    "rect",
-    xmin = 0,
-    xmax = 100,
-    ymin = n_rows + 0.5,
-    ymax = n_rows + 1.5,
-    fill = "#2E86AB",
-    color = "white"
-  ) +
-  annotate(
-    "text",
-    x = 25,
-    y = n_rows + 1,
-    label = "Measure",
-    color = "white",
-    fontface = "bold",
-    size = 4
-  ) +
-  annotate(
-    "text",
-    x = 60,
-    y = n_rows + 1,
-    label = "R1 (Forward)",
-    color = "white",
-    fontface = "bold",
-    size = 4
-  ) +
-  annotate(
-    "text",
-    x = 85,
-    y = n_rows + 1,
-    label = "R2 (Reverse)",
-    color = "white",
-    fontface = "bold",
-    size = 4
-  )
-
-# Data rows
-for (i in 1:n_rows) {
-  y_pos <- n_rows - i + 1
-  fill_color <- if (i %% 2 == 0) "#F8F9FA" else "white"
-
-  text_color <- "black"
-  if (table_data$Measure[i] == "QC Status") {
-    text_color <- if (
-      table_data$R1[i] == "pass" && table_data$R2[i] == "pass"
-    ) {
-      "#28A745"
-    } else {
-      "#DC3545"
-    }
-  }
-
-  p <- p +
-    annotate(
-      "rect",
-      xmin = 0,
-      xmax = 100,
-      ymin = y_pos - 0.4,
-      ymax = y_pos + 0.4,
-      fill = fill_color,
-      color = "#DEE2E6"
-    ) +
-    annotate(
-      "text",
-      x = 25,
-      y = y_pos,
-      label = table_data$Measure[i],
-      hjust = 0.5,
-      size = 3.5
-    ) +
-    annotate(
-      "text",
-      x = 60,
-      y = y_pos,
-      label = table_data$R1[i],
-      hjust = 0.5,
-      size = 3.5,
-      color = text_color
-    ) +
-    annotate(
-      "text",
-      x = 85,
-      y = y_pos,
-      label = table_data$R2[i],
-      hjust = 0.5,
-      size = 3.5,
-      color = text_color
-    )
-}
-
-print(p)
+# Create simple kable table
+table_data %>%
+  kable(
+    caption = "FastQC Summary - Sample MI173C",
+    col.names = c("Measure", "R1 (Forward)", "R2 (Reverse)"),
+    align = c("l", "c", "c")
+  ) %>%
+  column_spec(1, width = "60%") %>% # Keep structural widths
+  column_spec(2, width = "40%") %>%
+  row_spec(
+    c(5),
+    extra_css = "font-weight: bold"
+  ) # Use CSS variables
 ```
 
 #  Classification with kraken2
