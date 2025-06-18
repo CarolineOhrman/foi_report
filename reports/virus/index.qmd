@@ -28,9 +28,8 @@ runs_table <- data.frame(
   `Type` = sapply(virus_runs, function(x) x$type),
   `Samples` = sapply(virus_runs, function(x) x$sample_number),
   `Description` = sapply(virus_runs, function(x) substr(x$description, 1, 50)),
-  `Report` = sapply(virus_runs, function(x) {
-    paste0("[View Report](", x$id, ".qmd)")
-  }),
+  `Report` = sapply(virus_runs, function(x) 
+    paste0("[View Report](", x$id, ".qmd)")),
   stringsAsFactors = FALSE,
   check.names = FALSE
 )

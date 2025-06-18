@@ -1,7 +1,7 @@
 ---
-title: "Run 250214_M01834_0152_NOPQ6"
+title: "Run 250618_M01834_0152_NOPQ6"
 subtitle: "Viral Genomics Analysis Report"
-date: "2025-02-14"
+date: "2025-06-18"
 author: "FOI Bioinformatics Team"
 image: "../../assets/images/virus.png"
 format:
@@ -28,7 +28,7 @@ library(dplyr)
 
 # Read run metadata
 metadata <- read_yaml("../../data/runs_metadata.yml")
-current_run_id <- "250214_M01834_0152_000000000-NOPQ6"
+current_run_id <- "250618_M01834_0152_000000000-NOPQ6"
 current_run <- NULL
 
 # Find current run in metadata
@@ -79,10 +79,10 @@ kable(run_info, col.names = c("Parameter", "Value"))
 
 ## Description
 
-**SARS-CoV-2 variant monitoring from wastewater samples**
+**Viral infections during RaukR**
 
-**Created by:** Helena Olsson  
-**Last modified by:** Caroline Öhrman on 2025-02-15
+**Created by:** Caroline Öhrman  
+**Last modified by:** Caroline Öhrman on 2025-06-18
 
 ## Viral Detection and Abundance
 
@@ -259,11 +259,11 @@ if (n_assembled >= 3) {
 
 ## Summary
 
-- **Total samples processed:** 36
+- **Total samples processed:** 2
 - **Samples with viral detection:** `r sum(viral_data$Viral_Reads > 100)`
 - **Consensus genomes assembled:** `r if(exists("n_assembled")) n_assembled else 0`
 - **Platform used:** MiSeq
-- **Data yield:** 8834.9 MB
+- **Data yield:** 5000.0 MB
 - **Quality metrics:** Q30=6,9G=75,2%
 
 ## Methods
@@ -281,6 +281,6 @@ This analysis follows the standard FOI viral genomics pipeline v1.5:
 ## Files and Links
 
 - **Raw data:** `/mnt/storage/sequencing-data/MiSeq_FOI_LAB/250214_M01834_0152_000000000-NOPQ6/`
-- **Consensus genomes:** [Genomes folder](../genomes/250214_M01834_0152_000000000-NOPQ6/)
-- **Variant calls:** [Variants folder](../variants/250214_M01834_0152_000000000-NOPQ6/)
-- **QC reports:** [MultiQC Report](../qc/250214_M01834_0152_000000000-NOPQ6_multiqc.html)
+- **Consensus genomes:** [Genomes folder](../genomes/250618_M01834_0152_000000000-NOPQ6/)
+- **Variant calls:** [Variants folder](../variants/250618_M01834_0152_000000000-NOPQ6/)
+- **QC reports:** [MultiQC Report](../qc/250618_M01834_0152_000000000-NOPQ6_multiqc.html)

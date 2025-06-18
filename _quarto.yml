@@ -40,6 +40,8 @@ website:
         href: reports/virus/250130_M01834_0151_000000000-JKLM1.qmd
       - text: 250214_M01834_0152_NOPQ6
         href: reports/virus/250214_M01834_0152_000000000-NOPQ6.qmd
+      - text: 250618_M01834_0152_NOPQ6
+        href: reports/virus/250618_M01834_0152_000000000-NOPQ6.qmd
     - text: About
       href: about.qmd
   page-footer:
@@ -50,5 +52,5 @@ format:
     theme:
     - flatly
     - custom.scss
-    toc: true
+    toc: yes
 brand: _brand.yml

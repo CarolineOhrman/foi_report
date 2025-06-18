@@ -1,57 +1,54 @@
 project:
   type: website
-
 website:
-  title: "FOI-reports"
-  description: "Sequence reports"
+  title: FOI-reports
+  description: Sequence reports
   navbar:
-    logo: "assets/images/foi_logo.jpg"
-    title: "FOI-reports"
+    logo: assets/images/foi_logo.jpg
+    title: FOI-reports
     left:
-      - text: Main
-        href: index.qmd
-      - text: Metagenomics
-        menu:
-          - text: "Overview"
-            href: reports/metagenomics/index.qmd
-          - text: "---"  # separator
-          - text: "241031_M01726_0102_LKTV7"
-            href: reports/metagenomics/241031_M01726_0102_000000000-LKTV7.qmd
-          - text: "241205_M01726_0103_WXYZ1" 
-            href: reports/metagenomics/241205_M01726_0103_000000000-WXYZ1.qmd
-          - text: "241218_M01726_0104_ABCD2"
-            href: reports/metagenomics/241218_M01726_0104_000000000-ABCD2.qmd
-      - text: Genomic Bacteria
-        menu:
-          - text: "Overview"
-            href: reports/bacteria/index.qmd
-          - text: "---"
-          - text: "241110_M01726_0105_EFGH3"
-            href: reports/bacteria/241110_M01726_0105_000000000-EFGH3.qmd
-          - text: "241125_M01726_0106_IJKL4"
-            href: reports/bacteria/241125_M01726_0106_000000000-IJKL4.qmd
-          - text: "241210_M01726_0107_MNOP5"
-            href: reports/bacteria/241210_M01726_0107_000000000-MNOP5.qmd
-      - text: Genomic Virus
-        menu:
-          - text: "Overview"
-            href: reports/virus/index.qmd
-          - text: "---"
-          - text: "241115_M01726_0108_QRST6"
-            href: reports/virus/241115_M01726_0108_000000000-QRST6.qmd
-          - text: "241222_M01726_0109_UVWX7"
-            href: reports/virus/241222_M01726_0109_000000000-UVWX7.qmd
-      - text: About
-        href: about.qmd
+    - text: Main
+      href: index.qmd
+    - text: Metagenomics
+      menu:
+      - text: Overview
+        href: reports/metagenomics/index.qmd
+      - text: '---'
+      - text: 250112_M01834_0145_HJKM9
+        href: reports/metagenomics/250112_M01834_0145_000000000-HJKM9.qmd
+      - text: 250203_M01834_0146_PQRS4
+        href: reports/metagenomics/250203_M01834_0146_000000000-PQRS4.qmd
+      - text: 250215_M01834_0147_TUVW7
+        href: reports/metagenomics/250215_M01834_0147_000000000-TUVW7.qmd
+    - text: Genomic Bacteria
+      menu:
+      - text: Overview
+        href: reports/bacteria/index.qmd
+      - text: '---'
+      - text: 250125_M01834_0148_XYZA2
+        href: reports/bacteria/250125_M01834_0148_000000000-XYZA2.qmd
+      - text: 250208_M01834_0149_BCDE5
+        href: reports/bacteria/250208_M01834_0149_000000000-BCDE5.qmd
+      - text: 250222_M01834_0150_FGHI8
+        href: reports/bacteria/250222_M01834_0150_000000000-FGHI8.qmd
+    - text: Genomic Virus
+      menu:
+      - text: Overview
+        href: reports/virus/index.qmd
+      - text: '---'
+      - text: 250130_M01834_0151_JKLM1
+        href: reports/virus/250130_M01834_0151_000000000-JKLM1.qmd
+      - text: 250214_M01834_0152_NOPQ6
+        href: reports/virus/250214_M01834_0152_000000000-NOPQ6.qmd
+    - text: About
+      href: about.qmd
   page-footer:
     left: 2025 Caroline Öhrman
     right: Made with [Quarto](https://quarto.org)
-
 format:
   html:
     theme:
-      - flatly
-      - custom.scss
+    - flatly
+    - custom.scss
     toc: true
-
 brand: _brand.yml

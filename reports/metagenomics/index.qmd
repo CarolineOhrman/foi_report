@@ -27,12 +27,9 @@ runs_table <- data.frame(
   `Date` = sapply(metagenomics_runs, function(x) x$date),
   `Type` = sapply(metagenomics_runs, function(x) x$type),
   `Samples` = sapply(metagenomics_runs, function(x) x$sample_number),
-  `Description` = sapply(metagenomics_runs, function(x) {
-    substr(x$description, 1, 50)
-  }),
-  `Report` = sapply(metagenomics_runs, function(x) {
-    paste0("[View Report](", x$id, ".qmd)")
-  }),
+  `Description` = sapply(metagenomics_runs, function(x) substr(x$description, 1, 50)),
+  `Report` = sapply(metagenomics_runs, function(x) 
+    paste0("[View Report](", x$id, ".qmd)")),
   stringsAsFactors = FALSE,
   check.names = FALSE
 )

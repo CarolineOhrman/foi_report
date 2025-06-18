@@ -3,6 +3,7 @@ title: "Run 250112_M01834_0145_HJKM9"
 subtitle: "Metagenomics Analysis Report"
 date: "2025-01-12"
 author: "FOI Bioinformatics Team"
+image: "../../assets/images/meta.png"
 format:
   html:
     code-fold: true
@@ -12,8 +13,9 @@ execute:
   warning: false
   message: false
 freeze: true
-image: ../../assets/images/meta.png
 ---
+
+![Metagenomics Analysis](../../assets/images/meta.png){fig-align="center" width="300px"}
 
 ```{r setup}
 #| include: false
@@ -53,19 +55,10 @@ if (is.null(current_run)) {
 # Create run info table
 run_info <- data.frame(
   Parameter = c(
-    "Run ID",
-    "Date",
-    "Type",
-    "Sequenced by",
-    "Platform",
-    "Sample number",
-    "Library layout",
-    "Library kit",
-    "Sequencing kit",
-    "Cluster density",
-    "Clusters passed filter",
-    "Estimated yield",
-    "Comments"
+    "Run ID", "Date", "Type", "Sequenced by", "Platform", 
+    "Sample number", "Library layout", "Library kit", 
+    "Sequencing kit", "Cluster density", "Clusters passed filter",
+    "Estimated yield", "Comments"
   ),
   Value = c(
     current_run$id,
@@ -105,7 +98,7 @@ kable(run_info, col.names = c("Parameter", "Value"))
 #| fig-height: 6
 
 # Generate realistic quality control data based on run parameters
-set.seed(as.numeric(as.Date(current_run$date))) # Reproducible but unique per run
+set.seed(as.numeric(as.Date(current_run$date)))  # Reproducible but unique per run
 sample_count <- as.numeric(current_run$sample_number)
 
 qc_data <- data.frame(
@@ -117,17 +110,10 @@ qc_data <- data.frame(
 
 # Read count distribution
 p1 <- ggplot(qc_data, aes(x = Read_Count)) +
-  geom_histogram(
-    bins = max(8, min(15, sample_count / 3)),
-    fill = "steelblue",
-    alpha = 0.7,
-    color = "white"
-  ) +
-  labs(
-    title = "Read Count Distribution",
-    x = "Number of Reads",
-    y = "Frequency"
-  ) +
+  geom_histogram(bins = max(8, min(15, sample_count/3)), 
+                 fill = "steelblue", alpha = 0.7, color = "white") +
+  labs(title = "Read Count Distribution", 
+       x = "Number of Reads", y = "Frequency") +
   theme_minimal() +
   scale_x_continuous(labels = scales::comma)
 
@@ -135,12 +121,9 @@ p1 <- ggplot(qc_data, aes(x = Read_Count)) +
 p2 <- ggplot(qc_data, aes(x = Sample, y = Q30_Score)) +
   geom_col(fill = "darkgreen", alpha = 0.7) +
   geom_hline(yintercept = 80, color = "red", linetype = "dashed", alpha = 0.7) +
-  labs(
-    title = "Q30 Scores by Sample",
-    x = "Sample",
-    y = "Q30 Score (%)",
-    caption = "Red line indicates Q30 = 80% threshold"
-  ) +
+  labs(title = "Q30 Scores by Sample", 
+       x = "Sample", y = "Q30 Score (%)",
+       caption = "Red line indicates Q30 = 80% threshold") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
@@ -157,32 +140,22 @@ print(p2)
 set.seed(as.numeric(as.Date(current_run$date)) + 1)
 
 taxonomy_data <- data.frame(
-  Phylum = c(
-    "Proteobacteria",
-    "Bacteroidetes",
-    "Firmicutes",
-    "Actinobacteria",
-    "Planctomycetes",
-    "Verrucomicrobia",
-    "Others"
-  ),
+  Phylum = c("Proteobacteria", "Bacteroidetes", "Firmicutes", 
+             "Actinobacteria", "Planctomycetes", "Verrucomicrobia", "Others"),
   Relative_Abundance = c(0.32, 0.25, 0.18, 0.12, 0.06, 0.04, 0.03),
   Read_Count = c(576000, 450000, 324000, 216000, 108000, 72000, 54000)
 ) %>%
   arrange(desc(Relative_Abundance))
 
 # Add some random variation
-taxonomy_data$Relative_Abundance <- taxonomy_data$Relative_Abundance *
+taxonomy_data$Relative_Abundance <- taxonomy_data$Relative_Abundance * 
   runif(nrow(taxonomy_data), 0.8, 1.2)
-taxonomy_data$Relative_Abundance <- taxonomy_data$Relative_Abundance /
+taxonomy_data$Relative_Abundance <- taxonomy_data$Relative_Abundance / 
   sum(taxonomy_data$Relative_Abundance)
 taxonomy_data$Read_Count <- round(taxonomy_data$Relative_Abundance * 1800000)
 
 # Taxonomy pie chart
-p3 <- ggplot(
-  taxonomy_data,
-  aes(x = "", y = Relative_Abundance, fill = Phylum)
-) +
+p3 <- ggplot(taxonomy_data, aes(x = "", y = Relative_Abundance, fill = Phylum)) +
   geom_bar(stat = "identity", width = 1) +
   coord_polar("y", start = 0) +
   labs(title = "Taxonomic Composition at Phylum Level") +
@@ -193,19 +166,11 @@ p3 <- ggplot(
 print(p3)
 
 # Taxonomy table
-datatable(
-  taxonomy_data,
-  caption = "Taxonomic classification results",
-  options = list(pageLength = 10, scrollX = TRUE)
-) %>%
+datatable(taxonomy_data, 
+          caption = "Taxonomic classification results",
+          options = list(pageLength = 10, scrollX = TRUE)) %>%
   formatPercentage("Relative_Abundance", 1) %>%
-  formatCurrency(
-    "Read_Count",
-    currency = "",
-    interval = 3,
-    mark = ",",
-    digits = 0
-  )
+  formatCurrency("Read_Count", currency = "", interval = 3, mark = ",", digits = 0)
 ```
 
 ## Alpha Diversity
@@ -227,18 +192,11 @@ alpha_div <- data.frame(
 p4 <- ggplot(alpha_div, aes(x = Sample, y = Shannon)) +
   geom_point(color = "red", size = 3, alpha = 0.8) +
   geom_line(aes(group = 1), color = "red", alpha = 0.5) +
-  geom_hline(
-    yintercept = mean(alpha_div$Shannon),
-    color = "blue",
-    linetype = "dashed",
-    alpha = 0.7
-  ) +
-  labs(
-    title = "Shannon Diversity Index",
-    x = "Sample",
-    y = "Shannon Index",
-    caption = "Blue line shows mean diversity"
-  ) +
+  geom_hline(yintercept = mean(alpha_div$Shannon), 
+             color = "blue", linetype = "dashed", alpha = 0.7) +
+  labs(title = "Shannon Diversity Index", 
+       x = "Sample", y = "Shannon Index",
+       caption = "Blue line shows mean diversity") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
@@ -267,7 +225,7 @@ set.seed(as.numeric(as.Date(current_run$date)) + 3)
 functional_data <- data.frame(
   Pathway = c(
     "Carbohydrate metabolism",
-    "Amino acid metabolism",
+    "Amino acid metabolism", 
     "Energy metabolism",
     "Nucleotide metabolism",
     "Lipid metabolism",
@@ -281,17 +239,11 @@ functional_data <- data.frame(
   arrange(desc(Abundance))
 
 # Functional abundance plot
-p5 <- ggplot(
-  functional_data,
-  aes(x = reorder(Pathway, Abundance), y = Abundance)
-) +
+p5 <- ggplot(functional_data, aes(x = reorder(Pathway, Abundance), y = Abundance)) +
   geom_col(fill = "orange", alpha = 0.8) +
   coord_flip() +
-  labs(
-    title = "Functional Pathway Abundance",
-    x = "Pathway",
-    y = "Relative Abundance"
-  ) +
+  labs(title = "Functional Pathway Abundance", 
+       x = "Pathway", y = "Relative Abundance") +
   theme_minimal() +
   scale_y_continuous(labels = scales::percent)
 

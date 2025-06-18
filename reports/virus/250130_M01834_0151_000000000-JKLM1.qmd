@@ -3,6 +3,7 @@ title: "Run 250130_M01834_0151_JKLM1"
 subtitle: "Viral Genomics Analysis Report"
 date: "2025-01-30"
 author: "FOI Bioinformatics Team"
+image: "../../assets/images/virus.png"
 format:
   html:
     code-fold: true
@@ -12,8 +13,9 @@ execute:
   warning: false
   message: false
 freeze: true
-image: ../../assets/images/virus.png
 ---
+
+![Viral Genomics](../../assets/images/virus.png){fig-align="center" width="300px"}
 
 ```{r setup}
 #| include: false
@@ -49,19 +51,10 @@ for (category in names(metadata$runs)) {
 # Create run info table
 run_info <- data.frame(
   Parameter = c(
-    "Run ID",
-    "Date",
-    "Type",
-    "Sequenced by",
-    "Platform",
-    "Sample number",
-    "Library layout",
-    "Library kit",
-    "Sequencing kit",
-    "Cluster density",
-    "Clusters passed filter",
-    "Estimated yield",
-    "Comments"
+    "Run ID", "Date", "Type", "Sequenced by", "Platform", 
+    "Sample number", "Library layout", "Library kit", 
+    "Sequencing kit", "Cluster density", "Clusters passed filter",
+    "Estimated yield", "Comments"
   ),
   Value = c(
     current_run$id,
@@ -110,34 +103,23 @@ viral_data <- data.frame(
   Ct_Value = pmax(15, pmin(40, rnorm(sample_count, 28, 4)))
 )
 
-viral_data$Viral_Percentage <- viral_data$Viral_Reads /
-  (viral_data$Viral_Reads + viral_data$Host_Reads) *
-  100
+viral_data$Viral_Percentage <- viral_data$Viral_Reads / 
+  (viral_data$Viral_Reads + viral_data$Host_Reads) * 100
 
 # Viral abundance distribution
 p1 <- ggplot(viral_data, aes(x = Viral_Percentage)) +
-  geom_histogram(
-    bins = max(8, min(12, sample_count / 3)),
-    fill = "purple",
-    alpha = 0.7,
-    color = "white"
-  ) +
-  labs(
-    title = "Viral Read Percentage Distribution",
-    x = "Viral Reads (%)",
-    y = "Frequency"
-  ) +
+  geom_histogram(bins = max(8, min(12, sample_count/3)), 
+                 fill = "purple", alpha = 0.7, color = "white") +
+  labs(title = "Viral Read Percentage Distribution", 
+       x = "Viral Reads (%)", y = "Frequency") +
   theme_minimal()
 
 # Ct values vs viral reads
 p2 <- ggplot(viral_data, aes(x = Ct_Value, y = log10(Viral_Reads + 1))) +
   geom_point(alpha = 0.7, color = "red", size = 3) +
   geom_smooth(method = "lm", se = TRUE, color = "blue", alpha = 0.3) +
-  labs(
-    title = "Ct Values vs Viral Read Count",
-    x = "Ct Value",
-    y = "Log10(Viral Reads + 1)"
-  ) +
+  labs(title = "Ct Values vs Viral Read Count", 
+       x = "Ct Value", y = "Log10(Viral Reads + 1)") +
   theme_minimal()
 
 print(p1)
@@ -164,36 +146,25 @@ if (n_assembled > 0) {
     N_Count = pmax(0, round(rnorm(n_assembled, 200, 150))),
     Assembly_Quality = ifelse(rnorm(n_assembled) > 0, "High", "Medium")
   )
-
+  
   # Coverage distribution
   p3 <- ggplot(consensus_data, aes(x = Genome_Coverage)) +
     geom_histogram(bins = 8, fill = "darkgreen", alpha = 0.7, color = "white") +
     geom_vline(xintercept = 90, color = "red", linetype = "dashed") +
-    labs(
-      title = "Genome Coverage Distribution",
-      x = "Genome Coverage (%)",
-      y = "Frequency",
-      caption = "Red line: 90% coverage threshold"
-    ) +
+    labs(title = "Genome Coverage Distribution", 
+         x = "Genome Coverage (%)", y = "Frequency",
+         caption = "Red line: 90% coverage threshold") +
     theme_minimal()
-
+  
   print(p3)
-
+  
   # Assembly statistics table
-  datatable(
-    consensus_data,
-    caption = paste(
-      "Consensus genome assembly results (",
-      n_assembled,
-      " samples)"
-    ),
-    options = list(pageLength = 10, scrollX = TRUE)
-  ) %>%
+  datatable(consensus_data, 
+            caption = paste("Consensus genome assembly results (", n_assembled, " samples)"),
+            options = list(pageLength = 10, scrollX = TRUE)) %>%
     formatRound(c("Genome_Coverage", "Mean_Depth"), 1)
 } else {
-  cat(
-    "No samples had sufficient viral reads for consensus assembly (threshold: 1000 reads)\n"
-  )
+  cat("No samples had sufficient viral reads for consensus assembly (threshold: 1000 reads)\n")
 }
 ```
 
@@ -205,7 +176,7 @@ if (n_assembled > 0) {
 # Generate variant calling results
 if (n_assembled > 0) {
   set.seed(as.numeric(as.Date(current_run$date)) + 2)
-
+  
   variant_summary <- data.frame(
     Sample = consensus_data$Sample,
     Total_Variants = pmax(0, round(rnorm(n_assembled, 15, 8))),
@@ -213,35 +184,26 @@ if (n_assembled > 0) {
     Indels = pmax(0, round(rnorm(n_assembled, 3, 2))),
     Novel_Variants = pmax(0, round(rnorm(n_assembled, 2, 2)))
   )
-
+  
   # Variant distribution
   variant_long <- variant_summary %>%
     select(Sample, SNPs, Indels) %>%
-    tidyr::pivot_longer(
-      cols = c(SNPs, Indels),
-      names_to = "Type",
-      values_to = "Count"
-    )
-
+    tidyr::pivot_longer(cols = c(SNPs, Indels), names_to = "Type", values_to = "Count")
+  
   p4 <- ggplot(variant_long, aes(x = Sample, y = Count, fill = Type)) +
     geom_col(alpha = 0.8) +
-    labs(
-      title = "Variant Distribution by Sample",
-      x = "Sample",
-      y = "Number of Variants"
-    ) +
+    labs(title = "Variant Distribution by Sample", 
+         x = "Sample", y = "Number of Variants") +
     theme_minimal() +
     theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
     scale_fill_manual(values = c("SNPs" = "blue", "Indels" = "red"))
-
+  
   print(p4)
-
+  
   # Variant summary table
-  datatable(
-    variant_summary,
-    caption = "Variant calling summary",
-    options = list(pageLength = 10, scrollX = TRUE)
-  )
+  datatable(variant_summary, 
+            caption = "Variant calling summary",
+            options = list(pageLength = 10, scrollX = TRUE))
 } else {
   cat("No variant analysis performed due to insufficient assembly quality\n")
 }
@@ -255,52 +217,40 @@ if (n_assembled > 0) {
 # Generate phylogenetic clustering results
 if (n_assembled >= 3) {
   set.seed(as.numeric(as.Date(current_run$date)) + 3)
-
+  
   # Assign samples to clusters
-  n_clusters <- min(4, max(2, round(n_assembled / 5)))
+  n_clusters <- min(4, max(2, round(n_assembled/5)))
   cluster_assignments <- data.frame(
     Sample = consensus_data$Sample,
-    Cluster = paste(
-      "Cluster",
-      sample(1:n_clusters, n_assembled, replace = TRUE)
-    ),
+    Cluster = paste("Cluster", sample(1:n_clusters, n_assembled, replace = TRUE)),
     Distance_to_Reference = round(rnorm(n_assembled, 0.05, 0.02), 4)
   )
-
+  
   # Cluster distribution
   cluster_counts <- table(cluster_assignments$Cluster)
   cluster_df <- data.frame(
     Cluster = names(cluster_counts),
     Count = as.numeric(cluster_counts)
   )
-
+  
   p5 <- ggplot(cluster_df, aes(x = Cluster, y = Count)) +
     geom_col(fill = "orange", alpha = 0.8) +
-    labs(
-      title = "Phylogenetic Cluster Distribution",
-      x = "Cluster",
-      y = "Number of Samples"
-    ) +
+    labs(title = "Phylogenetic Cluster Distribution", 
+         x = "Cluster", y = "Number of Samples") +
     theme_minimal()
-
+  
   print(p5)
-
+  
   # Distance to reference plot
-  p6 <- ggplot(
-    cluster_assignments,
-    aes(x = Cluster, y = Distance_to_Reference)
-  ) +
+  p6 <- ggplot(cluster_assignments, aes(x = Cluster, y = Distance_to_Reference)) +
     geom_boxplot(fill = "lightblue", alpha = 0.7) +
     geom_jitter(width = 0.2, alpha = 0.6) +
-    labs(
-      title = "Genetic Distance to Reference by Cluster",
-      x = "Cluster",
-      y = "Distance to Reference"
-    ) +
+    labs(title = "Genetic Distance to Reference by Cluster", 
+         x = "Cluster", y = "Distance to Reference") +
     theme_minimal()
-
+  
   print(p6)
-
+  
   kable(cluster_assignments, caption = "Phylogenetic cluster assignments")
 } else {
   cat("Insufficient samples for phylogenetic analysis (minimum: 3)\n")
