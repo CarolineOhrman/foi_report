@@ -2,4 +2,4 @@
 title: "About"
 ---
 
-About this site
+- [RaukR 2025 project](slides/presentation.qmd)
