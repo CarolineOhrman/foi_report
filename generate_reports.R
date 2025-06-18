@@ -40,6 +40,7 @@ title: "Run {run$display_name}"
 subtitle: "Metagenomics Analysis Report"
 date: "{run$date}"
 author: "FOI Bioinformatics Team"
+image: "../../assets/images/meta.png"
 format:
   html:
     code-fold: true
@@ -50,6 +51,8 @@ execute:
   message: false
 freeze: true
 ---
+
+![Metagenomics Analysis](../../assets/images/meta.png){{fig-align="center" width="300px"}}
 
 ```{{r setup}}
 #| include: false
@@ -320,6 +323,7 @@ title: "Run {run$display_name}"
 subtitle: "Bacterial Genomics Analysis Report"
 date: "{run$date}"
 author: "FOI Bioinformatics Team"
+image: "../../assets/images/dna.jpg"
 format:
   html:
     code-fold: true
@@ -330,6 +334,8 @@ execute:
   message: false
 freeze: true
 ---
+
+![Bacterial Genomics](../../assets/images/dna.jpg){{fig-align="center" width="300px"}}
 
 ```{{r setup}}
 #| include: false
@@ -589,6 +595,7 @@ title: "Run {run$display_name}"
 subtitle: "Viral Genomics Analysis Report"
 date: "{run$date}"
 author: "FOI Bioinformatics Team"
+image: "../../assets/images/virus.png"
 format:
   html:
     code-fold: true
@@ -599,6 +606,8 @@ execute:
   message: false
 freeze: true
 ---
+
+![Viral Genomics](../../assets/images/virus.png){{fig-align="center" width="300px"}}
 
 ```{{r setup}}
 #| include: false
