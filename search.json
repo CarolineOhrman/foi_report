@@ -1,31 +1,38 @@
 [
   {
-    "objectID": "slides/presentation.html#foi-report",
-    "href": "slides/presentation.html#foi-report",
-    "title": "FOI-reports",
-    "section": "FOI-report",
-    "text": "FOI-report"
-  },
-  {
     "objectID": "slides/presentation.html#a-true-need",
     "href": "slides/presentation.html#a-true-need",
     "title": "FOI-reports",
     "section": "A true need",
-    "text": "A true need\nI need to develop a reporting strategy for different genomics analysis! Could quarto solve this?\n source: FOI-bildbank"
+    "text": "A true need\nIt’s on my to-do list to develop a reporting strategy for standardized genomics analysis!\nsource: FOI-bildbank"
   },
   {
-    "objectID": "slides/presentation.html#have-been-a-layout-focus",
-    "href": "slides/presentation.html#have-been-a-layout-focus",
+    "objectID": "slides/presentation.html#a-very-nice-inspiration",
+    "href": "slides/presentation.html#a-very-nice-inspiration",
     "title": "FOI-reports",
-    "section": "Have been a layout focus",
-    "text": "Have been a layout focus\n\n\nReuse metadata by using _quarto.yml custom.scss and _brand.yml\n\nformat:\n  html:\n    theme:\n    - flatly\n    - custom.scss\n    toc: true\nbrand: _brand.yml"
+    "section": "A very nice inspiration",
+    "text": "A very nice inspiration\n\nsource: https://nbisweden.github.io/raukr-2025/"
   },
   {
-    "objectID": "slides/presentation.html#plots-created-by-my-friend-claude",
-    "href": "slides/presentation.html#plots-created-by-my-friend-claude",
+    "objectID": "slides/presentation.html#focused-on-layout",
+    "href": "slides/presentation.html#focused-on-layout",
     "title": "FOI-reports",
-    "section": "Plots created by my friend Claude",
-    "text": "Plots created by my friend Claude\n\n\nAI generated\n\nWill work on plotting real data after summer break\n\n\nAnteckningar här\n\n\nNot true data"
+    "section": "Focused on layout …",
+    "text": "Focused on layout …\n\n\ncustom.scss\n\n\n/*-- scss:defaults --*/\n\n/*-- scss:defaults --*/\n$foi-blue: #1F2945; // FOI Blå (primary)\n$foi-light-blue: #1C96D1; // FOI Ljusblå (secondary) \n$foi-red: #9F2842; // FOI Röd (tertiary)\n$foi-gray: #76777A; // FOI Grå\n$foi-green: #979600; // FOI Grön  \n$foi-purple: #6C3B5D; // FOI Lila\n\n$body-bg: rgb(255, 255, 255);\n$table-striped-bg: rgb(244, 244, 244);\n$table-hover-bg: var(--bs-secondary);\n\n/*-- scss:rules --*/\n:root {\n    --foi-blue: #{$foi-blue};\n    --foi-light-blue: #{$foi-light-blue};\n    --foi-red: #{$foi-red};\n    --foi-gray: #{$foi-gray};\n    --foi-green: #{$foi-green};\n    --foi-purple: #{$foi-purple};\n\n    --primary-color: var(--foi-blue);\n    --secondary-color: var(--foi-light-blue);\n    --tertiary-color: var(--foi-red);\n    --text-dark: #212529;\n    --text-light: #ffffff;\n}\n\n\n/*-- scss:rules --*/\n\n.table {\n    font-size: 0.9rem;\n}\n\n.table th,\n.table thead th {\n    background-color: #1C96D1 !important;\n    /* Fallback color */\n    color: var(--bs-primary, #212529) !important;\n    font-weight: bold;\n}\n\n.table-striped&gt;tbody&gt;tr:nth-of-type(odd)&gt;td {\n    background-color: $table-striped-bg;\n}\n\n/* Custom styling for kable tables */\n.table-responsive {\n    margin: 1rem 0;\n}\n\nh1,\nh2,\nh3 {\n    color: var(--bs-primary);\n}\n\n/* Table of Contents - \"On this page\" */\n.toc-title {\n    color: var(--foi-blue) !important;\n    font-weight: bold;\n}\n\n.table-of-contents {\n    border-left: 3px solid var(--foi-light-blue);\n}\n\n.table-of-contents a {\n    color: var(--foi-blue) !important;\n    text-decoration: none;\n}\n\n.table-of-contents a:hover {\n    color: var(--foi-light-blue) !important;\n}\n\n.table-of-contents .active {\n    color: var(--foi-red) !important;\n    font-weight: bold;\n}"
+  },
+  {
+    "objectID": "slides/presentation.html#with-a-coherent-look",
+    "href": "slides/presentation.html#with-a-coherent-look",
+    "title": "FOI-reports",
+    "section": "… with a coherent look",
+    "text": "… with a coherent look\n\n_quarto.yml\n_brand.yml\n_metadata.yml - one for each analysis type\ncustom *.scss - one for each analysis type\n\n\n\n_quarto.yml\n\nformat:\n  html:\n    theme:\n    - flatly\n    - custom.scss\n    toc: true\nbrand: _brand.yml"
+  },
+  {
+    "objectID": "slides/presentation.html#less-focus-on-data-and-plots",
+    "href": "slides/presentation.html#less-focus-on-data-and-plots",
+    "title": "FOI-reports",
+    "section": "Less focus on data and plots",
+    "text": "Less focus on data and plots\n\n\n\nMy friend Claude helpt me. He can take questions another time about these.\n\n\n\nhttps://carolineohrman.github.io/foi_report/"
   },
   {
     "objectID": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html",
