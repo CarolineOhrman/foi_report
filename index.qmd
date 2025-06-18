@@ -18,7 +18,7 @@ listing:
   type: grid
   grid-columns: 3
   max-items: 10
-  image-height: 50px
+  image-height: 100px
   categories: false
   sort-ui: false
   filter-ui: true
@@ -32,7 +32,7 @@ listing:
   type: grid
   grid-columns: 3
   max-items: 3
-  image-height: 50px
+  image-height: 100px
   categories: false
   sort-ui: false
   filter-ui: true
@@ -46,7 +46,7 @@ listing:
   type: grid
   grid-columns: 3
   max-items: 10
-  image-height: 50px
+  image-height: 100px
   categories: false
   sort-ui: false
   filter-ui: true

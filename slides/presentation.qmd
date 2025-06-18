@@ -2,39 +2,124 @@
 title: "FOI-reports"
 author: "Caroline Öhrman"
 image: "../assets/images/foi_logo.png"
+page-numbering: true
 format: revealjs
 ---
 
-## FOI-report
-
-![](../assets/images/foi_logo.png){width=60%}
-
-```{r}
-#| echo: false
-library(optparse)
-library(emo)
-```
-
 ## A true need
 
-I need to develop a reporting strategy for different genomics analysis!
-Could quarto solve this? 
+It's on my to-do list to develop a reporting strategy for standardized genomics analysis!
 
-[
-  ![](../assets/images/Skyddsmask.jpg){height="300px"}
-  [source: FOI-bildbank]{.smaller}  
+[![](assets/Skyddsmask.jpg){height="500px"}[<br>source: FOI-bildbank]{.smaller}  
 ]{.center}
 
-. . .
+## A very nice inspiration
+
+::: {.fragment}
+ ![](assets/raukr.png){height="600px"}[source: https://nbisweden.github.io/raukr-2025/]{.smaller}
+::: 
+
+## Focused on layout ...
+
+```{.yaml filename="custom.scss"}
+
+/*-- scss:defaults --*/
+
+/*-- scss:defaults --*/
+$foi-blue: #1F2945; // FOI Blå (primary)
+$foi-light-blue: #1C96D1; // FOI Ljusblå (secondary) 
+$foi-red: #9F2842; // FOI Röd (tertiary)
+$foi-gray: #76777A; // FOI Grå
+$foi-green: #979600; // FOI Grön  
+$foi-purple: #6C3B5D; // FOI Lila
+
+$body-bg: rgb(255, 255, 255);
+$table-striped-bg: rgb(244, 244, 244);
+$table-hover-bg: var(--bs-secondary);
+
+/*-- scss:rules --*/
+:root {
+    --foi-blue: #{$foi-blue};
+    --foi-light-blue: #{$foi-light-blue};
+    --foi-red: #{$foi-red};
+    --foi-gray: #{$foi-gray};
+    --foi-green: #{$foi-green};
+    --foi-purple: #{$foi-purple};
+
+    --primary-color: var(--foi-blue);
+    --secondary-color: var(--foi-light-blue);
+    --tertiary-color: var(--foi-red);
+    --text-dark: #212529;
+    --text-light: #ffffff;
+}
 
 
-## Have been a layout focus
+/*-- scss:rules --*/
 
-<br>
+.table {
+    font-size: 0.9rem;
+}
 
-- Reuse metadata by using _quarto.yml custom.scss and _brand.yml
+.table th,
+.table thead th {
+    background-color: #1C96D1 !important;
+    /* Fallback color */
+    color: var(--bs-primary, #212529) !important;
+    font-weight: bold;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>td {
+    background-color: $table-striped-bg;
+}
+
+/* Custom styling for kable tables */
+.table-responsive {
+    margin: 1rem 0;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--bs-primary);
+}
+
+/* Table of Contents - "On this page" */
+.toc-title {
+    color: var(--foi-blue) !important;
+    font-weight: bold;
+}
+
+.table-of-contents {
+    border-left: 3px solid var(--foi-light-blue);
+}
+
+.table-of-contents a {
+    color: var(--foi-blue) !important;
+    text-decoration: none;
+}
+
+.table-of-contents a:hover {
+    color: var(--foi-light-blue) !important;
+}
+
+.table-of-contents .active {
+    color: var(--foi-red) !important;
+    font-weight: bold;
+}
 
 ```
+
+
+
+## ... with a coherent look
+
+-  _quarto.yml 
+- _brand.yml
+- _metadata.yml - one for each analysis type
+- custom *.scss - one for each analysis type
+
+
+```{.yaml filename="_quarto.yml"}
 format:
   html:
     theme:
@@ -44,23 +129,16 @@ format:
 brand: _brand.yml
 ```
 
-## Plots created by my friend Claude
+## Less focus on data and plots
+<br>
 
-:::: {.columns}
-::: {.column width="50%"}
-
-[**AI generated**]{style="background-color: #f2d7d5; padding: 5px;"}
-
-- Will work on plotting real data after summer break
-
-::: {.notes}
-Anteckningar här
+::: {.fragment}
+:::{.center}
+My friend Claude helpt me. He can take questions another time about these.
 :::
 :::
 
-::: {.column width="50%"}
 
-[**Not true data**]{style="background-color: #d0ece7; padding: 5px;"}
-
-
-## 
+:::{.fragment}
+[https://carolineohrman.github.io/foi_report/]()
+::: 

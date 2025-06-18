@@ -4,7 +4,6 @@ website:
   title: -reports
   description: Sequence reports
   navbar:
-    logo: assets/images/foi_logo_w.png
     title: FOI-reports
     right:
     - text: Main
@@ -54,3 +53,7 @@ format:
     - custom.scss
     toc: true
 brand: _brand.yml
+revealjs:
+   slide-number: true
+   title-slide-attributes:
+      data-background-image: assets/images/foi_logo.png

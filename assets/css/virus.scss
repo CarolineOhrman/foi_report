@@ -1,0 +1,11 @@
+/*-- scss:defaults --*/
+
+/*-- scss:rules --*/
+
+.table th,
+.table thead th {
+    background-color: var(--foi-purple) !important;
+    /* Fallback color */
+    color: var(--foi-blue) !important;
+    font-weight: bold;
+}

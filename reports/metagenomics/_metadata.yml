@@ -1,0 +1,6 @@
+format:
+  html:
+    theme: 
+      - flatly
+      - ../../assets/css/meta.scss
+    toc: true
