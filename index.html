@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Home – FOI-reports</title>
+<title>Home – -reports</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-report-prev .list');
+    const listingTargetEl = window.document.querySelector('#listing-report-meta .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -84,7 +84,63 @@ ul.task-list li input[type="checkbox"] {
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-report-prev'] = new List('listing-report-prev', options);
+    window['quarto-listings']['listing-report-meta'] = new List('listing-report-meta', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-report-bact .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-categories','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-report-bact'] = new List('listing-report-bact', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-report-vir .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-categories','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-report-vir'] = new List('listing-report-vir', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -138,7 +194,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/images/foi_logo.jpg" alt="" class="navbar-logo">
+    <img src="./assets/images/foi_logo_w.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">FOI-reports</span>
@@ -149,7 +205,7 @@ window.Quarto = {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">Main</span></a>
@@ -158,7 +214,7 @@ window.Quarto = {
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-metagenomics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Metagenomics</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-metagenomics">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-metagenomics">    
         <li>
     <a class="dropdown-item" href="./reports/metagenomics/index.html">
  <span class="dropdown-text">Overview</span></a>
@@ -182,7 +238,7 @@ window.Quarto = {
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-genomic-bacteria" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Genomic Bacteria</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-genomic-bacteria">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-genomic-bacteria">    
         <li>
     <a class="dropdown-item" href="./reports/bacteria/index.html">
  <span class="dropdown-text">Overview</span></a>
@@ -206,7 +262,7 @@ window.Quarto = {
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-genomic-virus" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Genomic Virus</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-genomic-virus">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-genomic-virus">    
         <li>
     <a class="dropdown-item" href="./reports/virus/index.html">
  <span class="dropdown-text">Overview</span></a>
@@ -219,6 +275,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="./reports/virus/250214_M01834_0152_000000000-NOPQ6.html">
  <span class="dropdown-text">250214_M01834_0152_NOPQ6</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./reports/virus/250618_M01834_0152_000000000-NOPQ6.html">
+ <span class="dropdown-text">250618_M01834_0152_NOPQ6</span></a>
   </li>  
     </ul>
   </li>
@@ -242,7 +302,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#latest-reports" id="toc-latest-reports" class="nav-link active" data-scroll-target="#latest-reports">Latest reports</a></li>
+  <li><a href="#latest-reports" id="toc-latest-reports" class="nav-link active" data-scroll-target="#latest-reports">Latest reports</a>
+  <ul class="collapse">
+  <li><a href="#metagenomic" id="toc-metagenomic" class="nav-link" data-scroll-target="#metagenomic">Metagenomic</a></li>
+  <li><a href="#genomics-bacteria" id="toc-genomics-bacteria" class="nav-link" data-scroll-target="#genomics-bacteria">Genomics bacteria</a></li>
+  <li><a href="#genomics-viruses" id="toc-genomics-viruses" class="nav-link" data-scroll-target="#genomics-viruses">Genomics viruses</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -265,8 +330,6 @@ window.Quarto = {
 </header> 
       <div class="about-contents"><div id="hero-heading">
 <p>FOI Sequence Analysis Reports The FOI (Swedish Defence Research Agency) Sequence Analysis page provides access to comprehensive reports generated from sequencing runs and analytical pipelines. Here you’ll find quality control metrics, alignment statistics, variant calling results, and performance analytics for each sequence run.</p>
-<p>Reports are organized by run date and include executive summaries, detailed technical data, visual analytics, and processing logs. Each report package maintains full traceability from raw sequencing data through final analytical outputs, ensuring data integrity and research reproducibility. Use the filtering options to locate specific runs by project, sample type, or sequencing platform.</p>
-<p><a href="./about.html"><span class="btn btn-primary btn-md"><strong>About me &gt;</strong></span></a></p>
 </div></div>
     </div>
     <img src="assets/images/foi_logo.png" class="about-image
@@ -276,13 +339,89 @@ window.Quarto = {
 
 <section id="latest-reports" class="level2">
 <h2 data-anchor-id="latest-reports">Latest reports</h2>
-<div id="listing-report-prev" class="quarto-listing quarto-listing-container-grid">
+<section id="metagenomic" class="level3">
+<h3 data-anchor-id="metagenomic">Metagenomic</h3>
+<div id="listing-report-meta" class="quarto-listing quarto-listing-container-grid">
+<div class="listing-actions-group">
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1737759600000" data-listing-file-modified-sort="1750249402775" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="975">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1736636400000" data-listing-file-modified-sort="1750259057600" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1018">
+<a href="./reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./assets/images/meta.png" class="thumbnail-image card-img" style="height: 50px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Run 250112_M01834_0145_HJKM9
+</h5>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 12, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1738537200000" data-listing-file-modified-sort="1750259063460" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1017">
+<a href="./reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./assets/images/meta.png" class="thumbnail-image card-img" style="height: 50px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Run 250203_M01834_0146_PQRS4
+</h5>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Feb 3, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-date-sort="1739574000000" data-listing-file-modified-sort="1750252046535" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1017">
+<a href="./reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./assets/images/meta.png" class="thumbnail-image card-img" style="height: 50px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Run 250215_M01834_0147_TUVW7
+</h5>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Feb 15, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</section>
+<section id="genomics-bacteria" class="level3">
+<h3 data-anchor-id="genomics-bacteria">Genomics bacteria</h3>
+<div id="listing-report-bact" class="quarto-listing quarto-listing-container-grid">
+<div class="listing-actions-group">
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1737759600000" data-listing-file-modified-sort="1750252046519" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="928">
 <a href="./reports/bacteria/250125_M01834_0148_000000000-XYZA2.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="./assets/images/dna.jpg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="./assets/images/dna.jpg" class="thumbnail-image card-img" style="height: 50px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -296,11 +435,11 @@ Jan 25, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1738969200000" data-listing-file-modified-sort="1750248252286" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="974">
+<div class="g-col-1" data-index="1" data-listing-date-sort="1738969200000" data-listing-file-modified-sort="1750252046534" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="927">
 <a href="./reports/bacteria/250208_M01834_0149_000000000-BCDE5.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="./assets/images/dna.jpg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="./assets/images/dna.jpg" class="thumbnail-image card-img" style="height: 50px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -314,11 +453,11 @@ Feb 8, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1740178800000" data-listing-file-modified-sort="1750248946367" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="974">
+<div class="g-col-1" data-index="2" data-listing-date-sort="1740178800000" data-listing-file-modified-sort="1750252046535" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="927">
 <a href="./reports/bacteria/250222_M01834_0150_000000000-FGHI8.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="./assets/images/dna.jpg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="./assets/images/dna.jpg" class="thumbnail-image card-img" style="height: 50px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -335,10 +474,80 @@ Feb 22, 2025
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
+</section>
+<section id="genomics-viruses" class="level3">
+<h3 data-anchor-id="genomics-viruses">Genomics viruses</h3>
+<div id="listing-report-vir" class="quarto-listing quarto-listing-container-grid">
+<div class="listing-actions-group">
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1738191600000" data-listing-file-modified-sort="1750252046535" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1215">
+<a href="./reports/virus/250130_M01834_0151_000000000-JKLM1.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./assets/images/virus.png" class="thumbnail-image card-img" style="height: 50px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Run 250130_M01834_0151_JKLM1
+</h5>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 30, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1739487600000" data-listing-file-modified-sort="1750252046535" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1213">
+<a href="./reports/virus/250214_M01834_0152_000000000-NOPQ6.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./assets/images/virus.png" class="thumbnail-image card-img" style="height: 50px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Run 250214_M01834_0152_NOPQ6
+</h5>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Feb 14, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-date-sort="1750197600000" data-listing-file-modified-sort="1750252046535" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1211">
+<a href="./reports/virus/250618_M01834_0152_000000000-NOPQ6.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./assets/images/virus.png" class="thumbnail-image card-img" style="height: 50px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Run 250618_M01834_0152_NOPQ6
+</h5>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jun 18, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+<p><a href="./about.html"><span class="btn btn-primary btn-md"><strong>About &gt;</strong></span></a></p>
 
 
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

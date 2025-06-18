@@ -2,17 +2,15 @@
   {
     "listing": "/index.html",
     "items": [
-      "/reports/bacteria/250125_M01834_0148_000000000-XYZA2.html",
-      "/reports/bacteria/250208_M01834_0149_000000000-BCDE5.html",
-      "/reports/bacteria/250222_M01834_0150_000000000-FGHI8.html",
-      "/reports/bacteria/index.html",
       "/reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html",
       "/reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html",
       "/reports/metagenomics/250215_M01834_0147_000000000-TUVW7.html",
-      "/reports/metagenomics/index.html",
+      "/reports/bacteria/250125_M01834_0148_000000000-XYZA2.html",
+      "/reports/bacteria/250208_M01834_0149_000000000-BCDE5.html",
+      "/reports/bacteria/250222_M01834_0150_000000000-FGHI8.html",
       "/reports/virus/250130_M01834_0151_000000000-JKLM1.html",
       "/reports/virus/250214_M01834_0152_000000000-NOPQ6.html",
-      "/reports/virus/index.html"
+      "/reports/virus/250618_M01834_0152_000000000-NOPQ6.html"
     ]
   }
 ]

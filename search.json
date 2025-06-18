@@ -1,45 +1,101 @@
 [
   {
-    "objectID": "reports/virus/index.html",
-    "href": "reports/virus/index.html",
-    "title": "Viral Genomics Reports",
+    "objectID": "slides/presentation.html#foi-report",
+    "href": "slides/presentation.html#foi-report",
+    "title": "FOI-reports",
+    "section": "FOI-report",
+    "text": "FOI-report"
+  },
+  {
+    "objectID": "slides/presentation.html#a-true-need",
+    "href": "slides/presentation.html#a-true-need",
+    "title": "FOI-reports",
+    "section": "A true need",
+    "text": "A true need\nI need to develop a reporting strategy for different genomics analysis! Could quarto solve this?\n source: FOI-bildbank"
+  },
+  {
+    "objectID": "slides/presentation.html#have-been-a-layout-focus",
+    "href": "slides/presentation.html#have-been-a-layout-focus",
+    "title": "FOI-reports",
+    "section": "Have been a layout focus",
+    "text": "Have been a layout focus\n\n\nReuse metadata by using _quarto.yml custom.scss and _brand.yml\n\nformat:\n  html:\n    theme:\n    - flatly\n    - custom.scss\n    toc: true\nbrand: _brand.yml"
+  },
+  {
+    "objectID": "slides/presentation.html#plots-created-by-my-friend-claude",
+    "href": "slides/presentation.html#plots-created-by-my-friend-claude",
+    "title": "FOI-reports",
+    "section": "Plots created by my friend Claude",
+    "text": "Plots created by my friend Claude\n\n\nAI generated\n\nWill work on plotting real data after summer break\n\n\nAnteckningar här\n\n\nNot true data"
+  },
+  {
+    "objectID": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html",
+    "href": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html",
+    "title": "Run 250618_M01834_0152_NOPQ6",
     "section": "",
-    "text": "This section contains sequencing reports and analyses for viral genomics studies conducted at FOI. Each report represents viral genome sequencing with consensus assembly and variant analysis."
+    "text": "Viral Genomics"
   },
   {
-    "objectID": "reports/virus/index.html#overview",
-    "href": "reports/virus/index.html#overview",
-    "title": "Viral Genomics Reports",
-    "section": "",
-    "text": "This section contains sequencing reports and analyses for viral genomics studies conducted at FOI. Each report represents viral genome sequencing with consensus assembly and variant analysis."
+    "objectID": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#run-information",
+    "href": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#run-information",
+    "title": "Run 250618_M01834_0152_NOPQ6",
+    "section": "Run Information",
+    "text": "Run Information\n\n\n\n\n\nParameter\nValue\n\n\n\n\nRun ID\n250618_M01834_0152_000000000-NOPQ6\n\n\nDate\n2025-06-18\n\n\nType\nWGS\n\n\nSequenced by\nCaroline Öhrman\n\n\nPlatform\nMiSeq\n\n\nSample number\n2\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n711 K/mm2\n\n\nClusters passed filter\n89.7%\n\n\nEstimated yield\n5000.0 MB\n\n\nComments\nQ30=6,9G=75,2%"
   },
   {
-    "objectID": "reports/virus/index.html#available-reports",
-    "href": "reports/virus/index.html#available-reports",
-    "title": "Viral Genomics Reports",
-    "section": "Available Reports",
-    "text": "Available Reports\n\n\n\n\n\nRun ID\nDate\nType\nSamples\nDescription\nReport\n\n\n\n\n250130_M01834_0151_JKLM1\n2025-01-30\nAmplicon\n42\nInfluenza A surveillance and subtyping from respir\nView Report\n\n\n250214_M01834_0152_NOPQ6\n2025-02-14\nWGS\n36\nSARS-CoV-2 variant monitoring from wastewater samp\nView Report"
+    "objectID": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#description",
+    "href": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#description",
+    "title": "Run 250618_M01834_0152_NOPQ6",
+    "section": "Description",
+    "text": "Description\nViral infections during RaukR\nCreated by: Caroline Öhrman\nLast modified by: Caroline Öhrman on 2025-06-18"
   },
   {
-    "objectID": "reports/virus/index.html#recent-activity",
-    "href": "reports/virus/index.html#recent-activity",
-    "title": "Viral Genomics Reports",
-    "section": "Recent Activity",
-    "text": "Recent Activity\nThe most recent viral genomics analysis was completed on 2025-02-14."
+    "objectID": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#viral-detection-and-abundance",
+    "href": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#viral-detection-and-abundance",
+    "title": "Run 250618_M01834_0152_NOPQ6",
+    "section": "Viral Detection and Abundance",
+    "text": "Viral Detection and Abundance"
   },
   {
-    "objectID": "reports/virus/index.html#analysis-pipeline",
-    "href": "reports/virus/index.html#analysis-pipeline",
-    "title": "Viral Genomics Reports",
-    "section": "Analysis Pipeline",
-    "text": "Analysis Pipeline\nOur viral genomics pipeline includes:\n\nQuality Control: FastQC, Trimmomatic\nHost Removal: BWA-MEM alignment\nViral Detection: BLAST, custom databases\nConsensus Assembly: iVar\nVariant Calling: LoFreq, iVar\nPhylogenetics: IQ-TREE, NextStrain"
+    "objectID": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#consensus-genome-assembly",
+    "href": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#consensus-genome-assembly",
+    "title": "Run 250618_M01834_0152_NOPQ6",
+    "section": "Consensus Genome Assembly",
+    "text": "Consensus Genome Assembly"
   },
   {
-    "objectID": "reports/virus/index.html#contact",
-    "href": "reports/virus/index.html#contact",
-    "title": "Viral Genomics Reports",
-    "section": "Contact",
-    "text": "Contact\nFor questions about viral genomics analyses, contact the FOI Bioinformatics Team."
+    "objectID": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#variant-analysis",
+    "href": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#variant-analysis",
+    "title": "Run 250618_M01834_0152_NOPQ6",
+    "section": "Variant Analysis",
+    "text": "Variant Analysis"
+  },
+  {
+    "objectID": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#phylogenetic-analysis",
+    "href": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#phylogenetic-analysis",
+    "title": "Run 250618_M01834_0152_NOPQ6",
+    "section": "Phylogenetic Analysis",
+    "text": "Phylogenetic Analysis\n\n\nInsufficient samples for phylogenetic analysis (minimum: 3)"
+  },
+  {
+    "objectID": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#summary",
+    "href": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#summary",
+    "title": "Run 250618_M01834_0152_NOPQ6",
+    "section": "Summary",
+    "text": "Summary\n\nTotal samples processed: 2\nSamples with viral detection: 2\nConsensus genomes assembled: 2\nPlatform used: MiSeq\nData yield: 5000.0 MB\nQuality metrics: Q30=6,9G=75,2%"
+  },
+  {
+    "objectID": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#methods",
+    "href": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#methods",
+    "title": "Run 250618_M01834_0152_NOPQ6",
+    "section": "Methods",
+    "text": "Methods\nThis analysis follows the standard FOI viral genomics pipeline v1.5:\nQuality control: FastQC v0.11.9, Trimmomatic v0.39\nHost removal: BWA-MEM v0.7.17\nViral detection: BLAST+ v2.13.0\nConsensus assembly: iVar v1.3.1\nVariant calling: LoFreq v2.1.5\nPhylogenetics: IQ-TREE v2.2.0\nStatistical analysis: R v4.3.0"
+  },
+  {
+    "objectID": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#files-and-links",
+    "href": "reports/virus/250618_M01834_0152_000000000-NOPQ6.html#files-and-links",
+    "title": "Run 250618_M01834_0152_NOPQ6",
+    "section": "Files and Links",
+    "text": "Files and Links\n\nRaw data: /mnt/storage/sequencing-data/MiSeq_FOI_LAB/250214_M01834_0152_000000000-NOPQ6/\nConsensus genomes: Genomes folder\nVariant calls: Variants folder\nQC reports: MultiQC Report"
   },
   {
     "objectID": "reports/virus/250130_M01834_0151_000000000-JKLM1.html",
@@ -186,14 +242,14 @@
     "href": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html",
     "title": "Run 250112_M01834_0145_HJKM9",
     "section": "",
-    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250112_M01834_0145_000000000-HJKM9\n\n\nDate\n2025-01-12\n\n\nType\nWGS\n\n\nSequenced by\nErik Lindahl, Sara Nilsson\n\n\nPlatform\nMiSeq\n\n\nSample number\n32\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n715 K/mm2\n\n\nClusters passed filter\n89.2%\n\n\nEstimated yield\n8945.3 MB\n\n\nComments\nQ30=6,8G=74,1%"
+    "text": "Metagenomics Analysis"
   },
   {
     "objectID": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#run-information",
     "href": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#run-information",
     "title": "Run 250112_M01834_0145_HJKM9",
-    "section": "",
-    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250112_M01834_0145_000000000-HJKM9\n\n\nDate\n2025-01-12\n\n\nType\nWGS\n\n\nSequenced by\nErik Lindahl, Sara Nilsson\n\n\nPlatform\nMiSeq\n\n\nSample number\n32\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n715 K/mm2\n\n\nClusters passed filter\n89.2%\n\n\nEstimated yield\n8945.3 MB\n\n\nComments\nQ30=6,8G=74,1%"
+    "section": "Run Information",
+    "text": "Run Information\n\n\n\n\n\nParameter\nValue\n\n\n\n\nRun ID\n250112_M01834_0145_000000000-HJKM9\n\n\nDate\n2025-01-12\n\n\nType\nWGS\n\n\nSequenced by\nErik Lindahl, Sara Nilsson\n\n\nPlatform\nMiSeq\n\n\nSample number\n32\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n715 K/mm2\n\n\nClusters passed filter\n89.2%\n\n\nEstimated yield\n8945.3 MB\n\n\nComments\nQ30=6,8G=74,1%"
   },
   {
     "objectID": "reports/metagenomics/250112_M01834_0145_000000000-HJKM9.html#description",
@@ -410,21 +466,21 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "RaukR 2025 project"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "FOI-report",
     "section": "",
-    "text": "FOI Sequence Analysis Reports The FOI (Swedish Defence Research Agency) Sequence Analysis page provides access to comprehensive reports generated from sequencing runs and analytical pipelines. Here you’ll find quality control metrics, alignment statistics, variant calling results, and performance analytics for each sequence run.\nReports are organized by run date and include executive summaries, detailed technical data, visual analytics, and processing logs. Each report package maintains full traceability from raw sequencing data through final analytical outputs, ensuring data integrity and research reproducibility. Use the filtering options to locate specific runs by project, sample type, or sequencing platform.\nAbout me &gt;"
+    "text": "FOI Sequence Analysis Reports The FOI (Swedish Defence Research Agency) Sequence Analysis page provides access to comprehensive reports generated from sequencing runs and analytical pipelines. Here you’ll find quality control metrics, alignment statistics, variant calling results, and performance analytics for each sequence run."
   },
   {
     "objectID": "index.html#latest-reports",
     "href": "index.html#latest-reports",
     "title": "FOI-report",
     "section": "Latest reports",
-    "text": "Latest reports\n\n\n\n\n\n\n\n\n\n\nRun 250125_M01834_0148_XYZA2\n\n\n\nJan 25, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nRun 250208_M01834_0149_BCDE5\n\n\n\nFeb 8, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nRun 250222_M01834_0150_FGHI8\n\n\n\nFeb 22, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "Latest reports\n\nMetagenomic\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nRun 250112_M01834_0145_HJKM9\n\n\n\nJan 12, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nRun 250203_M01834_0146_PQRS4\n\n\n\nFeb 3, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nRun 250215_M01834_0147_TUVW7\n\n\n\nFeb 15, 2025\n\n\n\n\n\n\nNo matching items\n\n\n\nGenomics bacteria\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nRun 250125_M01834_0148_XYZA2\n\n\n\nJan 25, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nRun 250208_M01834_0149_BCDE5\n\n\n\nFeb 8, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nRun 250222_M01834_0150_FGHI8\n\n\n\nFeb 22, 2025\n\n\n\n\n\n\nNo matching items\n\n\n\nGenomics viruses\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nRun 250130_M01834_0151_JKLM1\n\n\n\nJan 30, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nRun 250214_M01834_0152_NOPQ6\n\n\n\nFeb 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nRun 250618_M01834_0152_NOPQ6\n\n\n\nJun 18, 2025\n\n\n\n\n\n\nNo matching items\n\nAbout &gt;"
   },
   {
     "objectID": "reports/bacteria/250208_M01834_0149_000000000-BCDE5.html",
@@ -550,14 +606,14 @@
     "href": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html",
     "title": "Run 250203_M01834_0146_PQRS4",
     "section": "",
-    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250203_M01834_0146_000000000-PQRS4\n\n\nDate\n2025-02-03\n\n\nType\nAmplicon\n\n\nSequenced by\nAnna Bergström\n\n\nPlatform\nMiSeq\n\n\nSample number\n48\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n742 K/mm2\n\n\nClusters passed filter\n91.7%\n\n\nEstimated yield\n9234.8 MB\n\n\nComments\nQ30=7,2G=76,8%"
+    "text": "Metagenomics Analysis"
   },
   {
     "objectID": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#run-information",
     "href": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#run-information",
     "title": "Run 250203_M01834_0146_PQRS4",
-    "section": "",
-    "text": "Parameter\nValue\n\n\n\n\nRun ID\n250203_M01834_0146_000000000-PQRS4\n\n\nDate\n2025-02-03\n\n\nType\nAmplicon\n\n\nSequenced by\nAnna Bergström\n\n\nPlatform\nMiSeq\n\n\nSample number\n48\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n742 K/mm2\n\n\nClusters passed filter\n91.7%\n\n\nEstimated yield\n9234.8 MB\n\n\nComments\nQ30=7,2G=76,8%"
+    "section": "Run Information",
+    "text": "Run Information\n\n\n\n\n\nParameter\nValue\n\n\n\n\nRun ID\n250203_M01834_0146_000000000-PQRS4\n\n\nDate\n2025-02-03\n\n\nType\nAmplicon\n\n\nSequenced by\nAnna Bergström\n\n\nPlatform\nMiSeq\n\n\nSample number\n48\n\n\nLibrary layout\npaired\n\n\nLibrary kit\nNextera XT (96 samples)\n\n\nSequencing kit\nMiSeq Reagent Kit v3 (600-cycle)\n\n\nCluster density\n742 K/mm2\n\n\nClusters passed filter\n91.7%\n\n\nEstimated yield\n9234.8 MB\n\n\nComments\nQ30=7,2G=76,8%"
   },
   {
     "objectID": "reports/metagenomics/250203_M01834_0146_000000000-PQRS4.html#description",
@@ -726,5 +782,47 @@
     "title": "Run 250214_M01834_0152_NOPQ6",
     "section": "Files and Links",
     "text": "Files and Links\n\nRaw data: /mnt/storage/sequencing-data/MiSeq_FOI_LAB/250214_M01834_0152_000000000-NOPQ6/\nConsensus genomes: Genomes folder\nVariant calls: Variants folder\nQC reports: MultiQC Report"
+  },
+  {
+    "objectID": "reports/virus/index.html",
+    "href": "reports/virus/index.html",
+    "title": "Viral Genomics Reports",
+    "section": "",
+    "text": "This section contains sequencing reports and analyses for viral genomics studies conducted at FOI. Each report represents viral genome sequencing with consensus assembly and variant analysis."
+  },
+  {
+    "objectID": "reports/virus/index.html#overview",
+    "href": "reports/virus/index.html#overview",
+    "title": "Viral Genomics Reports",
+    "section": "",
+    "text": "This section contains sequencing reports and analyses for viral genomics studies conducted at FOI. Each report represents viral genome sequencing with consensus assembly and variant analysis."
+  },
+  {
+    "objectID": "reports/virus/index.html#available-reports",
+    "href": "reports/virus/index.html#available-reports",
+    "title": "Viral Genomics Reports",
+    "section": "Available Reports",
+    "text": "Available Reports\n\n\n\n\n\nRun ID\nDate\nType\nSamples\nDescription\nReport\n\n\n\n\n250130_M01834_0151_JKLM1\n2025-01-30\nAmplicon\n42\nInfluenza A surveillance and subtyping from respir\nView Report\n\n\n250214_M01834_0152_NOPQ6\n2025-02-14\nWGS\n36\nSARS-CoV-2 variant monitoring from wastewater samp\nView Report\n\n\n250618_M01834_0152_NOPQ6\n2025-06-18\nWGS\n2\nViral infections during RaukR\nView Report"
+  },
+  {
+    "objectID": "reports/virus/index.html#recent-activity",
+    "href": "reports/virus/index.html#recent-activity",
+    "title": "Viral Genomics Reports",
+    "section": "Recent Activity",
+    "text": "Recent Activity\nThe most recent viral genomics analysis was completed on 2025-06-18."
+  },
+  {
+    "objectID": "reports/virus/index.html#analysis-pipeline",
+    "href": "reports/virus/index.html#analysis-pipeline",
+    "title": "Viral Genomics Reports",
+    "section": "Analysis Pipeline",
+    "text": "Analysis Pipeline\nOur viral genomics pipeline includes:\n\nQuality Control: FastQC, Trimmomatic\nHost Removal: BWA-MEM alignment\nViral Detection: BLAST, custom databases\nConsensus Assembly: iVar\nVariant Calling: LoFreq, iVar\nPhylogenetics: IQ-TREE, NextStrain"
+  },
+  {
+    "objectID": "reports/virus/index.html#contact",
+    "href": "reports/virus/index.html#contact",
+    "title": "Viral Genomics Reports",
+    "section": "Contact",
+    "text": "Contact\nFor questions about viral genomics analyses, contact the FOI Bioinformatics Team."
   }
 ]
