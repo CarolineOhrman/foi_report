@@ -1,6 +1,6 @@
 ---
-pagetitle: Home
-title: "FOI-report"
+pagetitle: Main
+title: "FOI-reports"
 subtitle: "Genomic analysis reports"
 image: assets/images/foi_logo.png
 
