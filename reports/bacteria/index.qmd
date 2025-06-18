@@ -1,0 +1,58 @@
+---
+title: "Bacterial Genomics Reports"
+description: "Overview of all bacterial genomics sequencing runs and analysis reports"
+---
+
+## Overview
+
+This section contains sequencing reports and analyses for bacterial genomics studies conducted at FOI. Each report represents whole genome sequencing of bacterial isolates with comprehensive genomic characterization.
+
+## Available Reports
+
+```{r}
+#| echo: false
+#| warning: false
+
+library(yaml)
+library(knitr)
+library(dplyr)
+
+# Read metadata
+metadata <- read_yaml("../../data/runs_metadata.yml")
+bacteria_runs <- metadata$runs$bacteria
+
+# Create table of runs
+runs_table <- data.frame(
+  `Run ID` = sapply(bacteria_runs, function(x) x$display_name),
+  `Date` = sapply(bacteria_runs, function(x) x$date),
+  `Type` = sapply(bacteria_runs, function(x) x$type),
+  `Samples` = sapply(bacteria_runs, function(x) x$sample_number),
+  `Description` = sapply(bacteria_runs, function(x) substr(x$description, 1, 50)),
+  `Report` = sapply(bacteria_runs, function(x) 
+    paste0("[View Report](", x$id, ".qmd)")),
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+)
+
+kable(runs_table, format = "markdown")
+```
+
+## Recent Activity
+
+The most recent bacterial genomics analysis was completed on `r max(sapply(bacteria_runs, function(x) x$date))`.
+
+## Analysis Pipeline
+
+Our bacterial genomics pipeline includes:
+
+- **Quality Control**: FastQC, Trimmomatic
+- **Assembly**: SPAdes
+- **Annotation**: Prokka
+- **Species Identification**: ANI calculation
+- **AMR Detection**: ABRicate, ResFinder
+- **Phylogenetics**: Core genome analysis
+- **Typing**: MLST, cgMLST
+
+## Contact
+
+For questions about bacterial genomics analyses, contact the FOI Bioinformatics Team.

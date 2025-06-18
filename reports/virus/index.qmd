@@ -1,0 +1,57 @@
+---
+title: "Viral Genomics Reports"
+description: "Overview of all viral genomics sequencing runs and analysis reports"
+---
+
+## Overview
+
+This section contains sequencing reports and analyses for viral genomics studies conducted at FOI. Each report represents viral genome sequencing with consensus assembly and variant analysis.
+
+## Available Reports
+
+```{r}
+#| echo: false
+#| warning: false
+
+library(yaml)
+library(knitr)
+library(dplyr)
+
+# Read metadata
+metadata <- read_yaml("../../data/runs_metadata.yml")
+virus_runs <- metadata$runs$virus
+
+# Create table of runs
+runs_table <- data.frame(
+  `Run ID` = sapply(virus_runs, function(x) x$display_name),
+  `Date` = sapply(virus_runs, function(x) x$date),
+  `Type` = sapply(virus_runs, function(x) x$type),
+  `Samples` = sapply(virus_runs, function(x) x$sample_number),
+  `Description` = sapply(virus_runs, function(x) substr(x$description, 1, 50)),
+  `Report` = sapply(virus_runs, function(x) 
+    paste0("[View Report](", x$id, ".qmd)")),
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+)
+
+kable(runs_table, format = "markdown")
+```
+
+## Recent Activity
+
+The most recent viral genomics analysis was completed on `r max(sapply(virus_runs, function(x) x$date))`.
+
+## Analysis Pipeline
+
+Our viral genomics pipeline includes:
+
+- **Quality Control**: FastQC, Trimmomatic
+- **Host Removal**: BWA-MEM alignment
+- **Viral Detection**: BLAST, custom databases
+- **Consensus Assembly**: iVar
+- **Variant Calling**: LoFreq, iVar
+- **Phylogenetics**: IQ-TREE, NextStrain
+
+## Contact
+
+For questions about viral genomics analyses, contact the FOI Bioinformatics Team.

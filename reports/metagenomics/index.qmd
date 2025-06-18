@@ -54,6 +54,4 @@ Our metagenomics pipeline includes:
 
 ## Contact
 
-For questions about metagenomics analyses, contact:
-- **Caroline Öhrman** - Lead Bioinformatician
-- **Ingrid Dacklin** - Senior Technician
+For questions about metagenomics analyses, contact the FOI Bioinformatics Team.
